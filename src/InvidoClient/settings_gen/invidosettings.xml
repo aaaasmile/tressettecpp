@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<file>
+<!-- file name-->
+<name>cSettings</name>
+<name_define>__INVSETTINGS_INI_H_</name_define>
+
+<class_settings>
+<!-- class settings -->
+    <name>InvidoSettings</name>
+    <section>
+    <!-- section ALL-->
+        <!-- class section name-->
+        <name>SubAll</name>
+        <!-- section istance name -->
+        <name_obj>All</name_obj>
+            <item_string>
+                <name>strPlayerName</name>
+                <default>Anonimo</default>
+                <comment>Player name</comment>
+            </item_string>
+            <item_int>
+                <name>iDelayTimer</name>
+                <default>300</default>
+                <comment>Delay animation timer</comment>
+            </item_int>
+            <item_int>
+                <name>bAutoterminate</name>
+                <default>1</default>
+                <comment>Automatic termination hand</comment>
+            </item_int>
+            <item_int>
+                <name>iLevel</name>
+                <default>1</default>
+                <comment>CPU level engine</comment>
+            </item_int>
+            <item_int>
+                <name>iTipoMazzo</name>
+                <default>0</default>
+                <comment>Kind of stack</comment>
+            </item_int>
+            <item_int>
+                <name>iLanguageID</name>
+                <default>0</default>
+                <comment>Language ID</comment>
+            </item_int>
+            <item_int>
+                <name>bMusicOn</name>
+                <default>0</default>
+                <comment>Music enabled</comment>
+            </item_int>
+            <item_int>
+                <name>iMusicVolume</name>
+                <default>80</default>
+                <comment>Music volume</comment>
+            </item_int>
+            <item_int>
+                <name>iDebugLevel</name>
+                <default>0</default>
+                <comment>Trace debug level</comment>
+             </item_int>  
+             <item_int>
+                <name>bUsePython</name>
+                <default>0</default>
+                <comment>Flag for using python</comment>
+             </item_int>
+             <item_int>
+                <name>iVerbose</name>
+                <default>3</default>
+                <comment>Verbose level</comment>
+             </item_int>
+             <item_int>
+                <name>bMyCallEcho</name>
+                <default>1</default>
+                <comment>Player calls echo</comment>
+             </item_int>
+             <item_int>
+                <name>bSoundEffect</name>
+                <default>1</default>
+                <comment>Enable sound effect</comment>
+             </item_int>
+             <item_int>
+                <name>bFotoBack</name>
+                <default>1</default>
+                <comment>Enable foto on background</comment>
+             </item_int>
+             <item_int>
+                <name>bUseSplashJpg</name>
+                <default>1</default>
+                <comment>Enable jpg image on splash</comment>
+             </item_int>
+             <item_int>
+                <name>iAniSpeedLevel</name>
+                <default>2</default>
+                <comment>Animation speed</comment>
+             </item_int>
+               
+    </section>
+    <section>
+    <!-- section NETWORK-->
+        <!-- class section name-->
+        <name>SubNetwork</name>
+        <!-- section istance name -->
+        	<item_string>
+                <name>strServerName</name>
+                <default>127.0.0.1</default>
+                <comment>Server name</comment>
+            </item_string>
+            <item_string>
+                <name>strPeerName</name>
+                <default>127.0.0.1</default>
+                <comment>Peer name</comment>
+            </item_string>
+            <item_int>
+                <name>iPortServer</name>
+                <default>8790</default>
+                <comment>Port server value</comment>
+             </item_int>
+             <item_int>
+                <name>iPortClient</name>
+                <default>8791</default>
+                <comment>Port client value</comment>
+             </item_int>
+             <item_string>
+                <name>strLogin</name>
+                <default></default>
+                <comment>Login name</comment>
+             </item_string>
+             <item_string>
+                <name>strPassw</name>
+                <default></default>
+                <comment>login password</comment>
+             </item_string>
+             <item_int>
+                <name>iPortGui</name>
+                <default>8792</default>
+                <comment>Port gui value</comment>
+             </item_int>
+             <item_int>
+                <name>bStartAutoRemoteGui</name>
+                <default>1</default>
+                <comment>Start automatically the remote gui</comment>
+             </item_int>
+        <name_obj>Net</name_obj>
+        	
+    </section>
+    
+</class_settings>
+
+</file>

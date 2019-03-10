@@ -1,0 +1,175 @@
+;NSIS Modern User Interface
+;Basic Example Script
+;Written by Joost Verburg
+;File template per creare un file nsi
+
+;; PER FAVORE: LASCIA QUESTO FILE IN ANSI e non convertirlo in UTF8, altrimenti non vanno gli accenti
+
+!define MUI_PRODUCT "Invido"
+
+;--------------------------------
+;Include Modern UI
+
+  !include "MUI.nsh"
+
+;--------------------------------
+;General
+
+; Quando si pubblica una nuova versione basta cambiare i campi
+; relativi alla versione in questa sezione. In altre parti non 
+; vi sono riferimenti alla versione
+  ;Name and file
+  Name "Invido_<%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>"
+  OutFile "..\Invido_<%="#{@ver_sw[0]}#{@ver_sw[1]}#{@ver_sw[2]}"%>_setup.exe"
+
+  ;Default installation folder
+  InstallDir "$PROGRAMFILES64\invido_it\${MUI_PRODUCT}\ver_<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"
+  
+  ; Non uso il registro per non sovrascrivere vecchie versioni
+  ;Get installation folder from registry if available
+  ;InstallDirRegKey HKCU "Software\invido" ""
+
+;--------------------------------
+;Interface Settings
+
+  !define MUI_ABORTWARNING
+
+;--------------------------------
+;Pages
+
+  !insertmacro MUI_PAGE_LICENSE "License.txt"
+  !insertmacro MUI_PAGE_COMPONENTS
+  !insertmacro MUI_PAGE_DIRECTORY
+  !insertmacro MUI_PAGE_INSTFILES
+  
+  !insertmacro MUI_UNPAGE_CONFIRM
+  !insertmacro MUI_UNPAGE_INSTFILES
+  
+;--------------------------------
+;Languages
+ 
+  !insertmacro MUI_LANGUAGE "Italian"
+
+;--------------------------------
+;Installer Sections
+
+; prima di partire mostra una dialogbox che dice quello che si va a fare
+Function .onInit
+  System::Call 'kernel32::CreateMutexA(i 0, i 0, t "myMutex") i .r1 ?e'
+  Pop $R0
+ 
+  StrCmp $R0 0 +3
+    MessageBox MB_OK|MB_ICONEXCLAMATION "The installer is already running."
+    Abort
+  
+  ; check se una versione vecchia è stata già installata  
+  ReadRegStr $R0 HKLM \
+  "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" \
+  "UninstallString"
+  StrCmp $R0 "" done
+ 
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
+  "${MUI_PRODUCT} è già installato. $\n$\nClicca `OK` per rimuovere \
+  la versione precedente `Cancel` per interrompere questo aggiornamento." \
+  IDOK uninst
+  Abort
+ 
+;Run the uninstaller
+uninst:
+  ClearErrors
+  ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
+ 
+  IfErrors no_remove_uninstaller done
+    ;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    ;here to remove the uninstaller. Use a registry key to check
+    ;whether the user has chosen to uninstall. If you are using an uninstaller
+    ;components page, make sure all sections are uninstalled.
+  no_remove_uninstaller:
+ 
+done:
+
+  Messagebox MB_YESNO|MB_ICONQUESTION \
+  "Questo setup sta per installare il programma ${MUI_PRODUCT} <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>, un'applicazione per giocare a Invido. Vuoi continuare?" IDYES NoAbort
+     Abort ; causes installer to quit.
+   NoAbort:
+FunctionEnd
+
+; al termine dell'installazione si lancia il programma
+Function .onInstSuccess
+    MessageBox MB_YESNO "Installazione effettuata con successo. Vuoi lanciare il programma Invido?" IDNO NoReadme
+    Exec "$INSTDIR\Invido.exe"
+    NoReadme:
+FunctionEnd
+
+Section "Invido" SecInvido
+
+  SetOutPath "$INSTDIR"
+  
+  ;ADD YOUR OWN FILES HERE...
+  <% file_to_be_installed.each do |item| %>
+  <%# item is an hash where path could be also set. To use a particular output dir we 
+      need to set SetOutPath. i.e SetOutPath $INSTDIR\app\src\network  %>
+  <% if item[:out_path] %>
+  <%= "SetOutPath \"$INSTDIR#{item[:out_path]}\""%>
+  <% end %> 
+  <%= "File \"#{item[:filename]}\""%>  
+  <% end %>
+  
+  ; restore root path for shortcuts
+  SetOutPath "$INSTDIR"
+
+  ;Store installation folder
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\invido_it\${MUI_PRODUCT}" "InstallDir" $INSTDIR
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\invido_it\${MUI_PRODUCT}" "Ver0" <%= @ver_sw[0]%>
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\invido_it\${MUI_PRODUCT}" "Ver1" <%= @ver_sw[1]%>
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\invido_it\${MUI_PRODUCT}" "Ver2" <%= @ver_sw[2]%>
+  
+  ;Create uninstaller
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" "DisplayName" "${MUI_PRODUCT} (remove only)"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" "Publisher" "Invido.it"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" "DisplayVersion" "<%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}" "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\Uninstall.exe"
+
+  ; crea un shortcut
+  CreateDirectory "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"
+  CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Invido.lnk" \
+    "$INSTDIR\Invido.exe"
+  CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Manuale.lnk" \
+    "$INSTDIR\data\help\invido-guida.pdf"
+  CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Uninstall.lnk" \
+    "$INSTDIR\Uninstall.exe"
+
+
+SectionEnd
+
+;--------------------------------
+;Descriptions
+
+  ;Language strings
+  LangString DESC_SecCuperativa ${LANG_ITALIAN} "Il programma Invido <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%> è un'App per giocare a invido contro il computer."
+
+ 
+;--------------------------------
+;Uninstaller Section
+
+Section "Uninstall"
+
+  ;Delete Files 
+  RMDir /r "$INSTDIR\*.*"
+  RMDir /r "$LOCALAPPDATA\InvidoTrace\*.*"
+ 
+  ;Remove the installation directory
+  RMDir "$INSTDIR"
+  ; remove shortcuts
+  Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Invido.lnk"
+  Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Manuale.lnk"
+  Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Uninstall.lnk"
+  RMDir /r  "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"
+
+  ;Delete Uninstaller And Unistall Registry Entries
+  DeleteRegKey /ifempty HKCU "Software\invido_it\${MUI_PRODUCT}"
+  DeleteRegKey /ifempty HKEY_LOCAL_MACHINE "Software\invido_it\${MUI_PRODUCT}"
+  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${MUI_PRODUCT}"  
+
+SectionEnd

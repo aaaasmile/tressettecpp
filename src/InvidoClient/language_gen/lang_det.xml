@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<file>
+<!-- file name-->
+<name>Lang_Gen</name>
+<name_define>__LANGUAG_GEN_HEAD_H_</name_define>
+
+<class_languag>
+<!-- class class_languag -->
+    <name>cLanguages</name>
+    <lan_names>
+    	<!-- a list of all supported languages -->
+        <item_lan>
+        	<ID>LANG_ITA</ID>
+        	<TAG>0</TAG>
+        </item_lan>
+        <item_lan>
+        	<ID>LANG_DIAL_MN</ID>
+        	<TAG>1</TAG>
+        </item_lan>
+        <item_lan>
+        	<ID>LANG_ENG</ID>
+        	<TAG>2</TAG>
+        </item_lan>
+        <!-- uncomment it to add a new language
+        <item_lan>
+        	<ID>LANG_DEUT</ID>
+        	<TAG>3</TAG>
+        </item_lan>
+        -->
+    </lan_names> 
+    <string_det>
+    	<item_s>
+    		<ID>ID_START</ID>
+    		<L0>Inizia</L0>
+    		<L1>Cumincia</L1>
+    		<L2>Start</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_LANGUAGESEL</ID>
+    		<L0>Lingua</L0>
+    		<L1>Lengui furèsti</L1>
+    		<L2>Language</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_HISCORE</ID>
+    		<L0>Hight Score</L0>
+    		<L1>I mei di mei</L1>
+    		<L2>Hight Score</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_VIDEOSET</ID>
+    		<L0>Settings Display</L0>
+    		<L1>Al schermo</L1>
+    		<L2></L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MAINMENU</ID>
+    		<L0>Menu principale</L0>
+    		<L1>Menu principal</L1>
+    		<L2></L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_EXIT</ID>
+    		<L0>Esci</L0>
+    		<L1>Fnomla che</L1>
+    		<L2>Exit</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CHOOSELEVEL</ID>
+    		<L0>Seleziona il gioco</L0>
+    		<L1>Selesiuna al gioc</L1>
+    		<L2>Select a game level</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_BACKMAINMENU</ID>
+    		<L0>Vai al menu principale</L0>
+    		<L1>Va al menu principal</L1>
+    		<L2>Go to main menu</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_EASY</ID>
+    		<L0>Facile</L0>
+    		<L1>Facil</L1>
+    		<L2>Easy</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_HARD</ID>
+    		<L0>Difficile</L0>
+    		<L1>Dificil</L1>
+    		<L2>Hard</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_HARDER</ID>
+    		<L0>Difficilissimo</L0>
+    		<L1>Dificilisim</L1>
+    		<L2>Very Hard</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_BACK</ID>
+    		<L0>Torna indietro</L0>
+    		<L1>Turna indrè</L1>
+    		<L2>Back</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_SELECTDISPLAYSETTINGS</ID>
+    		<L0>Seleziona il display</L0>
+    		<L1>Selesiuna al schermo</L1>
+    		<L2>Display select</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_INVIDO</ID>
+    		<L0>Invido</L0>
+    		<L1>Invidu</L1>
+    		<L2>Invido</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CHOOSELANGUA</ID>
+    		<L0>Seleziona la lingua</L0>
+    		<L1>Selesiuna la lengua</L1>
+    		<L2>Select language</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_ENGLISH</ID>
+    		<L0>Inglese</L0>
+    		<L1>Ingles</L1>
+    		<L2>English</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_DIALETMN</ID>
+    		<L0>Dialetto Bredese</L0>
+    		<L1>Dialet</L1>
+    		<L2>Bredas dialect</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_ITALIANO</ID>
+    		<L0>Italiano</L0>
+    		<L1>Italian</L1>
+    		<L2>Italian</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_ANONIM</ID>
+    		<L0>Anonimo</L0>
+    		<L1>Anonim</L1>
+    		<L2>Anonimous</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_PUSHBUTTON</ID>
+    		<L0>Premi un tasto</L0>
+    		<L1>Schesa an buton</L1>
+    		<L2>Push button</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CMD_UNKNOWN</ID>
+    		<L0>Comando non riconosciuto</L0>
+    		<L1>Cumand mia cunusi</L1>
+    		<L2>Unknown command</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CMD_HELP</ID>
+    		<L0>Comandi che puoi usare:</L0>
+    		<L1>I cumand cat po drua:</L1>
+    		<L2>Commands available:</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CMD_CHATWELCOME</ID>
+    		<L0>Bene arrivato nella chat</L0>
+    		<L1>Ben arriva indla chat</L1>
+    		<L2>Welcome in the chaatroom</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CMD_CHATLIST</ID>
+    		<L0>La lista dei presenti nella chat</L0>
+    		<L1>Chi ghè in dla chat</L1>
+    		<L2>Chat list</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MAZZONAME</ID>
+    		<L0>Mazzi di carte</L0>
+    		<L1>Mas ad li carti</L1>
+    		<L2>Decks card</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_AMONTE</ID>
+    		<L0>A monte</L0>
+    		<L1>A munt</L1>
+    		<L2>Monte</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_INVIDO</ID>
+    		<L0>Invido</L0>
+    		<L1>Invidu</L1>
+    		<L2>Invido</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_TRASMAS</ID>
+    		<L0>Tras mas</L0>
+    		<L1>Tras mas</L1>
+    		<L2>Tras mas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_TRASMASNOEF</ID>
+    		<L0>Tras mas noef</L0>
+    		<L1>Tras mas nof</L1>
+    		<L2>Tras mas nof</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_FUERAJEUQ</ID>
+    		<L0>Fuori gioco</L0>
+    		<L1>Fora gioc</L1>
+    		<L2>Fora gioc</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_PARTIDA</ID>
+    		<L0>Partita</L0>
+    		<L1>Partida</L1>
+    		<L2>Partida</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_VABENE</ID>
+    		<L0>Va bene</L0>
+    		<L1>Va ben</L1>
+    		<L2>Ok</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_VADOVIA</ID>
+    		<L0>Vado via</L0>
+    		<L1>Vu via</L1>
+    		<L2>Go away</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_CHIAMADIPIU</ID>
+    		<L0>Chiama di più</L0>
+    		<L1>Ciama pusè</L1>
+    		<L2>Call more</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_NO</ID>
+    		<L0>No</L0>
+    		<L1>In frunt</L1>
+    		<L2>No</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_GIOCA</ID>
+    		<L0>Gioca</L0>
+    		<L1>Gioga</L1>
+    		<L2>Play</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_AMONTE</ID>
+    		<L0>Monte</L0>
+    		<L1>Munt</L1>
+    		<L2>Mountain</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_INVIDO</ID>
+    		<L0>Invido</L0>
+    		<L1>Invidu</L1>
+    		<L2>Invidu</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_TRASMAS</ID>
+    		<L0>Tras mas</L0>
+    		<L1>Tras mas</L1>
+    		<L2>Tras mas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_TRASMASNOEF</ID>
+    		<L0>Nof</L0>
+    		<L1>Nof</L1>
+    		<L2>Nof</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_FUERAJEUQ</ID>
+    		<L0>Fuori J.</L0>
+    		<L1>Fora Gi.</L1>
+    		<L2>Fuori J.</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_PARTIDA</ID>
+    		<L0>Partita</L0>
+    		<L1>Partida</L1>
+    		<L2>Partida</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_VABENE</ID>
+    		<L0>Va bene</L0>
+    		<L1>Va ben</L1>
+    		<L2>Ok</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_VADOVIA</ID>
+    		<L0>Vado via</L0>
+    		<L1>Vu via</L1>
+    		<L2>Go away</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_CHIAMADIPIU</ID>
+    		<L0>Chiama più</L0>
+    		<L1>Ciama pusè</L1>
+    		<L2>Call more</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_NO</ID>
+    		<L0>No</L0>
+    		<L1>No</L1>
+    		<L2>No</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_BT_GIOCA</ID>
+    		<L0>Gioca</L0>
+    		<L1>Gioga</L1>
+    		<L2>Play</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_CANELA</ID>
+    		<L0>Stanga</L0>
+    		<L1>Canela</L1>
+    		<L2>Line</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_S_PATA</ID>
+    		<L0>Patta</L0>
+    		<L1>Pata</L1>
+    		<L2>Drawn</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MEN_OPTIONS</ID>
+    		<L0>Opzioni</L0>
+    		<L1>Upsion</L1>
+    		<L2>Options</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CREDITS</ID>
+    		<L0>Credits</L0>
+    		<L1>Ringrasiament</L1>
+    		<L2>Credits</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_WELCOMETITLEBAR</ID>
+    		<L0>Benvenuti nel mondo dell'invido!</L0>
+    		<L1>I me cumpliment par sugar a l'Invidu!</L1>
+    		<L2>Welcome in the world of Invido</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_STA_PTCURRENT</ID>
+    		<L0>Punteggio attuale</L0>
+    		<L1>I punt d'ades</L1>
+    		<L2>Current points</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CHOOSEMAZZO</ID>
+    		<L0>Scegli il mazzo di carte</L0>
+    		<L1>Cata fora al mas adli carti</L1>
+    		<L2>Choose a deck</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_PIACENTINA</ID>
+    		<L0>Piacentine</L0>
+    		<L1>Piacentini</L1>
+    		<L2>Piacentinas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_BERGAMO</ID>
+    		<L0>Bergamesche</L0>
+    		<L1>Bergamaschi</L1>
+    		<L2>Bergamos</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_BOLOGNA</ID>
+    		<L0>Bolognesi</L0>
+    		<L1>Bulugnesi</L1>
+    		<L2>Bolognas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_GENOVA</ID>
+    		<L0>Genovesi</L0>
+    		<L1>Genuvesi</L1>
+    		<L2>Genovas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MILANO</ID>
+    		<L0>Milanesi</L0>
+    		<L1>Milanes</L1>
+    		<L2>Milans</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_NAPOLI</ID>
+    		<L0>Napoletane</L0>
+    		<L1>Napulitani</L1>
+    		<L2>Napolis</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_PIEMONTE</ID>
+    		<L0>Piemontesi</L0>
+    		<L1>Piemuntesi</L1>
+    		<L2>Piemontes</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_ROMAGNA</ID>
+    		<L0>Romagnole</L0>
+    		<L1>Rumangnoli</L1>
+    		<L2>Romagnas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_SARDEGNA</ID>
+    		<L0>Sarde</L0>
+    		<L1>Sardagnoli</L1>
+    		<L2>Sardegnas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_TOSCANA</ID>
+    		<L0>Toscane</L0>
+    		<L1>Tuscani</L1>
+    		<L2>Toscanas</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_TRENTO</ID>
+    		<L0>Trentine</L0>
+    		<L1>Trentini</L1>
+    		<L2>Trentos</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_TREVISO</ID>
+    		<L0>Trevigiane</L0>
+    		<L1>Trevigiani</L1>
+    		<L2>Trevisos</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_TRIESTE</ID>
+    		<L0>Triestine</L0>
+    		<L1>Triestini</L1>
+    		<L2>Triestes</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_SICILIA</ID>
+    		<L0>Siciliane</L0>
+    		<L1>Siciliani</L1>
+    		<L2>Sicilias</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_RISP1</ID>
+    		<L0>Ora devi rispondere...</L0>
+    		<L1>Ades at ghé da rispondar...</L1>
+    		<L2>Now you must responce</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_PLAYER</ID>
+    		<L0>Giocatore</L0>
+    		<L1>Sugadur</L1>
+    		<L2>Player</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_DICE</ID>
+    		<L0>dice</L0>
+    		<L1>dis</L1>
+    		<L2>said</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_MANOPATA</ID>
+    		<L0>Mano patada, tocca a</L0>
+    		<L1>Man patada, a toca a</L1>
+    		<L2>Hand draw, player on turn</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_MANOVINTA</ID>
+    		<L0>Mano vinta da</L0>
+    		<L1>Man vinsida da</L1>
+    		<L2>Hand wons by</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_GIOCATAPATA</ID>
+    		<L0>Giocata patta</L0>
+    		<L1>Sugada patada</L1>
+    		<L2>Trick drawn</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_GIOCATAMONTE</ID>
+    		<L0>Giocata a monte</L0>
+    		<L1>Sugada  a munt</L1>
+    		<L2>Trick invalid</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_GIOCATAVINTA</ID>
+    		<L0>Giocata vinta da</L0>
+    		<L1>Sugada vinsida da</L1>
+    		<L2>Trink won by</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_PUNTI</ID>
+    		<L0>punti</L0>
+    		<L1>punt</L1>
+    		<L2>points</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_PARTITAFIN</ID>
+    		<L0>PARTITA finita</L0>
+    		<L1>PARTIDA fnida</L1>
+    		<L2>Match terminated</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_NOWPOINTS</ID>
+    		<L0>Punteggio della giocata ora è</L0>
+    		<L1>A gè so ades</L1>
+    		<L2>Current points</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_BUIADA</ID>
+    		<L0>Quello che hai chiamato non è corretto</L0>
+    		<L1>Te det na stupidada, ciama giost</L1>
+    		<L2>You said something incorrect</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CP_VINCE</ID>
+    		<L0>vince</L0>
+    		<L1>vins</L1>
+    		<L2>win</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MN_HELP</ID>
+    		<L0>Guida</L0>
+    		<L1>Infurmasion</L1>
+    		<L2>Help</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_OK</ID>
+    		<L0>OK</L0>
+    		<L1>Sè</L1>
+    		<L2>OK</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CANCEL</ID>
+    		<L0>Cancella</L0>
+    		<L1>Scàsa</L1>
+    		<L2>Cancel</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_NAME</ID>
+    		<L0>Nome</L0>
+    		<L1>Nom</L1>
+    		<L2>Name</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_OPT_CONTRL_GENERAL</ID>
+    		<L0>Opzioni Generali</L0>
+    		<L1>Upsion generichi</L1>
+    		<L2>General Options</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MUSIC</ID>
+    		<L0>Musica</L0>
+    		<L1>La musica</L1>
+    		<L2>Music</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_SOUNDEFFECT</ID>
+    		<L0>Effetti sonori</L0>
+    		<L1>I rumur</L1>
+    		<L2>Sound effects</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_LANGUAGE</ID>
+    		<L0>Lingua</L0>
+    		<L1>Lengui furesti</L1>
+    		<L2>Language</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_MATCHENDQUESTION</ID>
+    		<L0>Partita in corso, vuoi  uscire?</L0>
+    		<L1>Som adre a suga, dabon at vo fni la partita?</L1>
+    		<L2>Do you want exit the game?</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_YES</ID>
+    		<L0>Si</L0>
+    		<L1>Se</L1>
+    		<L2>Yes</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_NO</ID>
+    		<L0>No</L0>
+    		<L1>No</L1>
+    		<L2>No</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_CHOOSENAME</ID>
+    		<L0>Immetti il tuo nome</L0>
+    		<L1>Scriv al to nom</L1>
+    		<L2>Insert your name</L2>
+    	</item_s>
+    	<item_s>
+    		<ID>ID_SHOWFOTOBACK</ID>
+    		<L0>Mostra foto sfondo</L0>
+    		<L1>La foto in dal sfont</L1>
+    		<L2>Show foto in background</L2>
+    	</item_s>
+    	
+    	<!--
+    	<item_s>
+    		<ID></ID>
+    		<L0></L0>
+    		<L1></L1>
+    		<L2></L2>
+    	</item_s>
+    	-->
+    </string_det>
+</class_languag>
+
+</file>

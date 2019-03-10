@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\InvidoCore">
+      <UniqueIdentifier>{0d3e011a-f86a-4706-944e-628ef2b49e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InvidoClient">
+      <UniqueIdentifier>{1b687c20-d264-45a7-bfa2-912dd695d4cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Include">
+      <UniqueIdentifier>{8f88e75a-cfc4-4c4a-b8cb-6293f20b93f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Console">
+      <UniqueIdentifier>{2190410c-2ad4-420f-9ccc-78610d3cc260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\guigfx">
+      <UniqueIdentifier>{1c04d391-32ee-4b26-9822-db3e601819c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\InvidoCore\AlgPlayerInterface.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cAlgAdvancedPlayer.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\CardSpec.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cGiocata.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cInvidoCoreEnv.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMano.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMatchPoints.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMazzo.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPartita.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayer.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayersOnTable.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayerStatistic.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cProbality.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\fuzzy.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\InvidoInfoComm.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\myexception.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\save_utility.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\TraceService.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\cSettings.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\StdAfx.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\win_type_global.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\begin_code.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\close_code.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_assert.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_atomic.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_audio.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_bits.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_blendmode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_clipboard.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_android.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_iphoneos.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_macosx.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_minimal.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_pandora.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_psp.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_windows.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_winrt.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_wiz.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_copying.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_cpuinfo.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_egl.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_endian.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_error.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_events.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_filesystem.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_gamecontroller.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_gesture.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_haptic.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_hints.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_joystick.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_keyboard.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_keycode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_loadso.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_log.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_main.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_messagebox.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mixer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mouse.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mutex.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_name.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengl.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengl_glext.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2ext.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2platform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_khrplatform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_pixels.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_platform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_power.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_quit.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_rect.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_render.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_revision.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_rwops.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_scancode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_shape.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_stdinc.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_surface.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_system.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_syswm.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_assert.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_common.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_compare.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_crc32.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_font.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_fuzzer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_harness.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_images.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_log.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_md5.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_memory.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_random.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_thread.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_timer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_touch.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_types.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_version.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_video.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_vulkan.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cPopUpMenuGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\EnterNameGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\gfx_util.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\OptionGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cButtonGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cEditGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cCardGfx.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cDelayNextAction.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cHightScoreMgr.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cInvidoGfx.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cMenuMgr.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cMusicManager.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\credits.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cTipoDiMazzo.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\fading.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\FastDelegate.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\regkey.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cBalloonGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cMesgBoxGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cLabelGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cLabelLinkGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cCheckBoxGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cComboGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cProgressBarGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cInvidoCore.h">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\AppGfx.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\Languages.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\InvidoSettings.h">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\InvidoCore\cAlgAdvancedPlayer.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\CardSpec.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cGiocata.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMano.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMatchPoints.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMazzo.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPartita.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayer.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayersOnTable.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayerStatistic.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cProbality.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\TraceService.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\main.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cPopUpMenuGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\EnterNameGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\gfx_util.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\OptionGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cButtonGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cEditGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cCardGfx.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cDelayNextAction.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cHightScoreMgr.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cInvidoGfx.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cMenuMgr.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cMusicManager.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\credits.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cTipoDiMazzo.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\fading.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\regkey.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\StdAfx.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cBalloonGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cMesgBoxGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cLabelGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cLabelLinkGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cCheckBoxGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cComboGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cProgressBarGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cInvidoCore.cpp">
+      <Filter>Source Files\InvidoCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\AppGfx.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\Languages.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\InvidoSettings.cpp">
+      <Filter>Source Files\InvidoClient</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Include\SDL_config.h.cmake">
+      <Filter>Source Files\Include</Filter>
+    </None>
+    <None Include="..\Include\SDL_config.h.in">
+      <Filter>Source Files\Include</Filter>
+    </None>
+    <None Include="..\Include\SDL_config_macosx.h.orig">
+      <Filter>Source Files\Include</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="InvidoCpp.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\out\data\images\icona_asso.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="invido.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

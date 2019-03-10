@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5FD07390-9C64-42CD-9A1F-27D9A689EEC9}</ProjectGuid>
+    <RootNamespace>InvidoCpp</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>Invido</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../InvidoClient</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\x64\out\Invido.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\guigfx\cBalloonGfx.h" />
+    <ClInclude Include="..\guigfx\cButtonGfx.h" />
+    <ClInclude Include="..\guigfx\cCheckBoxGfx.h" />
+    <ClInclude Include="..\guigfx\cComboGfx.h" />
+    <ClInclude Include="..\guigfx\cEditGfx.h" />
+    <ClInclude Include="..\guigfx\cLabelGfx.h" />
+    <ClInclude Include="..\guigfx\cLabelLinkGfx.h" />
+    <ClInclude Include="..\guigfx\cMesgBoxGfx.h" />
+    <ClInclude Include="..\guigfx\cPopUpMenuGfx.h" />
+    <ClInclude Include="..\guigfx\cProgressBarGfx.h" />
+    <ClInclude Include="..\guigfx\EnterNameGfx.h" />
+    <ClInclude Include="..\guigfx\gfx_util.h" />
+    <ClInclude Include="..\guigfx\OptionGfx.h" />
+    <ClInclude Include="..\Include\begin_code.h" />
+    <ClInclude Include="..\Include\close_code.h" />
+    <ClInclude Include="..\Include\cSettings.h" />
+    <ClInclude Include="..\Include\SDL.h" />
+    <ClInclude Include="..\Include\SDL_assert.h" />
+    <ClInclude Include="..\Include\SDL_atomic.h" />
+    <ClInclude Include="..\Include\SDL_audio.h" />
+    <ClInclude Include="..\Include\SDL_bits.h" />
+    <ClInclude Include="..\Include\SDL_blendmode.h" />
+    <ClInclude Include="..\Include\SDL_clipboard.h" />
+    <ClInclude Include="..\Include\SDL_config.h" />
+    <ClInclude Include="..\Include\SDL_config_android.h" />
+    <ClInclude Include="..\Include\SDL_config_iphoneos.h" />
+    <ClInclude Include="..\Include\SDL_config_macosx.h" />
+    <ClInclude Include="..\Include\SDL_config_minimal.h" />
+    <ClInclude Include="..\Include\SDL_config_pandora.h" />
+    <ClInclude Include="..\Include\SDL_config_psp.h" />
+    <ClInclude Include="..\Include\SDL_config_windows.h" />
+    <ClInclude Include="..\Include\SDL_config_winrt.h" />
+    <ClInclude Include="..\Include\SDL_config_wiz.h" />
+    <ClInclude Include="..\Include\SDL_copying.h" />
+    <ClInclude Include="..\Include\SDL_cpuinfo.h" />
+    <ClInclude Include="..\Include\SDL_egl.h" />
+    <ClInclude Include="..\Include\SDL_endian.h" />
+    <ClInclude Include="..\Include\SDL_error.h" />
+    <ClInclude Include="..\Include\SDL_events.h" />
+    <ClInclude Include="..\Include\SDL_filesystem.h" />
+    <ClInclude Include="..\Include\SDL_gamecontroller.h" />
+    <ClInclude Include="..\Include\SDL_gesture.h" />
+    <ClInclude Include="..\Include\SDL_haptic.h" />
+    <ClInclude Include="..\Include\SDL_hints.h" />
+    <ClInclude Include="..\Include\SDL_joystick.h" />
+    <ClInclude Include="..\Include\SDL_keyboard.h" />
+    <ClInclude Include="..\Include\SDL_keycode.h" />
+    <ClInclude Include="..\Include\SDL_loadso.h" />
+    <ClInclude Include="..\Include\SDL_log.h" />
+    <ClInclude Include="..\Include\SDL_main.h" />
+    <ClInclude Include="..\Include\SDL_messagebox.h" />
+    <ClInclude Include="..\Include\SDL_mixer.h" />
+    <ClInclude Include="..\Include\SDL_mouse.h" />
+    <ClInclude Include="..\Include\SDL_mutex.h" />
+    <ClInclude Include="..\Include\SDL_name.h" />
+    <ClInclude Include="..\Include\SDL_opengl.h" />
+    <ClInclude Include="..\Include\SDL_opengles.h" />
+    <ClInclude Include="..\Include\SDL_opengles2.h" />
+    <ClInclude Include="..\Include\SDL_opengles2_gl2.h" />
+    <ClInclude Include="..\Include\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="..\Include\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="..\Include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="..\Include\SDL_opengl_glext.h" />
+    <ClInclude Include="..\Include\SDL_pixels.h" />
+    <ClInclude Include="..\Include\SDL_platform.h" />
+    <ClInclude Include="..\Include\SDL_power.h" />
+    <ClInclude Include="..\Include\SDL_quit.h" />
+    <ClInclude Include="..\Include\SDL_rect.h" />
+    <ClInclude Include="..\Include\SDL_render.h" />
+    <ClInclude Include="..\Include\SDL_revision.h" />
+    <ClInclude Include="..\Include\SDL_rwops.h" />
+    <ClInclude Include="..\Include\SDL_scancode.h" />
+    <ClInclude Include="..\Include\SDL_shape.h" />
+    <ClInclude Include="..\Include\SDL_stdinc.h" />
+    <ClInclude Include="..\Include\SDL_surface.h" />
+    <ClInclude Include="..\Include\SDL_system.h" />
+    <ClInclude Include="..\Include\SDL_syswm.h" />
+    <ClInclude Include="..\Include\SDL_test.h" />
+    <ClInclude Include="..\Include\SDL_test_assert.h" />
+    <ClInclude Include="..\Include\SDL_test_common.h" />
+    <ClInclude Include="..\Include\SDL_test_compare.h" />
+    <ClInclude Include="..\Include\SDL_test_crc32.h" />
+    <ClInclude Include="..\Include\SDL_test_font.h" />
+    <ClInclude Include="..\Include\SDL_test_fuzzer.h" />
+    <ClInclude Include="..\Include\SDL_test_harness.h" />
+    <ClInclude Include="..\Include\SDL_test_images.h" />
+    <ClInclude Include="..\Include\SDL_test_log.h" />
+    <ClInclude Include="..\Include\SDL_test_md5.h" />
+    <ClInclude Include="..\Include\SDL_test_memory.h" />
+    <ClInclude Include="..\Include\SDL_test_random.h" />
+    <ClInclude Include="..\Include\SDL_thread.h" />
+    <ClInclude Include="..\Include\SDL_timer.h" />
+    <ClInclude Include="..\Include\SDL_touch.h" />
+    <ClInclude Include="..\Include\SDL_types.h" />
+    <ClInclude Include="..\Include\SDL_version.h" />
+    <ClInclude Include="..\Include\SDL_video.h" />
+    <ClInclude Include="..\Include\SDL_vulkan.h" />
+    <ClInclude Include="..\Include\StdAfx.h" />
+    <ClInclude Include="..\Include\win_type_global.h" />
+    <ClInclude Include="..\InvidoClient\cCardGfx.h" />
+    <ClInclude Include="..\InvidoClient\cDelayNextAction.h" />
+    <ClInclude Include="..\InvidoClient\cHightScoreMgr.h" />
+    <ClInclude Include="..\InvidoClient\cInvidoGfx.h" />
+    <ClInclude Include="..\InvidoClient\cMenuMgr.h" />
+    <ClInclude Include="..\InvidoClient\cMusicManager.h" />
+    <ClInclude Include="..\InvidoClient\credits.h" />
+    <ClInclude Include="..\InvidoClient\InvidoSettings.h" />
+    <ClInclude Include="..\InvidoClient\cTipoDiMazzo.h" />
+    <ClInclude Include="..\InvidoClient\AppGfx.h" />
+    <ClInclude Include="..\InvidoClient\fading.h" />
+    <ClInclude Include="..\InvidoClient\FastDelegate.h" />
+    <ClInclude Include="..\InvidoClient\Languages.h" />
+    <ClInclude Include="..\InvidoClient\regkey.h" />
+    <ClInclude Include="..\InvidoCore\AlgPlayerInterface.h" />
+    <ClInclude Include="..\InvidoCore\cAlgAdvancedPlayer.h" />
+    <ClInclude Include="..\InvidoCore\CardSpec.h" />
+    <ClInclude Include="..\InvidoCore\cGiocata.h" />
+    <ClInclude Include="..\InvidoCore\cInvidoCore.h" />
+    <ClInclude Include="..\InvidoCore\cInvidoCoreEnv.h" />
+    <ClInclude Include="..\InvidoCore\cMano.h" />
+    <ClInclude Include="..\InvidoCore\cMatchPoints.h" />
+    <ClInclude Include="..\InvidoCore\cMazzo.h" />
+    <ClInclude Include="..\InvidoCore\cPartita.h" />
+    <ClInclude Include="..\InvidoCore\cPlayer.h" />
+    <ClInclude Include="..\InvidoCore\cPlayersOnTable.h" />
+    <ClInclude Include="..\InvidoCore\cPlayerStatistic.h" />
+    <ClInclude Include="..\InvidoCore\cProbality.h" />
+    <ClInclude Include="..\InvidoCore\fuzzy.h" />
+    <ClInclude Include="..\InvidoCore\InvidoInfoComm.h" />
+    <ClInclude Include="..\InvidoCore\myexception.h" />
+    <ClInclude Include="..\InvidoCore\save_utility.h" />
+    <ClInclude Include="..\InvidoCore\TraceService.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\guigfx\cBalloonGfx.cpp" />
+    <ClCompile Include="..\guigfx\cButtonGfx.cpp" />
+    <ClCompile Include="..\guigfx\cCheckBoxGfx.cpp" />
+    <ClCompile Include="..\guigfx\cComboGfx.cpp" />
+    <ClCompile Include="..\guigfx\cEditGfx.cpp" />
+    <ClCompile Include="..\guigfx\cLabelGfx.cpp" />
+    <ClCompile Include="..\guigfx\cLabelLinkGfx.cpp" />
+    <ClCompile Include="..\guigfx\cMesgBoxGfx.cpp" />
+    <ClCompile Include="..\guigfx\cPopUpMenuGfx.cpp" />
+    <ClCompile Include="..\guigfx\cProgressBarGfx.cpp" />
+    <ClCompile Include="..\guigfx\EnterNameGfx.cpp" />
+    <ClCompile Include="..\guigfx\gfx_util.cpp" />
+    <ClCompile Include="..\guigfx\OptionGfx.cpp" />
+    <ClCompile Include="..\InvidoClient\cCardGfx.cpp" />
+    <ClCompile Include="..\InvidoClient\cDelayNextAction.cpp" />
+    <ClCompile Include="..\InvidoClient\cHightScoreMgr.cpp" />
+    <ClCompile Include="..\InvidoClient\cInvidoGfx.cpp" />
+    <ClCompile Include="..\InvidoClient\cMenuMgr.cpp" />
+    <ClCompile Include="..\InvidoClient\cMusicManager.cpp" />
+    <ClCompile Include="..\InvidoClient\credits.cpp" />
+    <ClCompile Include="..\InvidoClient\InvidoSettings.cpp" />
+    <ClCompile Include="..\InvidoClient\cTipoDiMazzo.cpp" />
+    <ClCompile Include="..\InvidoClient\AppGfx.cpp" />
+    <ClCompile Include="..\InvidoClient\fading.cpp" />
+    <ClCompile Include="..\InvidoClient\Languages.cpp" />
+    <ClCompile Include="..\InvidoClient\main.cpp" />
+    <ClCompile Include="..\InvidoClient\regkey.cpp" />
+    <ClCompile Include="..\InvidoClient\StdAfx.cpp" />
+    <ClCompile Include="..\InvidoCore\cAlgAdvancedPlayer.cpp" />
+    <ClCompile Include="..\InvidoCore\CardSpec.cpp" />
+    <ClCompile Include="..\InvidoCore\cGiocata.cpp" />
+    <ClCompile Include="..\InvidoCore\cInvidoCore.cpp" />
+    <ClCompile Include="..\InvidoCore\cMano.cpp" />
+    <ClCompile Include="..\InvidoCore\cMatchPoints.cpp" />
+    <ClCompile Include="..\InvidoCore\cMazzo.cpp" />
+    <ClCompile Include="..\InvidoCore\cPartita.cpp" />
+    <ClCompile Include="..\InvidoCore\cPlayer.cpp" />
+    <ClCompile Include="..\InvidoCore\cPlayersOnTable.cpp" />
+    <ClCompile Include="..\InvidoCore\cPlayerStatistic.cpp" />
+    <ClCompile Include="..\InvidoCore\cProbality.cpp" />
+    <ClCompile Include="..\InvidoCore\TraceService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Include\SDL_config.h.cmake" />
+    <None Include="..\Include\SDL_config.h.in" />
+    <None Include="..\Include\SDL_config_macosx.h.orig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="InvidoCpp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\out\data\images\icona_asso.bmp" />
+    <Image Include="invido.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

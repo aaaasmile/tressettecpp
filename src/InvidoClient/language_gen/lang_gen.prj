@@ -1,0 +1,12 @@
+lang_det.xml
+lang_det.xml
+languages_h.xsl
+languages_h.xsl
+..\lang_gen.h
+lang_gen.h
+lang_det.xml
+lang_det.xml
+languages_cpp.xsl
+languages_cpp.xsl
+..\lang_gen.cpp
+lang_gen.cpp
