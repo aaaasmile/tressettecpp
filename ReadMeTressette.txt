@@ -2,7 +2,12 @@
 
 In questa repository ho cercato di attualizzare il progetto tressette. 
 Lo scopo è quello di avere la stessa applicazione compilata con visual studio 2015 (nota 2015 e no duemila diciasette) e sdl 2.0.
+La tagione per usare vs2015 è che sdl2.0 è stato compilato con vs2015.
 Sono partito con i srgenti dell'invido per poi aggiornarli con quelli del tressette.
+Piattaforma supportata è x64 e solo questa.
+Nella directory release ho solo gli obj, l'exe viene messo in out, dove ci sono i dati e anche le dll.
+Per debug il discorso è diverso, ho messo tutto in debug. La ragione è che non voglio un mix debug/release nella stessa dir.
+
 
 == SDL
 Versioni:
