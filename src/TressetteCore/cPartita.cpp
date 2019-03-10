@@ -3,8 +3,8 @@
 #include "StdAfx.h"
 #include "cPartita.h"
 #include "cGiocata.h"
-#include "cInvidoCore.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCore.h"
+#include "cTressetteCoreEnv.h"
 #include "cMatchPoints.h"
 
 

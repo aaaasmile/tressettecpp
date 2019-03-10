@@ -8,7 +8,7 @@
 
 #include <map>
 #include <SDL_ttf.h>
-#include "cInvidoCore.h"
+#include "cTressetteCore.h"
 #include "cCardGfx.h"
 #include "AlgPlayerInterface.h"
 

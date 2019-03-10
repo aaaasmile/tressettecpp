@@ -6,7 +6,7 @@
 #define _C_INVIDOCORE_H_
 
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "cProbality.h"
 #include "cPartita.h"
 #include "cMano.h"

@@ -9,7 +9,7 @@
 #endif // _MSC_VER > 1000
 
 #include "SDL.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "CardSpec.h"
 
 //! class cCardGfx

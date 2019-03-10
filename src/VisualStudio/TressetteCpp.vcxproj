@@ -22,7 +22,7 @@
     <ProjectGuid>{5FD07390-9C64-42CD-9A1F-27D9A689EEC9}</ProjectGuid>
     <RootNamespace>Tressette</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>TressetteCpp</ProjectName>
+    <ProjectName>Tressette</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,12 +72,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>Tressette</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>.\x64\out\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../InvidoCore;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
@@ -92,7 +95,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
@@ -107,7 +110,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../InvidoClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../TressetteClient</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -121,7 +124,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -232,39 +235,39 @@
     <ClInclude Include="..\Include\SDL_vulkan.h" />
     <ClInclude Include="..\Include\StdAfx.h" />
     <ClInclude Include="..\Include\win_type_global.h" />
-    <ClInclude Include="..\InvidoClient\cCardGfx.h" />
-    <ClInclude Include="..\InvidoClient\cDelayNextAction.h" />
-    <ClInclude Include="..\InvidoClient\cHightScoreMgr.h" />
-    <ClInclude Include="..\InvidoClient\cInvidoGfx.h" />
-    <ClInclude Include="..\InvidoClient\cMenuMgr.h" />
-    <ClInclude Include="..\InvidoClient\cMusicManager.h" />
-    <ClInclude Include="..\InvidoClient\credits.h" />
-    <ClInclude Include="..\InvidoClient\InvidoSettings.h" />
-    <ClInclude Include="..\InvidoClient\cTipoDiMazzo.h" />
-    <ClInclude Include="..\InvidoClient\AppGfx.h" />
-    <ClInclude Include="..\InvidoClient\fading.h" />
-    <ClInclude Include="..\InvidoClient\FastDelegate.h" />
-    <ClInclude Include="..\InvidoClient\Languages.h" />
-    <ClInclude Include="..\InvidoClient\regkey.h" />
-    <ClInclude Include="..\InvidoCore\AlgPlayerInterface.h" />
-    <ClInclude Include="..\InvidoCore\cAlgAdvancedPlayer.h" />
-    <ClInclude Include="..\InvidoCore\CardSpec.h" />
-    <ClInclude Include="..\InvidoCore\cGiocata.h" />
-    <ClInclude Include="..\InvidoCore\cInvidoCore.h" />
-    <ClInclude Include="..\InvidoCore\cInvidoCoreEnv.h" />
-    <ClInclude Include="..\InvidoCore\cMano.h" />
-    <ClInclude Include="..\InvidoCore\cMatchPoints.h" />
-    <ClInclude Include="..\InvidoCore\cMazzo.h" />
-    <ClInclude Include="..\InvidoCore\cPartita.h" />
-    <ClInclude Include="..\InvidoCore\cPlayer.h" />
-    <ClInclude Include="..\InvidoCore\cPlayersOnTable.h" />
-    <ClInclude Include="..\InvidoCore\cPlayerStatistic.h" />
-    <ClInclude Include="..\InvidoCore\cProbality.h" />
-    <ClInclude Include="..\InvidoCore\fuzzy.h" />
-    <ClInclude Include="..\InvidoCore\InvidoInfoComm.h" />
-    <ClInclude Include="..\InvidoCore\myexception.h" />
-    <ClInclude Include="..\InvidoCore\save_utility.h" />
-    <ClInclude Include="..\InvidoCore\TraceService.h" />
+    <ClInclude Include="..\TressetteClient\cCardGfx.h" />
+    <ClInclude Include="..\TressetteClient\cDelayNextAction.h" />
+    <ClInclude Include="..\TressetteClient\cHightScoreMgr.h" />
+    <ClInclude Include="..\TressetteClient\cInvidoGfx.h" />
+    <ClInclude Include="..\TressetteClient\cMenuMgr.h" />
+    <ClInclude Include="..\TressetteClient\cMusicManager.h" />
+    <ClInclude Include="..\TressetteClient\credits.h" />
+    <ClInclude Include="..\TressetteClient\InvidoSettings.h" />
+    <ClInclude Include="..\TressetteClient\cTipoDiMazzo.h" />
+    <ClInclude Include="..\TressetteClient\AppGfx.h" />
+    <ClInclude Include="..\TressetteClient\fading.h" />
+    <ClInclude Include="..\TressetteClient\FastDelegate.h" />
+    <ClInclude Include="..\TressetteClient\Languages.h" />
+    <ClInclude Include="..\TressetteClient\regkey.h" />
+    <ClInclude Include="..\TressetteCore\AlgPlayerInterface.h" />
+    <ClInclude Include="..\TressetteCore\cAlgAdvancedPlayer.h" />
+    <ClInclude Include="..\TressetteCore\CardSpec.h" />
+    <ClInclude Include="..\TressetteCore\cGiocata.h" />
+    <ClInclude Include="..\TressetteCore\cTressetteCore.h" />
+    <ClInclude Include="..\TressetteCore\cTressetteCoreEnv.h" />
+    <ClInclude Include="..\TressetteCore\cMano.h" />
+    <ClInclude Include="..\TressetteCore\cMatchPoints.h" />
+    <ClInclude Include="..\TressetteCore\cMazzo.h" />
+    <ClInclude Include="..\TressetteCore\cPartita.h" />
+    <ClInclude Include="..\TressetteCore\cPlayer.h" />
+    <ClInclude Include="..\TressetteCore\cPlayersOnTable.h" />
+    <ClInclude Include="..\TressetteCore\cPlayerStatistic.h" />
+    <ClInclude Include="..\TressetteCore\cProbality.h" />
+    <ClInclude Include="..\TressetteCore\fuzzy.h" />
+    <ClInclude Include="..\TressetteCore\InvidoInfoComm.h" />
+    <ClInclude Include="..\TressetteCore\myexception.h" />
+    <ClInclude Include="..\TressetteCore\save_utility.h" />
+    <ClInclude Include="..\TressetteCore\TraceService.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -281,34 +284,34 @@
     <ClCompile Include="..\guigfx\EnterNameGfx.cpp" />
     <ClCompile Include="..\guigfx\gfx_util.cpp" />
     <ClCompile Include="..\guigfx\OptionGfx.cpp" />
-    <ClCompile Include="..\InvidoClient\cCardGfx.cpp" />
-    <ClCompile Include="..\InvidoClient\cDelayNextAction.cpp" />
-    <ClCompile Include="..\InvidoClient\cHightScoreMgr.cpp" />
-    <ClCompile Include="..\InvidoClient\cInvidoGfx.cpp" />
-    <ClCompile Include="..\InvidoClient\cMenuMgr.cpp" />
-    <ClCompile Include="..\InvidoClient\cMusicManager.cpp" />
-    <ClCompile Include="..\InvidoClient\credits.cpp" />
-    <ClCompile Include="..\InvidoClient\InvidoSettings.cpp" />
-    <ClCompile Include="..\InvidoClient\cTipoDiMazzo.cpp" />
-    <ClCompile Include="..\InvidoClient\AppGfx.cpp" />
-    <ClCompile Include="..\InvidoClient\fading.cpp" />
-    <ClCompile Include="..\InvidoClient\Languages.cpp" />
-    <ClCompile Include="..\InvidoClient\main.cpp" />
-    <ClCompile Include="..\InvidoClient\regkey.cpp" />
-    <ClCompile Include="..\InvidoClient\StdAfx.cpp" />
-    <ClCompile Include="..\InvidoCore\cAlgAdvancedPlayer.cpp" />
-    <ClCompile Include="..\InvidoCore\CardSpec.cpp" />
-    <ClCompile Include="..\InvidoCore\cGiocata.cpp" />
-    <ClCompile Include="..\InvidoCore\cInvidoCore.cpp" />
-    <ClCompile Include="..\InvidoCore\cMano.cpp" />
-    <ClCompile Include="..\InvidoCore\cMatchPoints.cpp" />
-    <ClCompile Include="..\InvidoCore\cMazzo.cpp" />
-    <ClCompile Include="..\InvidoCore\cPartita.cpp" />
-    <ClCompile Include="..\InvidoCore\cPlayer.cpp" />
-    <ClCompile Include="..\InvidoCore\cPlayersOnTable.cpp" />
-    <ClCompile Include="..\InvidoCore\cPlayerStatistic.cpp" />
-    <ClCompile Include="..\InvidoCore\cProbality.cpp" />
-    <ClCompile Include="..\InvidoCore\TraceService.cpp" />
+    <ClCompile Include="..\TressetteClient\cCardGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\cDelayNextAction.cpp" />
+    <ClCompile Include="..\TressetteClient\cHightScoreMgr.cpp" />
+    <ClCompile Include="..\TressetteClient\cInvidoGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\cMenuMgr.cpp" />
+    <ClCompile Include="..\TressetteClient\cMusicManager.cpp" />
+    <ClCompile Include="..\TressetteClient\credits.cpp" />
+    <ClCompile Include="..\TressetteClient\InvidoSettings.cpp" />
+    <ClCompile Include="..\TressetteClient\cTipoDiMazzo.cpp" />
+    <ClCompile Include="..\TressetteClient\AppGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\fading.cpp" />
+    <ClCompile Include="..\TressetteClient\Languages.cpp" />
+    <ClCompile Include="..\TressetteClient\main.cpp" />
+    <ClCompile Include="..\TressetteClient\regkey.cpp" />
+    <ClCompile Include="..\TressetteClient\StdAfx.cpp" />
+    <ClCompile Include="..\TressetteCore\cAlgAdvancedPlayer.cpp" />
+    <ClCompile Include="..\TressetteCore\CardSpec.cpp" />
+    <ClCompile Include="..\TressetteCore\cGiocata.cpp" />
+    <ClCompile Include="..\TressetteCore\cTressetteCore.cpp" />
+    <ClCompile Include="..\TressetteCore\cMano.cpp" />
+    <ClCompile Include="..\TressetteCore\cMatchPoints.cpp" />
+    <ClCompile Include="..\TressetteCore\cMazzo.cpp" />
+    <ClCompile Include="..\TressetteCore\cPartita.cpp" />
+    <ClCompile Include="..\TressetteCore\cPlayer.cpp" />
+    <ClCompile Include="..\TressetteCore\cPlayersOnTable.cpp" />
+    <ClCompile Include="..\TressetteCore\cPlayerStatistic.cpp" />
+    <ClCompile Include="..\TressetteCore\cProbality.cpp" />
+    <ClCompile Include="..\TressetteCore\TraceService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Include\SDL_config.h.cmake" />

@@ -5,7 +5,7 @@
 
 
 #include "AlgPlayerInterface.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 
 //! class CardSpec
 class  CardSpec

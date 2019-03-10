@@ -3,7 +3,7 @@
 #include "StdAfx.h"
 #include <win_type_global.h>
 #include "cMazzo.h"
-#include "cInvidoCore.h"
+#include "cTressetteCore.h"
 #include "InvidoSettings.h"
 
 

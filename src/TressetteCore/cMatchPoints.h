@@ -14,7 +14,7 @@
 #include "win_type_global.h"
 #include <deque>
 #include "InvidoInfoComm.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "CardSpec.h"
 
 class cMano;

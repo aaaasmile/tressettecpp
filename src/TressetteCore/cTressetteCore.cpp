@@ -1,6 +1,6 @@
 //cInvidoCoreEngine.cpp
 #include "StdAfx.h"
-#include "cInvidoCore.h"
+#include "cTressetteCore.h"
 #include "cMazzo.h"
 #include "TraceService.h"
 

@@ -6,7 +6,7 @@
 #ifndef _______PLAYER_STATISTIC_H
 #define _______PLAYER_STATISTIC_H
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "AlgPlayerInterface.h"
 
 //! class for player statistic

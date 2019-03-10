@@ -5,7 +5,7 @@
 #ifndef ____CMANO_H
 #define ____CMANO_H
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "AlgPlayerInterface.h"
 #include <deque>
 #include <map>

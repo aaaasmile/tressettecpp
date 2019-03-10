@@ -5,7 +5,7 @@
 #ifndef __CPARTITA_H__
 #define __CPARTITA_H__
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 
 class cInvidoCore;
 class cGiocata;

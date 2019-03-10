@@ -1,6 +1,6 @@
 
 
-//cInvidoCoreEnv.h
+//cTressetteCoreEnv.h
 
 // c enum, struct for invido core
 

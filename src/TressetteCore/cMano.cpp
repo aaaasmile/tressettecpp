@@ -3,7 +3,7 @@
 #include "StdAfx.h"
 
 #include "cMano.h"
-#include "cInvidoCore.h"
+#include "cTressetteCore.h"
 #include "cMatchPoints.h"
 #include "TraceService.h"
 

@@ -7,7 +7,7 @@
 #endif // _MSC_VER > 1000
 
 #include "AlgPlayerInterface.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "CardSpec.h"
 #include <functional>
 

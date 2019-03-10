@@ -15,7 +15,7 @@
 #include "AppGfx.h"
 #include "Languages.h"
 #include "cMusicManager.h"
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include "InvidoInfoComm.h"
 
 extern AppGfx* g_MainApp;

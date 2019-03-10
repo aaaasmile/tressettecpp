@@ -5,7 +5,7 @@
 #ifndef __CPROBABILITY_H____
 #define __CPROBABILITY_H____
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 
 #include "cMazzo.h"
 #include "CardSpec.h"

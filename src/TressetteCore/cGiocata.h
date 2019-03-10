@@ -5,7 +5,7 @@
 #ifndef ___CGIOCATA____H
 #define ___CGIOCATA____H
 
-#include "cInvidoCoreEnv.h"
+#include "cTressetteCoreEnv.h"
 #include <deque>
 
 class cInvidoCore;
