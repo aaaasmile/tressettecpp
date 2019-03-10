@@ -1,10 +1,32 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
 
 
 // cGiocata.cpp
 #include "StdAfx.h"
 #include "cGiocata.h"
 #include "cMano.h"
-#include "cTressetteCore.h"
+#include "cCoreEngine.h"
 #include "cMatchPoints.h"
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +36,7 @@
 //! constructor
 cGiocata::cGiocata()
 {
-    m_pInvidoCore = NULL;
+    m_pCoreEngine = NULL;
     m_pPartita = NULL;
     m_pMano = NULL;
     m_eGiocataStatus = WAIT_NEW_GIOCATA;
@@ -40,7 +62,7 @@ void  cGiocata::NewGiocata(long lPlayerIx)
     }
     else
     {
-        m_pInvidoCore->RaiseError("Giocata state not right\n");
+        m_pCoreEngine->RaiseError("Giocata state not right\n");
         ASSERT(0);
     }
 }
@@ -60,14 +82,13 @@ void cGiocata::NextAction()
         return ;
     }
     cActionItemGio Action = m_deqNextAction.front();
-    m_deqNextAction.pop_front();
 
     switch(Action.m_eNextAction)
     {
         case GIOC_START:
             // gioca is started
             ASSERT(Action.m_vct_lArg.size() > 0);
-            m_pInvidoCore->Giocata_Start(Action.m_vct_lArg[0]);
+            m_pCoreEngine->Giocata_Start(Action.m_vct_lArg[0]);
             // mano state
             m_pMano->NewMano(Action.m_vct_lArg[0]);
             
@@ -75,7 +96,7 @@ void cGiocata::NextAction()
 
         case GIOC_END:
             // giocata is eneded
-            m_pInvidoCore->Giocata_End();
+            m_pCoreEngine->Giocata_End();
             break;
 
 
@@ -87,8 +108,7 @@ void cGiocata::NextAction()
             ASSERT(0);
             break;
     }
-    
-
+    m_deqNextAction.pop_front();
    
 }
 
@@ -96,8 +116,7 @@ void cGiocata::NextAction()
 ////////////////////////////////////////
 //       Update_Giocata
 /*! A Mano is terminated, update the giocata.
-// \param long lPlayerIx: player that have start the trick
-// \param I_MatchScore* pIScore : score informations
+// \param long lPlayerIx : player that must play
 */
 void  cGiocata::Update_Giocata(long lPlayerIx, I_MatchScore* pIScore)
 {
@@ -129,7 +148,6 @@ void  cGiocata::Update_Giocata(long lPlayerIx, I_MatchScore* pIScore)
 void  cGiocata::Reset()
 {
     m_eGiocataStatus = WAIT_NEW_GIOCATA;
-    m_deqNextAction.clear();
 }
 
 

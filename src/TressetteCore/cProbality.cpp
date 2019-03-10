@@ -1,7 +1,4 @@
-
-
 //cProbality.cpp
-
 #include "StdAfx.h"
 #include "cProbality.h"
 
@@ -17,12 +14,11 @@
 /*! Develop all possible hands with input deck 
 // \param VCT_MAZZO &vct_Mazzo : input deck
 */
-void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo, MTX_HANDCOMBI &mtx_Result)
+void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo)
 {
-	long lNumCard = (long)vct_Mazzo.size();
-    mtx_Result.clear();
+    size_t lNumCard = vct_Mazzo.size();
 
-	size_t lNumCombi =  (size_t)BinomialCoef(lNumCard, m_iCardOnHand);
+    long lNumCombi =  (long)BinomialCoef(lNumCard, m_iCardOnHand);
 
                        
     if (m_bIndexNotInit)
@@ -38,20 +34,21 @@ void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo, MTX_HANDCOMBI &mtx_Result)
     m_bIndexNotInit = false;
 
                            // riserva spazio per lo sviluppo integrale
-    mtx_Result.reserve(lNumCombi);
+    m_mtxAllHands.reserve(lNumCombi);
 
     VCT_SINGLECARD vct_tmpRow(m_iCardOnHand);
                            // sviluppo delle colonne
     for (long lCurrRow = 0; lCurrRow < lNumCombi; lCurrRow ++)
     {
-        for (long j = 0; j < m_iCardOnHand; j ++ )
+		long j;
+        for ( j = 0; j < m_iCardOnHand; j ++ )
         {
              long lIndex = m_vctCounter[j];
              ASSERT(lIndex < lNumCard && lIndex >= 0);
              vct_tmpRow[j] = vct_Mazzo[lIndex]; 
         }
 
-        mtx_Result.push_back(vct_tmpRow);
+        m_mtxAllHands.push_back(vct_tmpRow);
 
         if (lCurrRow == lNumCombi - 1)
         {
@@ -59,7 +56,7 @@ void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo, MTX_HANDCOMBI &mtx_Result)
             break;
         }
 
-        long i = 0,j = 0;
+        long i = 0;
         long lChangeSubIndex = 0;
                            // incrementa gli indici
         for (j = m_iCardOnHand - 1; j >= 0; j-- )
@@ -86,11 +83,68 @@ void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo, MTX_HANDCOMBI &mtx_Result)
         }
     }
 
-    //Utility::SaveItemToFile(mtx_Result, DEF_path_s, "allhands.txt"); 
+    Utility::SaveItemToFile(m_mtxAllHands, DEF_path_s, "first_hand.txt"); 
 
     
 }
 
+////////////////////////////////////////
+//       CheckBriscFreq
+/*! provides a probability value on 1/1000 of the opponent has a min of a briscola
+// \param int iIndexBris : index card of briscola
+// \param int* piRes : result
+*/
+void cProbality::CheckBriscFreq(int iIndexBris, int* piRes)
+{
+    size_t iMax_i = m_mtxAllHands.size();
+    if (iMax_i <= 0 || piRes == 0)
+        return;
+
+
+    size_t iMax_j = m_mtxAllHands[0].size();
+    ASSERT(iMax_j == 3);
+    ASSERT(iMax_i > 0);
+    int iFreq = 0;
+
+    int iBrisc0 = (iIndexBris / 10) * 10;
+    if (iIndexBris == 10)
+        iBrisc0 = 0;
+    if (iIndexBris == 20)
+        iBrisc0 = 10;
+    if (iIndexBris == 30)
+        iBrisc0 = 20;
+    if (iIndexBris == 40)
+        iBrisc0 = 30;
+
+    int iBrisc10 = iBrisc0 + 10;
+
+    for (int i = 0; i < iMax_i; i++)
+    {
+        for (int j = 0; j < iMax_j; j++)
+        {
+            int iIndexEle = m_mtxAllHands[i][j];
+            if (iIndexEle > iBrisc0 && iIndexEle <= iBrisc10)
+            {
+                iFreq++;
+                // search for a minimum of brisc
+                break ;
+            }
+        }
+    }
+    
+    *piRes = iFreq * 1000 / (iMax_i);
+}
+
+
+////////////////////////////////////////
+//       Clear
+/*! 
+*/
+void cProbality::Clear()
+{
+    m_bIndexNotInit = true;
+    m_mtxAllHands.clear();
+}
 
 ////////////////////////////////////////
 //       BinomialCoef
@@ -153,12 +207,12 @@ std::ostream &operator << (std::ostream &stream, const MTX_HANDCOMBI &o)
          stream <<  "[" << lCount << "] ";
 	  }
       
-	  size_t iNumRow = vct_tmpRow.size();
+      size_t iNumRow = vct_tmpRow.size();
       for (long j = 0; j < iNumRow; j++)
       {
          if (vct_tmpRow[j] < 10)
          {
-            stream << " " << ((int) vct_tmpRow[j]) << " ";
+            stream << " " << ((int) vct_tmpRow[j]) << " "; 
          }
          else
          {

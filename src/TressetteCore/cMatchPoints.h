@@ -1,3 +1,26 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
+
 
 
 // cMatchPoints.h: interface for the cMatchPoints class.
@@ -13,8 +36,8 @@
 
 #include "win_type_global.h"
 #include <deque>
-#include "InvidoInfoComm.h"
-#include "cTressetteCoreEnv.h"
+#include "InfoComm.h"
+#include "CoreEnv.h"
 #include "CardSpec.h"
 
 class cMano;
@@ -40,13 +63,19 @@ public:
 class cGiocataInfo
 {
 public:
-    cGiocataInfo(){eScore = SC_AMONTE; iPlayerIndex = NOT_VALID_INDEX;}
-    cGiocataInfo(int iVal, eGiocataScoreState eVal){eScore = eVal; iPlayerIndex = iVal;}
+    cGiocataInfo(){}
 
-    //! int player win (invalid index if it was "pata" or "monte")
-    int                iPlayerIndex;
-    //! player score
-    eGiocataScoreState eScore;
+    //! reset all field
+    void Reset(){iPointsTeam_1 = 0; iPointsTeam_2 = 0; iAccusePointTeam_1 = 0; iAccusePointTeam_2 = 0;}
+  
+    //! points team 1 (player 1 and 3)
+    int iPointsTeam_1;
+    //! points team 2 (player 2 and 4)
+    int iPointsTeam_2;
+    //! good game declaration team 1
+    int iAccusePointTeam_1;
+    //! good game declaration team 2
+    int iAccusePointTeam_2;
 };
 
 typedef std::vector<cGiocataInfo> VCT_GIOCATAINFO;
@@ -101,8 +130,10 @@ public:
     void    GetManoInfo(int iManoNum, int* piPlayerIx, BOOL* pbIsPlayed, BOOL* pbIsPata);
     //! giocata informations
     void    GetGiocataInfo(int iNumGiocata, cGiocataInfo* pGiocInfo);
+    //! current giocata informations
+    void    GetCurrGiocataInfo(cGiocataInfo* pGiocInfo);
     //! provides number of giocate
-    int     GetNumGiocateInCurrMatch(){return (int)m_vctGiocataInfo.size();}
+    size_t     GetNumGiocateInCurrMatch(){return m_vctGiocataInfo.size();}
     //! player abandon giocata
     void    PlayerVaVia(int iPlayerIx);
     //! set mano object
@@ -113,6 +144,14 @@ public:
     void    SetTheWinner(int iPlayerIx);
     //! provides the number of cards played in the current mano
     int     GetCurrNumCardPlayed(){return m_iNumCardsPlayed;}
+    //! check if the card played is rejected 
+    BOOL    CheckRejecting(int iPlayerIx, CARDINFO* pCard);
+    //! provides the card played in the current trick
+    void    GetCardPlayedOnTrick(int iIndex, CardSpec* pResCard);
+    //! good game declaration
+    void    DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    //! set the score goal
+    void    SetScoreGoal(int iVal){m_iScoreGoal = iVal;}
 
 //interface I_MatchScore
     //! provides the winner of the hand. In case of remis return the initial player
@@ -140,8 +179,11 @@ public:
     //! true if the game was abandoned
     virtual BOOL    IsGameAbandoned(){return m_bGameAbandoned;}
 
+
 private:
     void    beginSpecialTurn();
+    int     calculatePointsTeam2();
+    int     calculatePointsTeam1();
 
 private:
     //! points players
@@ -152,7 +194,7 @@ private:
     eGiocataScoreState  m_eCurrentScore;
     //! current score changer
     int                 m_iPlayerChangeScore;
-    //! cards played
+    //! cards played in a trick
     cCardPlayed   m_vctCardPlayed[MAX_NUM_PLAYER];
     //! number of cards played
     int           m_iNumCardsPlayed;
@@ -186,6 +228,14 @@ private:
     cMano*              m_pMano;
     //! game abandoned flag
     BOOL           m_bGameAbandoned;
+    //! cards taken of the first team 
+    VCT_CARDSPEC   m_vctCardTaken_1;
+    //! cards taken of the second team 
+    VCT_CARDSPEC   m_vctCardTaken_2;
+    //! player that make the last mano
+    int            m_iPlayerLastMano;
+    //! current giocata information
+    cGiocataInfo   m_CurrGiocataInfo;
 };
 
 #endif // !defined(AFX_CMATCHPOINTS_H__A8E0031A_CF94_4322_9E51_9C761FDDDC7C__INCLUDED_)

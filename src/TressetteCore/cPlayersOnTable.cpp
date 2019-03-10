@@ -1,7 +1,29 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
+
 
 
 // cPlayersOnTable
-
 #include "StdAfx.h"
 #include "cPlayersOnTable.h"
 
@@ -16,23 +38,21 @@ cPlayersOnTable::cPlayersOnTable()
 {
     m_lCurrent = 0;
     m_lNumPlayers = 0;
-    m_lFirstOnTrick = NOT_VALID_INDEX;
-    m_lFirstOnGiocata = NOT_VALID_INDEX;
-    m_lFirstOnMatch = NOT_VALID_INDEX;
+    m_lPlayFirst = 0;
 }
 
 
 ////////////////////////////////////////
-//       SetFirstOnTrick
-/*! Set first player on trick
+//       SetFirst
+/*! Set first player
 // \param long lIndex : index of the first player 
 */
-void  cPlayersOnTable::SetFirstOnTrick(long lIndex)
+void  cPlayersOnTable::SetFirst(long lIndex)
 {
-    if (lIndex < (long)m_vctPlayers.size() && lIndex >= 0)
+    size_t iNumEle = m_vctPlayers.size();
+    if (lIndex < iNumEle && lIndex >= 0)
     {
         m_lCurrent = lIndex;
-        m_lFirstOnTrick = lIndex;
     }
     else
     {
@@ -40,83 +60,33 @@ void  cPlayersOnTable::SetFirstOnTrick(long lIndex)
     }
 }
 
-
-////////////////////////////////////////
-//       SetFirstOnGiocata
-/*! Set the first player index in the current giocata
-// \param long lIndex : 
-*/
-void  cPlayersOnTable::SetFirstOnGiocata(long lIndex)
-{
-    if (lIndex < (long)m_vctPlayers.size() && lIndex >= 0)
-    {
-        m_lCurrent = lIndex;
-        m_lFirstOnTrick = lIndex;
-        m_lFirstOnGiocata = lIndex;
-    }
-    else
-    {
-        ASSERT(0);
-    }
-}
-
-
-////////////////////////////////////////
-//       SetFirstOnMatch
-/*! set the first player in match
-// \param long lIndex : 
-*/
-void  cPlayersOnTable::SetFirstOnMatch(long lIndex)
-{
-    if (lIndex < (long)m_vctPlayers.size() && lIndex >= 0)
-    {
-        m_lCurrent = lIndex;
-        m_lFirstOnTrick = lIndex;
-        m_lFirstOnGiocata = lIndex;
-        m_lFirstOnMatch = lIndex;
-    }
-    else
-    {
-        ASSERT(0);
-    }
-}
 
 ////////////////////////////////////////
 //       Create
 /*! Create structure for players on the table
-// \param cPlayer* pHmiPlayer : player instanciated in hmi
 // \param long lNumPlayers : number of players
 */
-void  cPlayersOnTable::Create(cPlayer* pHmiPlayer, int iNumPlayers)
+void  cPlayersOnTable::Create( int iNumPlayers)
 {
     m_vctPlayers.clear();
     for (int i = 0; i < iNumPlayers; i++)
     {
-        if (pHmiPlayer && i == 0)
+        
+        m_vctPlayers.push_back(cPlayer());
+        m_vctPlayers[i].Create();
+        // type is default value. Gfx engine change it.
+        if (i == 0)
         {
-            pHmiPlayer->SetIndex(0) ;
-            m_vctPlayers.push_back(*pHmiPlayer);
+            // the first player is a local
+            m_vctPlayers[i].SetType(PT_LOCAL);
         }
         else
         {
-            m_vctPlayers.push_back(cPlayer());
-            m_vctPlayers[i].Create();
-            // type is default value. Gfx engine change it.
-            if (i == 0)
-            {
-                // the first player is a local
-                m_vctPlayers[i].SetType(PT_LOCAL);
-            }
-            else
-            {
-                // all others are machine
-                m_vctPlayers[i].SetType(PT_MACHINE);
-            }
-            m_vctPlayers[i].SetIndex(i);
+            // all others are machine
+            m_vctPlayers[i].SetType(PT_MACHINE);
         }
-        
+        m_vctPlayers[i].SetIndex(i);        
     }
-
     m_lNumPlayers = iNumPlayers;
 }
 
@@ -124,7 +94,7 @@ void  cPlayersOnTable::Create(cPlayer* pHmiPlayer, int iNumPlayers)
 ////////////////////////////////////////
 //       GetPlayerToPlay
 /*! Provides the player that have to play and set the iterator to the next.
-// Function is to be called only from giocata algorithm oterwise the order is not correct.
+// Fuction is to be called only from giocata algorithm oterwise the order is not correct.
 // \param eSwitchPLayer eVal: switch value
 */
 cPlayer*  cPlayersOnTable::GetPlayerToPlay(eSwitchPLayer eVal)
@@ -154,7 +124,8 @@ cPlayer*  cPlayersOnTable::GetPlayerToPlay(eSwitchPLayer eVal)
 */
 cPlayer*  cPlayersOnTable::GetPlayerIndex(long lIndex)
 {
-    if (lIndex < (long)m_vctPlayers.size() && lIndex >= 0)
+    size_t iNumEle = m_vctPlayers.size();
+    if (lIndex < iNumEle && lIndex >= 0)
     {
     }
     else

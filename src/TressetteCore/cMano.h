@@ -1,3 +1,26 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
+
 
 
 //cMano.h
@@ -5,12 +28,12 @@
 #ifndef ____CMANO_H
 #define ____CMANO_H
 
-#include "cTressetteCoreEnv.h"
+#include "CoreEnv.h"
 #include "AlgPlayerInterface.h"
 #include <deque>
 #include <map>
 
-class cInvidoCore;
+class cCore;
 class cGiocata;
 class cMatchPoints;
 
@@ -55,7 +78,7 @@ typedef std::deque< eManoStatus >             DEQ_TABLESTATE;
 class cPendQuestion
 {
 public:
-    cPendQuestion(){m_bIsAMonte = FALSE; m_eScore= SC_CANELA; m_iPlayerIx = NOT_VALID_INDEX;}
+    cPendQuestion(){m_bIsAMonte = FALSE; m_eScore= SC_NOSCORE; m_iPlayerIx = NOT_VALID_INDEX;}
     cPendQuestion(BOOL bVal, eGiocataScoreState eSc, int iPl){m_bIsAMonte = bVal; m_eScore= eSc; m_iPlayerIx = iPl;}
 
     //! assignement operator
@@ -96,7 +119,6 @@ typedef std::deque< cActionItem > DEQ_ACTIONITEM;
 
 
 class cPlayersOnTable;
-class TraceService;
 /////////////////////////////////////////////////////////////////////////////////////
 //   *******************  CMANO CLASS ***************************************
 /////////////////////////////////////////////////////////////////////////////////////
@@ -109,7 +131,7 @@ class cMano
 {
 public:
     cMano();
-    void    SetCore(cInvidoCore* pVal){m_pInvidoCore = pVal;}
+    void    SetCore(cCore* pVal){m_pCoreEngine = pVal;}
     void    SetGiocata(cGiocata* pVal){ m_pGiocata = pVal;}
     void    SetScore(cMatchPoints* pVal){m_pScore = pVal;}
     //! start a new mano
@@ -117,7 +139,7 @@ public:
     //! on mano player say something
     BOOL    Player_Say(int iPlayerIx, eSayPlayer eSay);
     // player play a card
-    BOOL    Player_Play(int iPlayerIx, BOOL vadoDentro);
+    BOOL    Player_Play(int iPlayerIx);
     //! reset a mano
     void    Reset();
     //! next action
@@ -126,10 +148,6 @@ public:
     eManoStatus GetState(){return m_eManoState;}
     //! start  match
     void    MatchStart();
-    //! provides available calls
-    void    GetAdmittedCommands(VCT_COMMANDS& vct_Commands, int iPlayerIndex);
-    void    GetMoreCommands(VCT_COMMANDS& vct_Commands, int iPlayerIndex);
-    void    CommandWithPendingQuestion(cPendQuestion& PendQues, VCT_COMMANDS& vct_Commands, int iPlayerIndex);
     //! giocata start notification
     void    GiocataStart();
 
@@ -139,7 +157,7 @@ private:
     void    handleVaBene(int iPlayerIx);
     void    handle_ScoreCalled(int iPlayerIx, eSayPlayer eSay);
     void    handle_MonteCall(int iPlayerIx, eSayPlayer eSay);
-    void    handle_CallMoreOrInvido(int iPlayerIx);
+    void    handle_CallMore(int iPlayerIx);
     void    handle_CallNo(int iPlayerIx);
     void    add_Action(int iPlayerIx, eFN_MANOACTION eAct);
     BOOL    get_LastPendQuest(cPendQuestion& PendQues);
@@ -160,7 +178,7 @@ private:
 
 private:
     //! invido core engine
-    cInvidoCore*        m_pInvidoCore;
+    cCore*              m_pCoreEngine;
     //! giocata object
     cGiocata*           m_pGiocata;
     //! mano status
@@ -199,8 +217,6 @@ private:
     MAP_SCORE_SCORENEXT m_mapScoreScNext;
     //! map score with say
     MAP_SCORE_SAY       m_mapScoreSay;
-    //! tracer service
-    TraceService*       m_pTracer;
 };
 
 #endif

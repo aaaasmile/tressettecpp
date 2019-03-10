@@ -1,3 +1,26 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
+
 
 
 //cMazzo.h
@@ -7,10 +30,10 @@
 
 #include "win_type_global.h"
 
-#include "cTressetteCoreEnv.h"
+#include "CoreEnv.h"
 #include "CardSpec.h"
 
-class cInvidoCore;
+class cCore;
 
 //! class cMazzo
 /**
@@ -23,7 +46,7 @@ public:
     cMazzo();
 
     //! set core game engine object
-    void SetCoreEngine(cInvidoCore* pVal){m_pCoreGame = pVal;}
+    void SetCoreEngine(cCore* pVal){m_pCoreGame = pVal;}
     //! create a deck
     void       Create();
     //! clone a deck
@@ -32,8 +55,6 @@ public:
     long       GetNextCardVal(){return m_lNextCard;}
     //! shuffle the deck
     bool       Shuffle();
-    //! reset the deck
-    void       Reset(){m_lNextCard = 0;}
     //! pick the next on the deck
     long       PickNextCard(BOOL* pbEnd);
     //! pick the next on the deck
@@ -47,7 +68,7 @@ public:
     //! row vetcors of index, better don't use it
     VCT_LONG   GetVectorIndexes(){return m_vctCards;}
     //! total number of cards on the deck
-	size_t     Count(){return m_vctCards.size();}
+    size_t       Count(){return m_vctCards.size();}
     //! value of assigned deck position
     long       GetIndexRaw(long l){return m_vctCards[l];}
     //! provides if the deck has yet cards
@@ -58,6 +79,10 @@ public:
     void       SetIndexRaw(int iIndex, long lVal);
     //! set random seed
     void       SetRandomSeed(int iVal){m_iRndSeed = iVal;  srand(m_iRndSeed);}
+    //! rewind the deck
+    void       DeckRewind();
+    //! check if the deck is ok
+    void       CheckDeck();
 
 private:
     //! vector of cards in the play (mazzo)
@@ -65,7 +90,7 @@ private:
     //! index to the next card in the mazzo
     long          m_lNextCard;
     //! core engine 
-    cInvidoCore*  m_pCoreGame;
+    cCore*        m_pCoreGame;
     //! random seed
     int           m_iRndSeed;
 };

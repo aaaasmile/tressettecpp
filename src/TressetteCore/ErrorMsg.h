@@ -1,7 +1,8 @@
-//myexception.h
 
-#ifndef _MY_EXCEPTION_H__
-#define _MY_EXCEPTION_H__
+// ErrorMsg.h
+
+#ifndef ERROR_MSG__H_____
+#define ERROR_MSG__H_____
 
 //! namespace Error
 namespace Error

@@ -1,12 +1,35 @@
+/*
+    Tressette
+    Copyright (C) 2005  Igor Sarzi Sartori
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
 
 
-// cInvidoCoreEngine.h
+
+// cCoreEngine.h
 
 #ifndef _C_INVIDOCORE_H_
 #define _C_INVIDOCORE_H_
 
 
-#include "cTressetteCoreEnv.h"
+#include "CoreEnv.h"
 #include "cProbality.h"
 #include "cPartita.h"
 #include "cMano.h"
@@ -20,57 +43,69 @@
 class cMazzo;
 class TraceService;
 
+typedef std::map<eSayPlayer, STRING> MAP_SAY;
+
 /////////////////////////////////////////////////////////////////////////////////////
-//   *******************  CINVIDOCORE CLASS ***************************************
+//   *******************  cCore CLASS ***************************************
 /////////////////////////////////////////////////////////////////////////////////////
 
-//! class cInvidoCore
+//! class cCore
 /** the core class for the invido. Hold all information about game in progress, level
 cards and so on.
 */
-class cInvidoCore : public I_CORE_Game
+class cCore : public I_CORE_Game
 {
 public:
-    cInvidoCore();
-    ~cInvidoCore();
+    cCore();
+    ~cCore();
 
     //!create the engine 
-    void  Create(cPlayer* pHmiPlayer, int iNumPlayers);
+    void  Create( int iNumPlayers);
     //! provides information about whon won the game
     BOOL  WhoWonsTheGame(cPlayer** ppPlayer);
     //! provides the index of the player that have to play
     BOOL  GetPlayerInPlaying(cPlayer** ppPlayer);
     //! set the game type
     void  SetGameType(eGameType eVal){m_eGameType = eVal;}
+    //! provides the player that start the game
+    cPlayer*           GetStartPlayer(){return m_PlayersOnTable.GetFirst();}
     //!provides a player 
     cPlayer*           GetPlayer(int iIndex){return m_PlayersOnTable.GetPlayerIndex(iIndex);}
     //! error message, somithing was wrong
-    void               RaiseError( const std::string &errorMsg);
+    void               RaiseError( const std::string &errorMsg); 
     //! provides the number of players
     int                GetNumOfPlayers(){return m_lNumPlayers;}
     //! provides match points object
     cMatchPoints*      GetMatchPointsObj(){return &m_MatchPoints;}
-    //! provides the player table
-    cPlayersOnTable*   GetTable(){return &m_PlayersOnTable;}
-
-// functions related to the script engine
     //! notify event to the script engine
     void               NotifyScript(eScriptNotification eVal);
+    //! provides the player table
+    cPlayersOnTable*   GetTable(){return &m_PlayersOnTable;}
+    //! set wich type of localized game is played
+    void               SetLocalType(eTypeLocal eLocal);
+    //! get current local type
+    eTypeLocal         GetLocalType(){return m_eLocalType;}
+    //! Provides the text of the call
+    STRING             GetComandString(eSayPlayer eSay);
+    //! set if good game call are enabled
+    void               SetGoodGameCallEnabled(BOOL bVal){m_bGooGameAreEnabled = bVal;}
+    //! the match init without a script
+    void               NoInitScript();
+     //! provides admitted commands
+    void               GetAdmittedSignals(CardSpec&   cardClicked, VCT_SIGNALS& vct_Signals, int iPlayerIndex);
+
+// script functions
     //! script override deck
-    void               Script_OverrideDeck(int iPlayer, int iC1, int iC2, int iC3);
+    void               Script_OverrideDeck(int iPlayer, int vctCardPlayer[]);
     //! script say
     void               Script_Say(int iPlayer, eSayPlayer eSay);
     //! script play
     void               Script_Play(int iPlayer, CardSpec& CardPlayed);
-    //! script notification algorithm
-    void               NotifyScriptAlgorithm(int iPlayerIx, eScriptNotification eVal);
-    //! script match end
-    void               Script_MatchEnd();
-    //! set the start player
+    //! script check deck
+    void               Script_CheckDeck();
+    //! script set the start player
     void               Script_SetStartPlayer(int iPlayer);
-    //! script want to check an item
-    int                Script_CheckResult(int iTypeOfItem, int iParam1, int iExpectedVal );
-    
+
 // functions called from cMano
     //! a Mano is terminated
     void      Mano_End();
@@ -105,28 +140,27 @@ public:
     //! next state
     void      NextAction();
     //! set Random seed
-    void      SetRandomSeed(int iVal){m_pMyMazzo->SetRandomSeed(iVal);}
+    void      SetRandomSeed(int iVal);
     
     
 // I_CORE_Game: functions called from algorithm
     //! player say something
     BOOL      Player_saySomething(int iPlayerIx, eSayPlayer eSay );
     //! card is played from a player
-    BOOL      Player_playCard(int iPlayerIx, const CARDINFO* pCardInfo);
-    BOOL      Player_vaDentro(int iPlayerIx, const CARDINFO* pCardInfo);
-    //! provides admitted commands
-    void      GetAdmittedCommands(VCT_COMMANDS& vct_Commands, int iPlayerIndex);
-    void      GetMoreCommands(VCT_COMMANDS& vct_Commands, int iPlayerIndex);
+    BOOL      Player_playCard(int iPlayerIx, CARDINFO* pCardInfo);
     //! player abandon the game
     void      AbandonGame(int iPlayerIx);
+    //! declare good game
+    BOOL      DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
 
 private:
-    CardSpec*    isCardInPlayerHand(int iPlayerIx, const CARDINFO* pCardInfo);
-    CardSpec*    checkValidCardPlayed(int iPlayerIx, const CARDINFO * pCardInfo);
-    void         resetCardInfoPlayers();
-    BOOL         resetCard(int iPlayerIx, CARDINFO* pCardInfo);
-    int          getNewMatchFirstPlayer();
-    
+    BOOL    isCardInPlayerHand(int iPlayerIx, CARDINFO* pCardInfo);
+    void    resetCardInfoPlayers();
+    BOOL    resetCard(int iPlayerIx, CARDINFO* pCardInfo);
+    BOOL    isDeclarationInPlayerHand(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    void    checkForBussoVoloLiscieBasse(BOOL& bBusso, BOOL& bVolo, BOOL& bLiscio, int iPlayerIndex, CardSpec&   cardClicked);
+    BOOL    checkForStriscioNeHoTante(int iPlayerIndex, CardSpec&   cardClicked);
+
 private:
     //! players on table
     cPlayersOnTable   m_PlayersOnTable;
@@ -150,14 +184,26 @@ private:
     cGiocata                  m_Giocata;
     //! mano
     cMano                     m_Mano;
-    //! players algorithm
+    //! algorith players
     I_ALG_Player*             m_vctAlgPlayer[MAX_NUM_PLAYER];
     //! points handler in match
     cMatchPoints              m_MatchPoints;
     //! store cards of all players
     CardSpec                  m_aCardInfo[NUM_CARDS_HAND * MAX_NUM_PLAYER];
-    //! tracer service
+    //! local type 
+    eTypeLocal                m_eLocalType;
+    //! defaults signals  available
+    VCT_SIGNALS               m_vctSignAvail;
+    //! flag to shuffle the deck (used only with script)
+    BOOL                      m_bSuspendShuffle;
+    //! good game enable flag
+    BOOL                      m_bGooGameAreEnabled;
+    //! first player index set from script
+    int                       m_iFirstPlayerPython;
+    //! tracer
     TraceService*             m_pTracer;
+    //! map names of player calls for feedback
+    MAP_SAY                   m_Map_fb_Say;
 };
 
 #endif

@@ -1,4 +1,25 @@
+/*
+    Invido
+    Copyright (C) 2005  Igor Sarzi Sartori
 
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+    
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+
+    You should have received a copy of the GNU Library General Public
+    License along with this library; if not, write to the Free
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    Igor Sarzi Sartori
+    www.invido.it
+    6colpiunbucosolo@gmx.net
+*/
 
 
 // TraceService.cpp
@@ -44,7 +65,7 @@ STRING EntryTraceDetail::ToString()
 {
     STRING strRes;
     STRING strOnlyFileName;
-    CHAR buff[512];
+    CHAR buff[1024];
 
     // use only the filename and not the complete path
     size_t iIndex = m_strFileName.rfind('\\');
@@ -95,7 +116,7 @@ TraceService* TraceService::Instance ()
 */
 TraceService::TraceService()
 {
-	int i;
+    int i;
     for (i = 0; i < NUM_OF_CHANN; i++)
     {
         m_abChannelMask[i] = FALSE;
@@ -150,16 +171,18 @@ BOOL   TraceService::AddNewEntry(int iChannel, int iId, EntryTraceDetail::eType 
         int iIndexNew = m_aiChannelCursor[iChannel];
         ASSERT(iIndexNew >= 0 && iIndexNew < NUM_OF_ENTRIES);
 
-        SYSTEMTIME SysTm;
-        GetSystemTime( &SysTm);
-
-        // updat info trace
+        // update info trace
         m_mtxEntryTraceDetails[iChannel][iIndexNew].m_eTrType = eValType;
         m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iID  = iId;
         m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iLineNumber  = iLineNr;
         m_mtxEntryTraceDetails[iChannel][iIndexNew].m_strFileName  = lpszFileName;
+#ifdef WIN32
+        SYSTEMTIME SysTm;
+        GetSystemTime( &SysTm);
         m_mtxEntryTraceDetails[iChannel][iIndexNew].m_ulTimeStamp  = SysTm.wMinute * 60 + SysTm.wSecond;
-
+#else
+	m_mtxEntryTraceDetails[iChannel][iIndexNew].m_ulTimeStamp  = 0;
+#endif
         // enable the call to add a comment
         m_iLastEntryUsed = iIndexNew;
         m_iLastChannelUsed = iChannel;
@@ -190,7 +213,7 @@ void   TraceService::AddCommentToLastEntry(LPCSTR lpszForm, ... )
     if (m_iLastEntryUsed >= 0 && m_iLastEntryUsed < NUM_OF_ENTRIES &&
         m_iLastChannelUsed >= 0 && m_iLastChannelUsed < NUM_OF_CHANN)
     {
-        static CHAR buff[512];
+        static CHAR buff[1024];
         va_list marker;
 	    va_start(marker, lpszForm);										
 	    vsprintf(buff, lpszForm, marker);						
@@ -218,57 +241,52 @@ void   TraceService::AddCommentToLastEntry(LPCSTR lpszForm, ... )
 // \param LPCSTR lpszForm : 
 // \param ... : 
 */
-void TraceService::AddSimpleTrace(int iChannelNext, LPCSTR lpszForm, ...)
+void TraceService::AddSimpleTrace(int iChannel, LPCSTR lpszForm, ...)
 {
-    ASSERT(iChannelNext >= 0 && iChannelNext < NUM_OF_CHANN);
-    int iChannel = TR_CORE_CH; // Always trace to the channel TR_CORE_CH
-    do
+    ASSERT(iChannel >= 0 && iChannel < NUM_OF_CHANN);
+    if (m_abChannelMask[iChannel])
     {
-        if (m_abChannelMask[iChannel])
+        int iIndexNew = m_aiChannelCursor[iChannel];
+        ASSERT(iIndexNew >= 0 && iIndexNew < NUM_OF_ENTRIES);
+
+
+        // updat info trace
+        m_mtxEntryTraceDetails[iChannel][iIndexNew].m_eTrType = EntryTraceDetail::TR_INFO;
+        m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iID  = -1;
+        m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iLineNumber  = -1;
+        m_mtxEntryTraceDetails[iChannel][iIndexNew].m_strFileName  = "\\nofile";
+#ifdef WIN32
+        SYSTEMTIME SysTm;
+        GetSystemTime( &SysTm);
+        m_mtxEntryTraceDetails[iChannel][iIndexNew].m_ulTimeStamp  = SysTm.wMinute * 60 + SysTm.wSecond;
+#else
+	m_mtxEntryTraceDetails[iChannel][iIndexNew].m_ulTimeStamp  = 0;
+#endif
+        // info for flashout
+        m_iLastEntryUsed = iIndexNew;
+        m_iLastChannelUsed = iChannel;
+
+        static CHAR buff[1024];
+        va_list marker;
+	va_start(marker, lpszForm);										
+	vsprintf(buff, lpszForm, marker);						
+	va_end(marker);	
+        m_mtxEntryTraceDetails[m_iLastChannelUsed][m_iLastEntryUsed].m_strComment = buff ;
+
+        // put it out
+        flashTheEntry();
+
+        m_iLastEntryUsed = -1;
+        m_iLastChannelUsed = -1;
+
+        // set the cursor to a new entry
+        m_aiChannelCursor[iChannel] ++;
+        if (m_aiChannelCursor[iChannel] >= NUM_OF_ENTRIES)
         {
-            int iIndexNew = m_aiChannelCursor[iChannel];
-            ASSERT(iIndexNew >= 0 && iIndexNew < NUM_OF_ENTRIES);
-
-            SYSTEMTIME SysTm;
-            GetSystemTime(&SysTm);
-
-            // update info trace
-            m_mtxEntryTraceDetails[iChannel][iIndexNew].m_eTrType = EntryTraceDetail::TR_INFO;
-            m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iID = -1;
-            m_mtxEntryTraceDetails[iChannel][iIndexNew].m_iLineNumber = -1;
-            m_mtxEntryTraceDetails[iChannel][iIndexNew].m_strFileName = "\\nofile";
-            m_mtxEntryTraceDetails[iChannel][iIndexNew].m_ulTimeStamp = SysTm.wMinute * 60 + SysTm.wSecond;
-
-            // info for flashout
-            m_iLastEntryUsed = iIndexNew;
-            m_iLastChannelUsed = iChannel;
-
-            static CHAR buff[512];
-            va_list marker;
-            va_start(marker, lpszForm);
-            vsprintf(buff, lpszForm, marker);
-            va_end(marker);
-            m_mtxEntryTraceDetails[m_iLastChannelUsed][m_iLastEntryUsed].m_strComment = buff;
-
-            // put it out
-            flashTheEntry();
-
-            m_iLastEntryUsed = -1;
-            m_iLastChannelUsed = -1;
-
-            // set the cursor to a new entry
-            m_aiChannelCursor[iChannel] ++;
-            if (m_aiChannelCursor[iChannel] >= NUM_OF_ENTRIES)
-            {
-                // circular buffer
-                m_aiChannelCursor[iChannel] = 0;
-            }
+            // circular buffer
+            m_aiChannelCursor[iChannel] = 0;
         }
-        if (iChannel == iChannelNext)
-            iChannel = -1;
-        else
-            iChannel = iChannelNext;
-    } while (iChannel == -1);
+    }
 }
 
 
@@ -312,8 +330,11 @@ void  TraceService::flashTheEntry()
         case OT_MSVDEBUGGER:
             // visual studio debugger
             strEntry = m_mtxEntryTraceDetails[m_iLastChannelUsed][m_iLastEntryUsed].ToString(); 
-            TRACE(strEntry.c_str() );
-            TRACE("\n");
+            if (strEntry.length() < 512) 
+            {
+                TRACE(strEntry.c_str() );
+                TRACE("\n");
+            }
             break;
     }
 }

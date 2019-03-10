@@ -1,9 +1,11 @@
 
-
 // TraceService.h
 
 #ifndef TRACESERVICE__H___
 #define TRACESERVICE__H___
+
+#include "win_type_global.h"
+#include <fstream>
 
 class I_GuiTracer;
 

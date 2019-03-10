@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\InvidoClient\AppGfx.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cAlgAdvancedPlayer.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\CardSpec.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\guigfx\cBalloonGfx.cpp">
       <Filter>Source Files\guigfx</Filter>
     </ClCompile>
@@ -31,78 +22,6 @@
     <ClCompile Include="..\guigfx\cLabelLinkGfx.cpp">
       <Filter>Source Files\guigfx</Filter>
     </ClCompile>
-    <ClCompile Include="..\InvidoClient\cCardGfx.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\cDelayNextAction.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\cHightScoreMgr.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cGiocata.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cInvidoCore.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\cInvidoGfx.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cMano.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\cMenuMgr.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\credits.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\cTipoDiMazzo.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\fading.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\InvidoSettings.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\Languages.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\main.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\regkey.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoClient\StdAfx.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cMatchPoints.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cMazzo.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cPartita.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cPlayer.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cPlayersOnTable.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cPlayerStatistic.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\cProbality.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\InvidoCore\TraceService.cpp">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\guigfx\cMesgBoxGfx.cpp">
       <Filter>Source Files\guigfx</Filter>
     </ClCompile>
@@ -121,25 +40,115 @@
     <ClCompile Include="..\guigfx\OptionGfx.cpp">
       <Filter>Source Files\guigfx</Filter>
     </ClCompile>
-    <ClCompile Include="..\InvidoClient\cMusicManager.cpp">
+    <ClCompile Include="..\MySearchAlpha\cAlgABSolver.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySearchAlpha\cCardItem.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySearchAlpha\cHand.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySearchAlpha\cStateAB.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySearchAlpha\TrickHistory.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\AppGfx.cpp">
       <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cInvidoGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cCardGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cDelayNextAction.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cHightScoreMgr.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cMenuMgr.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cMusicManager.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\credits.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cTipoDiMazzo.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\fading.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\InvidoSettings.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\Languages.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\main.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\regkey.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\StdAfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\AlgSupport.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cAlgDefault.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cAlgPlugin.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\CardSpec.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cCoreEngine.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cGiocata.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cMano.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cMatchPoints.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cMazzo.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cPartita.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cPlayer.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cPlayersOnTable.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cPlayerStatistic.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\cProbality.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteCore\TraceService.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\InvidoClient\AppGfx.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
     <ClInclude Include="..\Include\begin_code.h">
       <Filter>Source Files\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\AlgPlayerInterface.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cAlgAdvancedPlayer.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\CardSpec.h">
-      <Filter>Source Files\Tressette Core</Filter>
     </ClInclude>
     <ClInclude Include="..\guigfx\cBalloonGfx.h">
       <Filter>Source Files\guigfx</Filter>
@@ -161,54 +170,6 @@
     </ClInclude>
     <ClInclude Include="..\guigfx\cLabelLinkGfx.h">
       <Filter>Source Files\guigfx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cCardGfx.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cDelayNextAction.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cHightScoreMgr.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cGiocata.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cInvidoCore.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cInvidoCoreEnv.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cInvidoGfx.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cMano.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cMenuMgr.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\credits.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\cTipoDiMazzo.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\fading.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\FastDelegate.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\InvidoSettings.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\Languages.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoClient\regkey.h">
-      <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\StdAfx.h">
       <Filter>Source Files\Tressette Client</Filter>
@@ -459,42 +420,6 @@
     <ClInclude Include="..\Include\close_code.h">
       <Filter>Source Files\Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\InvidoCore\cMatchPoints.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cMazzo.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cPartita.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cPlayer.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cPlayersOnTable.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cPlayerStatistic.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\cProbality.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\fuzzy.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\InvidoInfoComm.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\myexception.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\TraceService.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\InvidoCore\save_utility.h">
-      <Filter>Source Files\Tressette Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\guigfx\cMesgBoxGfx.h">
       <Filter>Source Files\guigfx</Filter>
     </ClInclude>
@@ -513,9 +438,6 @@
     <ClInclude Include="..\guigfx\OptionGfx.h">
       <Filter>Source Files\guigfx</Filter>
     </ClInclude>
-    <ClInclude Include="..\InvidoClient\cMusicManager.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
     <ClInclude Include="..\Include\cSettings.h">
       <Filter>Source Files\Include</Filter>
     </ClInclude>
@@ -524,6 +446,135 @@
     </ClInclude>
     <ClInclude Include="..\Include\win_type_global.h">
       <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\cAlgABSolver.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\cCardItem.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\cHand.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\ConstSearchAlpha.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\cStateAB.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\TrickHistory.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\AppGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cInvidoGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cCardGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cDelayNextAction.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cHightScoreMgr.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cMenuMgr.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cMusicManager.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\credits.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cTipoDiMazzo.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\fading.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\FastDelegate.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\InvidoSettings.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\Languages.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\regkey.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\resource.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\InfoComm.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\AlgCompareFunct.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\AlgPlayerInterface.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\AlgSupport.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cAlgDefault.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cAlgPlugin.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\CardSpec.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cCoreEngine.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cGiocata.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cMano.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cMatchPoints.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cMazzo.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\CoreEnv.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cPartita.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cPlayer.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cPlayersOnTable.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cPlayerStatistic.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\cProbality.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\ErrorMsg.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\fuzzy.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\save_utility.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteCore\TraceService.h">
+      <Filter>Source Files\Tressette Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -563,6 +614,9 @@
     </Filter>
     <Filter Include="Source Files\guigfx">
       <UniqueIdentifier>{1226e235-b503-45de-b021-7e3a8b96d836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MySearchAlpha">
+      <UniqueIdentifier>{e5bc26a0-bd95-4248-a537-568da0e3f95e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

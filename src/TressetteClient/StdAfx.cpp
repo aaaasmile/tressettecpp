@@ -7,7 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include "TraceService.h"
-#include "InvidoInfoComm.h"
+#include "InfoComm.h"
 
 void TraceInLogFile(char* myBuff)
 {
