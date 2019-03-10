@@ -2,18 +2,19 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-src/VisualStudio/.vs/InvidoCpp/v14/.suo
+src/VisualStudio/.vs/*
 *.obj
 src/VisualStudio/x64/Debug/*.*
 src/VisualStudio/x64/Release/*.*
 src/VisualStudio/Debug/*.*
 src/VisualStudio/x64/*
-src/VisualStudio/InvidoCpp.VC.VC.opendb
-src/VisualStudio/InvidoCpp.VC.db
+src/VisualStudio/TressetteCpp.VC.VC.opendb
+src/VisualStudio/TressetteCpp.VC.db
 src/VisualStudio/x64/Debug/vc140.idb
 src/VisualStudio/x64/Debug/vc140.idb
 src/VisualStudio/x64/Debug/*.*
 src/VisualStudio/x64/Debug/*
+src/VisualStudio/*.aps
 deploy/out_for_setup/*.*
 deploy/out_for_setup/*
 *.idb

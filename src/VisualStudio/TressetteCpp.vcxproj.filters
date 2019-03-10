@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\InvidoClient\AppGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cAlgAdvancedPlayer.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\CardSpec.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cBalloonGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cButtonGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cCheckBoxGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cComboGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cEditGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cLabelGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cLabelLinkGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cCardGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cDelayNextAction.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cHightScoreMgr.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cGiocata.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cInvidoCore.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cInvidoGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMano.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cMenuMgr.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\credits.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cTipoDiMazzo.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\fading.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\InvidoSettings.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\Languages.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\main.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\regkey.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\StdAfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMatchPoints.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cMazzo.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPartita.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayer.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayersOnTable.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cPlayerStatistic.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\cProbality.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoCore\TraceService.cpp">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cMesgBoxGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cPopUpMenuGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\cProgressBarGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\EnterNameGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\gfx_util.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\guigfx\OptionGfx.cpp">
+      <Filter>Source Files\guigfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\InvidoClient\cMusicManager.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\InvidoClient\AppGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\begin_code.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\AlgPlayerInterface.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cAlgAdvancedPlayer.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\CardSpec.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cBalloonGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cButtonGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cCheckBoxGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cComboGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cEditGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cLabelGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cLabelLinkGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cCardGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cDelayNextAction.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cHightScoreMgr.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cGiocata.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cInvidoCore.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cInvidoCoreEnv.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cInvidoGfx.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMano.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cMenuMgr.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\credits.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cTipoDiMazzo.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\fading.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\FastDelegate.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\InvidoSettings.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\Languages.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\regkey.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\StdAfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_vulkan.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_assert.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_atomic.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_audio.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_bits.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_blendmode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_clipboard.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_android.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_iphoneos.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_macosx.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_minimal.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_pandora.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_psp.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_windows.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_winrt.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_config_wiz.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_copying.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_cpuinfo.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_egl.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_endian.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_error.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_events.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_filesystem.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_gamecontroller.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_gesture.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_haptic.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_hints.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_joystick.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_keyboard.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_keycode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_loadso.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_log.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_main.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_messagebox.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mixer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mouse.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_mutex.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_name.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengl.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengl_glext.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2ext.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_gl2platform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_opengles2_khrplatform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_pixels.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_platform.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_power.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_quit.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_rect.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_render.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_revision.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_rwops.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_scancode.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_shape.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_stdinc.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_surface.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_system.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_syswm.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_assert.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_common.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_compare.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_crc32.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_font.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_fuzzer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_harness.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_images.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_log.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_md5.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_memory.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_test_random.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_thread.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_timer.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_touch.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_types.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_version.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SDL_video.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\close_code.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMatchPoints.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cMazzo.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPartita.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayer.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayersOnTable.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cPlayerStatistic.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\cProbality.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\fuzzy.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\InvidoInfoComm.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\myexception.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\TraceService.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoCore\save_utility.h">
+      <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cMesgBoxGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cPopUpMenuGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\cProgressBarGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\EnterNameGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\gfx_util.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\guigfx\OptionGfx.h">
+      <Filter>Source Files\guigfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\InvidoClient\cMusicManager.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\cSettings.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\win_type_global.h">
+      <Filter>Source Files\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\out\data\images\icona_asso.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="tressette.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Include\SDL_config.h.cmake">
+      <Filter>Source Files\Include</Filter>
+    </None>
+    <None Include="..\Include\SDL_config.h.in">
+      <Filter>Source Files\Include</Filter>
+    </None>
+    <None Include="..\Include\SDL_config_macosx.h.orig">
+      <Filter>Source Files\Include</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{f393bf46-65a3-4799-82b7-b3d50bc0fcd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8cc03d78-9caf-432e-a15b-13f865930fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Include">
+      <UniqueIdentifier>{68583462-9d36-4037-b078-50c5795e6309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tressette Client">
+      <UniqueIdentifier>{02e286d4-8ad3-41ed-8177-257a2aa8c46c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tressette Core">
+      <UniqueIdentifier>{ea0b1315-dcfd-4848-a613-57d2b8a95643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\guigfx">
+      <UniqueIdentifier>{1226e235-b503-45de-b021-7e3a8b96d836}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="tressette.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

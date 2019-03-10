@@ -20,8 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5FD07390-9C64-42CD-9A1F-27D9A689EEC9}</ProjectGuid>
-    <RootNamespace>InvidoCpp</RootNamespace>
+    <RootNamespace>Tressette</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>TressetteCpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,15 +70,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>Invido</TargetName>
+    <TargetName>Tressette</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../InvidoCore;../console;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../InvidoCore;../guigfx;../InvidoClient</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
+    </Link>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -121,7 +129,7 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\x64\out\Invido.exe</OutputFile>
+      <OutputFile>.\x64\out\Tressette.exe</OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -308,11 +316,11 @@
     <None Include="..\Include\SDL_config_macosx.h.orig" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="InvidoCpp.rc" />
+    <ResourceCompile Include="tressette.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\out\data\images\icona_asso.bmp" />
-    <Image Include="invido.ico" />
+    <Image Include="tressette.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
