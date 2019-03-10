@@ -85,12 +85,6 @@
     <ClCompile Include="..\TressetteClient\fading.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
-    <ClCompile Include="..\TressetteClient\InvidoSettings.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TressetteClient\Languages.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
     <ClCompile Include="..\TressetteClient\main.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
@@ -144,6 +138,12 @@
     </ClCompile>
     <ClCompile Include="..\TressetteCore\TraceService.cpp">
       <Filter>Source Files\Tressette Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cSettings.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\lang_gen.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -498,12 +498,6 @@
     <ClInclude Include="..\TressetteClient\FastDelegate.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
-    <ClInclude Include="..\TressetteClient\InvidoSettings.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TressetteClient\Languages.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
     <ClInclude Include="..\TressetteClient\regkey.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
@@ -575,6 +569,12 @@
     </ClInclude>
     <ClInclude Include="..\TressetteCore\TraceService.h">
       <Filter>Source Files\Tressette Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cSettings.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\lang_gen.h">
+      <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
