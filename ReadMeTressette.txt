@@ -55,3 +55,8 @@ Nota che le stringhe che provengono dalla classe Languages.cpp sono tutte in for
 sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa solo i controlli che devono mostrare un testo proveniente dall'utente.
 
 == TODO
+
+== Autore
+Igor Sarzi Sartori
+Home page: invido.it
+Email: 6colpiunbucosolo@gmx.net 
