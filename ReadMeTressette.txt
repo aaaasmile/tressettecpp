@@ -55,6 +55,9 @@ Nota che le stringhe che provengono dalla classe Languages.cpp sono tutte in for
 sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa solo i controlli che devono mostrare un testo proveniente dall'utente.
 
 == TODO
+- cEngineApp va messo compile clean in AppGfx.cpp, poi si può cambiare il nome del file in cEngineApp.cpp. 
+- Il resto dei files in TressetteClient vanno integrati da sf.
+
 
 == Autore
 Igor Sarzi Sartori
