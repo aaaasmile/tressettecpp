@@ -1,5 +1,5 @@
 == TressetteCpp
-
+14.04.2019. Progetto attuale per la conversione del tressette in SDL 2.0 con visual studio 2015.
 In questa repository ho cercato di attualizzare il progetto tressette. 
 Lo scopo è quello di avere la stessa applicazione compilata con visual studio 2015 (nota 2015 e no duemila diciasette) e sdl 2.0.
 La tagione per usare vs2015 è che sdl2.0 è stato compilato con vs2015.

@@ -1,18 +1,14 @@
-
-
 //main.cpp
 
 #include "StdAfx.h"
 #include <iostream>
 #include "win_type_global.h"
-//#include <stdio.h>
-//#include <stdlib.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include "AppGfx.h"
+#include "cEngineApp.h"
 #include <string>
 #include <direct.h>
-#include "InvidoSettings.h"
+#include "ErrorMsg.h"
 
 
 ////////////////////////////////////////
@@ -25,7 +21,7 @@ int main(int argc, char *argv[])
 {
 
     
-    AppGfx app;
+    cEngineApp app;
 
     // app name and set the directory on installed application
     std::string strAppName;

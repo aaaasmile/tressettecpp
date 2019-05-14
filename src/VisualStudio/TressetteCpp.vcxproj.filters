@@ -55,9 +55,6 @@
     <ClCompile Include="..\MySearchAlpha\TrickHistory.cpp">
       <Filter>Source Files\MySearchAlpha</Filter>
     </ClCompile>
-    <ClCompile Include="..\TressetteClient\AppGfx.cpp">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClCompile>
     <ClCompile Include="..\TressetteClient\cInvidoGfx.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
@@ -143,6 +140,9 @@
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
     <ClCompile Include="..\TressetteClient\lang_gen.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\cEngineApp.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
   </ItemGroup>
@@ -465,9 +465,6 @@
     <ClInclude Include="..\MySearchAlpha\TrickHistory.h">
       <Filter>Source Files\MySearchAlpha</Filter>
     </ClInclude>
-    <ClInclude Include="..\TressetteClient\AppGfx.h">
-      <Filter>Source Files\Tressette Client</Filter>
-    </ClInclude>
     <ClInclude Include="..\TressetteClient\cInvidoGfx.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
@@ -574,6 +571,9 @@
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
     <ClInclude Include="..\TressetteClient\lang_gen.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\cEngineApp.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
   </ItemGroup>

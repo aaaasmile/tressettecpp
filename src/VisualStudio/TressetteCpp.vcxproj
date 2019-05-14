@@ -245,7 +245,7 @@
     <ClInclude Include="..\TressetteClient\cDelayNextAction.h" />
     <ClInclude Include="..\TressetteClient\cHightScoreMgr.h" />
     <ClInclude Include="..\TressetteClient\cInvidoGfx.h" />
-    <ClInclude Include="..\TressetteClient\AppGfx.h" />
+    <ClInclude Include="..\TressetteClient\cEngineApp.h" />
     <ClInclude Include="..\TressetteClient\cMenuMgr.h" />
     <ClInclude Include="..\TressetteClient\cMusicManager.h" />
     <ClInclude Include="..\TressetteClient\credits.h" />
@@ -303,7 +303,7 @@
     <ClCompile Include="..\TressetteClient\cDelayNextAction.cpp" />
     <ClCompile Include="..\TressetteClient\cHightScoreMgr.cpp" />
     <ClCompile Include="..\TressetteClient\cInvidoGfx.cpp" />
-    <ClCompile Include="..\TressetteClient\AppGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\cEngineApp.cpp" />
     <ClCompile Include="..\TressetteClient\cMenuMgr.cpp" />
     <ClCompile Include="..\TressetteClient\cMusicManager.cpp" />
     <ClCompile Include="..\TressetteClient\credits.cpp" />
