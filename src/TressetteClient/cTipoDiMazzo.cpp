@@ -4,7 +4,82 @@
 #include "StdAfx.h"
 
 #include "cTipoDiMazzo.h"
+#include "lang_gen.h"
 #include <assert.h>
+
+////////////////////////////////////////
+//       GetMazzoNameOnType
+/*!
+// \param eTypeMazzo eType :
+*/
+std::string  cTipoDiMazzo::GetMazzoNameOnType(eTypeMazzo eType)
+{
+    std::string strMazzo = getMazzoName(eType);
+    return strMazzo;
+}
+
+////////////////////////////////////////
+//       getMazzoName
+/*!
+// \param eTypeMazzo eType :
+*/
+std::string cTipoDiMazzo::getMazzoName(eTypeMazzo eType)
+{
+    std::string strName;
+    cLanguages* pLan = cLanguages::Instance();
+
+    switch (eType)
+    {
+    case PIACENTINA:
+        strName = pLan->GetCStringId(cLanguages::ID_PIACENTINA);
+        break;
+    case BERGAMO:
+        strName = pLan->GetCStringId(cLanguages::ID_BERGAMO);
+        break;
+    case BOLOGNA:
+        strName = pLan->GetCStringId(cLanguages::ID_BOLOGNA);
+        break;
+    case GENOVA:
+        strName = pLan->GetCStringId(cLanguages::ID_GENOVA);
+        break;
+    case MILANO:
+        strName = pLan->GetCStringId(cLanguages::ID_MILANO);
+        break;
+    case NAPOLI:
+        strName = pLan->GetCStringId(cLanguages::ID_NAPOLI);
+        break;
+    case PIEMONTE:
+        strName = pLan->GetCStringId(cLanguages::ID_PIEMONTE);
+        break;
+    case ROMAGNA:
+        strName = pLan->GetCStringId(cLanguages::ID_ROMAGNA);
+        break;
+    case SARDEGNA:
+        strName = pLan->GetCStringId(cLanguages::ID_SARDEGNA);
+        break;
+    case SICILIA:
+        strName = pLan->GetCStringId(cLanguages::ID_SICILIA);
+        break;
+    case TOSCANA:
+        strName = pLan->GetCStringId(cLanguages::ID_TOSCANA);
+        break;
+    case TRENTO:
+        strName = pLan->GetCStringId(cLanguages::ID_TRENTO);
+        break;
+    case TREVISO:
+        strName = pLan->GetCStringId(cLanguages::ID_TREVISO);
+        break;
+        /*
+        case TRIESTE:
+        strName = pLan->GetCStringId(cLanguages::ID_TRIESTE ) ;
+        break;
+        */
+    default:
+        assert(0);
+    }
+
+    return strName;
+}
 
 ////////////////////////////////////////
 //       SetType
@@ -80,11 +155,6 @@ void cTipoDiMazzo::SetType(eTypeMazzo eType)
         m_strResFileName = "carte_trevisane.pac";
         m_strSymbolName = "symb_320.bmp";
         break;
-    case TRIESTE:
-        m_strMazzoName = "Triestine";
-        m_strResFileName = "trieste_cards.pac";
-        m_strSymbolName = "symb_320.bmp";
-        break;
     default:
         assert(0);
 
@@ -153,9 +223,6 @@ void cTipoDiMazzo::SetTypeIndex(int iVal)
         break;
     case 12:
         SetType(TREVISO);
-        break;
-    case 13:
-        SetType(TRIESTE);
         break;
     default:
         SetType(PIACENTINA);

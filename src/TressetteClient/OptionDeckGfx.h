@@ -34,7 +34,7 @@ public:
 	virtual ~OptionDeckGfx();
 
     //! init control
-    void Init(SDL_Rect* pRect, SDL_Surface*  pScreen, TTF_Font* pFontTxt, TTF_Font* pFontWinCtrl);
+    void Init(SDL_Rect* pRect, SDL_Surface*  pScreen, TTF_Font* pFontTxt, TTF_Font* pFontWinCtrl, SDL_Renderer* pRenderer);
     //! shows the control
     void Show(SDL_Surface* pScene_background);
     //! button click callback
@@ -49,6 +49,7 @@ private:
 
 
 private:
+    SDL_Renderer*   m_psdlRenderer;
     //! rectangle of the options control
     SDL_Rect        m_rctOptBox; 
     //! text on the messagebox

@@ -42,6 +42,10 @@ public:
 	void          Clone(cTipoDiMazzo &Val);
 	void          SetTypeIndex(int iVal);
 	int           GetTypeIndex() { return (int)m_eType; }
+    std::string   GetMazzoNameOnType(eTypeMazzo eType);
+
+private:
+    std::string   getMazzoName(eTypeMazzo eType);
 
 private:
 	//! id mazzo
