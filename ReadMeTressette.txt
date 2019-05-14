@@ -57,7 +57,7 @@ sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa
 
 == TODO
 - EngineApp.cpp è il file da mettere compile clean. Guarda il file AppGfx.cpp del progetto invidocpp per avere un riferimento delle parti cambiate per
-sdl 2.0
+sdl 2.0.
 
 
 == Autore
