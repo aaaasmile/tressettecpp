@@ -224,20 +224,13 @@ private:
     void    animatePlayCard(cCardGfx* pCard, int iPlayerIx);
     void    lookforDeclGoodGames();
     void    showDeclarMsgBox(int iPlayerIx, LPCSTR strText);
-#ifndef NOPYTHON
-    void    pyinitPythonEngine();
-    void    pyrunScript(LPCSTR lpszScript);
-    void    pyClose();
-    void    pyredirectIOToConsole();
-#else
-    void    pyinitPythonEngine() {}
-    void    pyrunScript(LPCSTR lpszScript) {}
-    void    pyClose() {}
-    void    pyredirectIOToConsole() {}
-#endif
     void    waitOnEvent();
 
 private:
+    // SDL 2.0
+    SDL_Renderer*     m_psdlRenderer;
+    SDL_Texture*      m_pScreenTexture;
+
     //! main surface
     SDL_Surface*      m_pScreen;
     //! background surface

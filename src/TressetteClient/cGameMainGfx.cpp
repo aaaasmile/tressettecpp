@@ -165,7 +165,6 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
     // load background
     if (g_Options.All.bFotoBack)
     {
-        SDL_Surface *Temp;
         strFileName = lpszImageDir;
         strFileName += lpszImageBack;
 
@@ -175,14 +174,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             sprintf(ErrBuff, "Unable to load %s background image", strFileName.c_str());
             throw Error::Init(ErrBuff);
         }
-        Temp = IMG_LoadJPG_RW(srcBack);
-        if (m_pApp->IsWxClient())
-        {
-            m_pScene_background = SDL_ConvertSurface(Temp, Temp->format, SDL_SWSURFACE);
-        }
-        else
-            m_pScene_background = SDL_DisplayFormat(Temp);
-        SDL_FreeSurface(Temp);
+        m_pScene_background = IMG_LoadJPG_RW(srcBack);
     }
     else
     {
@@ -225,12 +217,11 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             sprintf(ErrBuff, "Image not found %s", lpszaImage_filenames[i]);
             throw Error::Init(ErrBuff);
         }
-        SDL_SetColorKey(m_pAnImages[i], SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(m_pAnImages[i]->format, rr, gg, bb));
+        //SDL_SetColorKey(m_pAnImages[i], SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(m_pAnImages[i]->format, rr, gg, bb));
+        SDL_SetColorKey(m_pAnImages[i], TRUE, SDL_MapRGB(m_pAnImages[i]->format, rr, gg, bb)); // SDL 2.0
     }
 
-
-
-    SDL_EnableKeyRepeat(250, 30);
+    //SDL_EnableKeyRepeat(250, 30);
 
     // command buttons
     if (m_pbtArrayCmd[0] == 0)
@@ -246,7 +237,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
         {
             rctBt.x = iXButInit + i * (rctBt.w + 4);
             m_pbtArrayCmd[i] = new cButtonGfx;
-            m_pbtArrayCmd[i]->Init(&rctBt, m_pScreen, /*m_pFontText*/m_pFontStatus, i);
+            m_pbtArrayCmd[i]->Init(&rctBt, m_pScreen, /*m_pFontText*/m_pFontStatus, i, m_psdlRenderer);
             // delegate
             m_pbtArrayCmd[i]->m_fncbClickEvent = MakeDelegate(this, &cGameMainGfx::ButCmdClicked);
             // set type bitmap
@@ -283,7 +274,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             //destWIN.y = 450;
             destWIN.y = m_pScreen->h - m_pAnImages[IMG_BALLOON]->h - 40;
             // first make init
-            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus);
+            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus, 200);
             // setstyle comes after init
             m_pbalGfx[i]->SetStyle(cBalloonGfx::ARROW_DWN_RIGHT, m_pAnImages[IMG_BALL_ARROW_DWRIGHT]);
         }
@@ -293,7 +284,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             //destWIN.y = 250;
             destWIN.y = (m_pScreen->h - m_pAnImages[IMG_BALLOON]->h) / 2 - 20;
             // first make init
-            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus);
+            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus, 200);
             // setstyle comes after init
             m_pbalGfx[i]->SetStyle(cBalloonGfx::ARROW_DWN_RIGHT, m_pAnImages[IMG_BALL_ARROW_DWRIGHT]);
         }
@@ -304,7 +295,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             //destWIN.y = 100;
             destWIN.y = m_pAnImages[IMG_BALLOON]->h + 5;
             // first make init
-            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus);
+            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus, 200);
             // setstyle comes after init
             m_pbalGfx[i]->SetStyle(cBalloonGfx::ARROW_UP, m_pAnImages[IMG_BALL_ARROW_UP]);
         }
@@ -314,7 +305,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
             //destWIN.y = 250;
             destWIN.y = (m_pScreen->h - m_pAnImages[IMG_BALLOON]->h) / 2 - 20;
             // first make init
-            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus);
+            m_pbalGfx[i]->Init(destWIN, m_pAnImages[IMG_BALLOON], m_pFontStatus, 200);
             // setstyle comes after init
             m_pbalGfx[i]->SetStyle(cBalloonGfx::ARROW_DWN_RIGHT, m_pAnImages[IMG_BALL_ARROW_DWLEFT]);
         }
@@ -325,8 +316,7 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
     m_pMusicMgr = m_pApp->GetMusicManager();
 
     // messagebox background surface
-    m_pAlphaDisplay = SDL_CreateRGBSurface(SDL_SWSURFACE, m_pScreen->w,
-        m_pScreen->h, 32, 0, 0, 0, 0);
+    m_pAlphaDisplay = SDL_CreateRGBSurface(SDL_SWSURFACE, m_pScreen->w, m_pScreen->h, 32, 0, 0, 0, 0);
 
 }
 
@@ -341,7 +331,6 @@ int cGameMainGfx::loadCardPac()
     Uint8           num_anims;
     Uint16          w, h;
     Uint16          frames;
-    Uint16        *delays;
 
     int FRAMETICKS = (1000 / FPS);
     int THINKINGS_PER_TICK = 1;
@@ -365,50 +354,20 @@ int cGameMainGfx::loadCardPac()
     h = SDL_ReadLE16(src);
     frames = SDL_ReadLE16(src);
 
-    delays = (Uint16*)malloc(sizeof(Uint16)*frames);
-    if (!delays)
+    for (int i = 0; i < frames; i++)
     {
-        CHAR ErrBuff[512];
-        sprintf(ErrBuff, "Error on load deck malloc");
-        throw Error::Init(ErrBuff);
+        SDL_ReadLE16(src);
     }
 
-    for (int i = 0; i<frames; i++)
+    m_pDeck = IMG_LoadPNG_RW(src);
+    if (!m_pDeck)
     {
-        // file format stores delays in 1/100th of second
-        // we will convert them to game ticks
-        delays[i] = THINKINGS_PER_TICK*((10 * SDL_ReadLE16(src)) / FRAMETICKS);
+        fprintf(stderr, "Cannot create deck: %s\n", SDL_GetError());
+        exit(1);
     }
 
-    SDL_Surface *s;
-    SDL_Surface *temp;
-    temp = IMG_LoadPNG_RW(src);
-    if (!temp)
-    {
-        CHAR ErrBuff[512];
-        sprintf(ErrBuff, "Error on IMG_LoadPNG_RW");
-        throw Error::Init(ErrBuff);
-    }
+    SDL_SetColorKey(m_pDeck, TRUE, SDL_MapRGB(m_pDeck->format, 0, 128, 0)); // SDL 2.0
 
-    if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
-    {
-        // converte l'immagine al formato video scelto
-        if (m_pApp->IsWxClient())
-        {
-            s = SDL_ConvertSurface(temp, temp->format, SDL_SWSURFACE);
-        }
-        else
-            s = SDL_DisplayFormat(temp);      // we are in game
-        SDL_FreeSurface(temp);
-        // setta il pixel trasparente
-        SDL_SetColorKey(s, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(s->format, 0, 128, 0));
-    }
-    else
-    {
-        s = temp;                         // we are dedicated windows traybar server
-    }
-
-    m_pDeck = s;
     m_iCardWidth = w / 4;
     m_iCardHeight = h / 10;
 
@@ -453,10 +412,6 @@ void cGameMainGfx::Dispose()
     {
         SDL_FreeSurface(m_pAlphaDisplay);
         m_pAlphaDisplay = NULL;
-    }
-    if (m_bWeHaveAInitPythonScript)
-    {
-        pyClose();
     }
 }
 
@@ -520,127 +475,9 @@ void cGameMainGfx::Init4PlayerGameVsCPU()
     pPlayer4->SetLevel((eGameLevel)g_Options.Match.iLevel_Pl_4, NULL);
     pPlayer4->InitPlugin(g_Options.Match.strPluginDll_Pl_4.c_str());
 
-
-
     m_bMatchTerminated = FALSE;
-
-    // here we can call a python script to override game initialization
-    // an algorithm script should be already called
-    if (m_bWeHaveAInitPythonScript)
-    {
-        pyinitPythonEngine();
-        pyrunScript(m_strFileInitPy.c_str());
-    }
-    else
-    {
-        m_pCoreEngine->NoInitScript();
-    }
+    m_pCoreEngine->NoInitScript();
 }
-
-
-
-///////////////////////////////// function defined only if python is compiled
-
-#ifndef NOPYTHON
-////////////////////////////////////////
-//       pyredirectIOToConsole
-/*!
-*/
-void cGameMainGfx::pyredirectIOToConsole()
-{
-    int hConHandle;
-    long lStdHandle;
-    int MAX_CONSOLE_LINES = 500;
-    CONSOLE_SCREEN_BUFFER_INFO coninfo;
-    FILE *fp;
-    AllocConsole();
-    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &coninfo);
-    coninfo.dwSize.Y = MAX_CONSOLE_LINES;
-    SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), coninfo.dwSize);
-    lStdHandle = (long)GetStdHandle(STD_OUTPUT_HANDLE);
-    hConHandle = _open_osfhandle(lStdHandle, _O_TEXT);
-    fp = _fdopen(hConHandle, "w");
-    *stdout = *fp;
-    setvbuf(stdout, NULL, _IONBF, 0);
-    // redirect unbuffered STDIN to the console
-    lStdHandle = (long)GetStdHandle(STD_INPUT_HANDLE);
-    hConHandle = _open_osfhandle(lStdHandle, _O_TEXT);
-    fp = _fdopen(hConHandle, "r");
-    *stdin = *fp;
-    setvbuf(stdin, NULL, _IONBF, 0);
-    // redirect unbuffered STDERR to the console
-    lStdHandle = (long)GetStdHandle(STD_ERROR_HANDLE);
-    hConHandle = _open_osfhandle(lStdHandle, _O_TEXT);
-    fp = _fdopen(hConHandle, "w");
-    *stderr = *fp;
-    setvbuf(stderr, NULL, _IONBF, 0);
-    std::ios::sync_with_stdio();
-}
-
-////////////////////////////////////////
-//       pyinitPythonEngine
-/*!
-*/
-void cGameMainGfx::pyinitPythonEngine()
-{
-    if (!m_bInitPython)
-    {
-        // redirect python out to the console
-        if (g_Options.All.bUsePythonConsole)
-        {
-            pyredirectIOToConsole();
-        }
-
-        printf("Application embedded Python\n");
-
-        // initialize python
-        Py_Initialize();
-
-
-        InitExport();
-
-        m_bInitPython = TRUE;
-    }
-}
-
-
-////////////////////////////////////////
-//       pyrunScript
-/*!
-// \param LPCSTR lpszScript :
-*/
-void cGameMainGfx::pyrunScript(LPCSTR lpszScript)
-{
-
-
-    //executeScriptEntryPoint(strTmp);
-    FILE* pFileIn = fopen(lpszScript, "r");
-    if (pFileIn)
-    {
-        // python execute the script
-        PyRun_SimpleFile(pFileIn, lpszScript);
-
-        fclose(pFileIn);
-    }
-}
-
-
-////////////////////////////////////////
-//       pyClose
-/*!
-*/
-void cGameMainGfx::pyClose()
-{
-    if (m_bInitPython)
-    {
-        Py_Finalize();
-        FreeConsole();
-        ExportFinalize();
-        m_bInitPython = FALSE;
-    }
-}
-#endif
-///////////////////////////////// END function defined only if python is compiled
 
 
 ////////////////////////////////////////
@@ -662,11 +499,9 @@ int cGameMainGfx::initDeck()
         loadCardPac();
     }
 
-
     // use assert because if loadCardPac failed an exception is thrown
-    ASSERT(m_pDeck)
-
-        m_SrcBack.x = 0;
+    ASSERT(m_pDeck);
+    m_SrcBack.x = 0;
     m_SrcBack.y = 0;
 
     m_SrcCard.y = 0;
@@ -697,7 +532,8 @@ int cGameMainGfx::initDeck()
         sprintf(ErrBuff, "Error on load small symbols %s", strFileSymbSmallName.c_str());
         throw Error::Init(ErrBuff);
     }
-    SDL_SetColorKey(m_pSmallSymbols, SDL_SRCCOLORKEY, SDL_MapRGB(m_pSmallSymbols->format, 242, 30, 206));
+    //SDL_SetColorKey(m_pSmallSymbols, SDL_SRCCOLORKEY, SDL_MapRGB(m_pSmallSymbols->format, 242, 30, 206));
+    SDL_SetColorKey(m_pSmallSymbols, TRUE, SDL_MapRGB(m_pSymbols->format, 242, 30, 206)); // SDL 2.0
 
     m_pSymbols = SDL_LoadBMP(strFileSymbName.c_str());
     if (m_pSymbols == 0)
@@ -709,11 +545,13 @@ int cGameMainGfx::initDeck()
 
     if (m_pDeckType->GetSymbolFileName() == "symb_336.bmp")
     {
-        SDL_SetColorKey(m_pSymbols, SDL_SRCCOLORKEY, SDL_MapRGB(m_pSymbols->format, 242, 30, 206));
+        //SDL_SetColorKey(m_pSymbols, SDL_SRCCOLORKEY, SDL_MapRGB(m_pSymbols->format, 242, 30, 206));
+        SDL_SetColorKey(m_pSymbols, TRUE, SDL_MapRGB(m_pSymbols->format, 242, 30, 206)); // SDL 2.0
     }
     else
     {
-        SDL_SetColorKey(m_pSymbols, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(m_pSymbols->format, 0, 128, 0));
+        //SDL_SetColorKey(m_pSymbols, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(m_pSymbols->format, 0, 128, 0));
+        SDL_SetColorKey(m_pSymbols, TRUE, SDL_MapRGB(m_pSymbols->format, 0, 128, 0)); // SDL 2.0
     }
 
     m_iSymbolSmallWidth = m_pSmallSymbols->w / 4;
@@ -725,14 +563,13 @@ int cGameMainGfx::initDeck()
     m_SrcBack.w = m_iSymbolWidth;
     m_SrcBack.h = m_iSymbolHeigth;
 
+    SDL_SetSurfaceBlendMode(m_pSymbols, SDL_BLENDMODE_BLEND);
+
     // black bar surface
-    if (m_pSurf_Bar)
-    {
-        SDL_FreeSurface(m_pSurf_Bar);
-    }
     m_pSurf_Bar = SDL_CreateRGBSurface(SDL_SWSURFACE, m_pScreen->w, m_pScreen->h, 32, 0, 0, 0, 0);
     SDL_FillRect(m_pSurf_Bar, NULL, SDL_MapRGBA(m_pScreen->format, 0, 0, 0, 0));
-    SDL_SetAlpha(m_pSurf_Bar, SDL_SRCALPHA, 127);
+    SDL_SetSurfaceBlendMode(m_pSurf_Bar, SDL_BLENDMODE_BLEND);
+    SDL_SetSurfaceAlphaMod(m_pSurf_Bar, 127); //SDL 2.0
 
     return 0;
 }
@@ -784,7 +621,7 @@ void cGameMainGfx::createRegionsInit()
 
     // cards on player
     int stepX = (m_iCardWidth * 75) / 100;
-    if (m_pScreen->w - (NUM_CARDS_HAND * stepX + m_iCardWidth) <  0)
+    if (m_pScreen->w - (NUM_CARDS_HAND * stepX + m_iCardWidth) < 0)
     {
         stepX = (m_pScreen->w - m_iCardWidth) / NUM_CARDS_HAND;
     }
@@ -883,7 +720,7 @@ void cGameMainGfx::drawStaticScene()
     }
 
     // cards played on the table
-    int iNumCardPlayed = m_vctPlayedCardsGfx.size();
+    size_t iNumCardPlayed = m_vctPlayedCardsGfx.size();
     for (int k = 0; k < iNumCardPlayed; k++)
     {
         cCardGfx* pCardGfx = m_vctPlayedCardsGfx[k];
@@ -950,26 +787,6 @@ void cGameMainGfx::renderCard(cCardGfx* pCard)
     }
 }
 
-////////////////////////////////////////
-//       renderChatPlayers
-/*! Shows current chat/gamesay
-*/
-void cGameMainGfx::renderChatPlayers()
-{
-    //*** begin example font ttf
-    char txt_to_render[300];
-    static char un_char = ' ';
-
-    sprintf(txt_to_render, "%s> %s%", "chagpqdt_nome", "eèàáéúóhallo");
-    // draw background chat
-    GFX_UTIL::DrawStaticSpriteEx(m_pScreen, 0, 0, m_pScreen->w, 28, 0, 20, m_pSurf_Bar);
-
-    GFX_UTIL::DrawString(m_pScreen, txt_to_render, 5, 21, GFX_UTIL_COLOR::White, m_pFontText);
-    GFX_UTIL::DrawStaticLine(m_pScreen, 0, 48, m_pScreen->w, 48, GFX_UTIL_COLOR::Red);
-    //SDL_Flip(m_pScreen);
-    //*** end font ttf
-}
-
 
 ////////////////////////////////////////
 //       renderPlayerName
@@ -1001,36 +818,33 @@ void cGameMainGfx::renderPlayerName(int iPlayerIx)
         // first opponent 
         sprintf(txt_to_render, "%s", pPlayer->GetName());
         GFX_UTIL::DrawStaticSpriteEx(m_pScreen, 0, 0, iLenBar, 25, iX2, iY2, m_pSurf_Bar);
-        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX2 + 5, iY2 + 4, GFX_UTIL_COLOR::White, m_pFontText);
+        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX2 + 5, iY2 + 4, GFX_UTIL_COLOR::White, m_pFontText, true);
     }
     else if (iPlayerIx == PLAYER1)
     {
         // user
         sprintf(txt_to_render, "%s", pPlayer->GetName());
         GFX_UTIL::DrawStaticSpriteEx(m_pScreen, 0, 0, iLenBar, 25, iX1, iY1, m_pSurf_Bar);
-        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX1 + 5, iY1 + 4, GFX_UTIL_COLOR::Orange, m_pFontText);
+        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX1 + 5, iY1 + 4, GFX_UTIL_COLOR::Orange, m_pFontText, true);
     }
     else if (iPlayerIx == PLAYER3)
     {
         // socio
         sprintf(txt_to_render, "%s", pPlayer->GetName());
         GFX_UTIL::DrawStaticSpriteEx(m_pScreen, 0, 0, iLenBar, 25, iX3, iY3, m_pSurf_Bar);
-        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX3 + 5, iY3 + 4, GFX_UTIL_COLOR::White, m_pFontText);
+        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX3 + 5, iY3 + 4, GFX_UTIL_COLOR::White, m_pFontText, true);
     }
     else if (iPlayerIx == PLAYER4)
     {
         // second opponent
         sprintf(txt_to_render, "%s", pPlayer->GetName());
         GFX_UTIL::DrawStaticSpriteEx(m_pScreen, 0, 0, iLenBar, 25, iX4, iY4, m_pSurf_Bar);
-        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX4 + 5, iY4 + 4, GFX_UTIL_COLOR::White, m_pFontText);
+        GFX_UTIL::DrawString(m_pScreen, txt_to_render, iX4 + 5, iY4 + 4, GFX_UTIL_COLOR::White, m_pFontText, true);
     }
     else
     {
         ASSERT(0);
     }
-
-    //GFX_UTIL::DrawStaticLine(m_pScreen, 0, 48, m_pScreen->w, 48, GFX_UTIL_COLOR::Red);
-    //SDL_Flip(m_pScreen);
 
 }
 
@@ -1468,7 +1282,7 @@ void cGameMainGfx::showOkMsgBox(LPCSTR strText)
     rctBox.x = (m_pScreen->w - rctBox.w) / 2;
 
     // show a mesage box
-    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MBOK);
+    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MBOK, m_psdlRenderer);
     SDL_BlitSurface(m_pScreen, NULL, m_pAlphaDisplay, NULL);
     STRING strTextBt = m_pLangMgr->GetStringId(cLanguages::ID_OK);
     MsgBox.Show(m_pAlphaDisplay, strTextBt.c_str(), "", strText);
@@ -1492,7 +1306,7 @@ void cGameMainGfx::showResultMsgBox(VCT_STRING& vct_strText)
     rctBox.x = (m_pScreen->w - rctBox.w) / 2;
 
     // show a mesage box
-    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MBOK);
+    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MBOK, m_psdlRenderer);
     SDL_BlitSurface(m_pScreen, NULL, m_pAlphaDisplay, NULL);
 
     for (UINT i = 0; i < vct_strText.size(); i++)
@@ -1543,7 +1357,7 @@ void cGameMainGfx::showDeclarMsgBox(int iPlayerIx, LPCSTR strText)
 
 
     // show a mesage box
-    MsgBox.Init(&rctBox, m_pScreen, /*m_pFontText*/ m_pFontStatus, cMesgBoxGfx::MBOK);
+    MsgBox.Init(&rctBox, m_pScreen, /*m_pFontText*/ m_pFontStatus, cMesgBoxGfx::MBOK, m_psdlRenderer);
     SDL_BlitSurface(m_pScreen, NULL, m_pAlphaDisplay, NULL);
     STRING strTextBt = m_pLangMgr->GetStringId(cLanguages::ID_OK);
 
@@ -1580,7 +1394,7 @@ int  cGameMainGfx::showYesNoMsgBox(LPCSTR strText)
     rctBox.x = (m_pScreen->w - rctBox.w) / 2;
 
     // show a mesage box
-    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MB_YES_NO);
+    MsgBox.Init(&rctBox, m_pScreen, m_pFontStatus, cMesgBoxGfx::MB_YES_NO, m_psdlRenderer);
     SDL_BlitSurface(m_pScreen, NULL, m_pAlphaDisplay, NULL);
 
     STRING strTextYes = m_pLangMgr->GetStringId(cLanguages::ID_YES);
@@ -1619,7 +1433,7 @@ void cGameMainGfx::showPopUpCallMenu(CardSpec&   cardClicked, int iX, int iY, eS
     *peSay = NOTHING;
     VCT_SIGNALS vctAvail;
     m_pCoreEngine->GetAdmittedSignals(cardClicked, vctAvail, m_iPlayer1Index);
-    int iNumCmdsAval = vctAvail.size();
+    size_t iNumCmdsAval = vctAvail.size();
 
     if (iNumCmdsAval == 0)
     {
@@ -1630,13 +1444,13 @@ void cGameMainGfx::showPopUpCallMenu(CardSpec&   cardClicked, int iX, int iY, eS
     // prepare the size of the box
     cPopUpMenuGfx   Menu;
     SDL_Rect rctBox;
-    rctBox.w = APP_WIN_WIDTH; // max value, width is autocalculated
-    rctBox.h = APP_WIN_HEIGHT; // max value hight is autocalculated
+    rctBox.w = m_pScreen->w; // max value, width is autocalculated
+    rctBox.h = m_pScreen->h; // max value hight is autocalculated
     rctBox.y = iY;
     rctBox.x = iX;
 
     // show a mesage box
-    Menu.Init(&rctBox, m_pScreen, m_pFontText);
+    Menu.Init(&rctBox, m_pScreen, m_pFontText, m_psdlRenderer);
     SDL_BlitSurface(m_pScreen, NULL, m_pAlphaDisplay, NULL);
 
     for (int i = 0; i < iNumCmdsAval; i++)
@@ -1934,7 +1748,7 @@ void cGameMainGfx::handleMouseDownEvent(SDL_Event &event)
     }
     for (int i = 0; i < NUMOFBUTTON; i++)
     {
-        m_pbtArrayCmd[i]->MouseDown(event, m_pScreen, m_pScene_background);
+        m_pbtArrayCmd[i]->MouseDown(event, m_pScreen, m_pScene_background, m_pScreenTexture);
     }
 }
 
@@ -2303,7 +2117,7 @@ void cGameMainGfx::handleMouseMoveEvent(SDL_Event &event)
 {
     for (int i = 0; i < NUMOFBUTTON; i++)
     {
-        m_pbtArrayCmd[i]->MouseMove(event, m_pScreen, m_pScene_background);
+        m_pbtArrayCmd[i]->MouseMove(event, m_pScreen, m_pScene_background, m_pScreenTexture);
     }
 
 }
@@ -2675,7 +2489,7 @@ void    cGameMainGfx::enableNumButtonsCmd(int iNumButt)
         m_pbtArrayCmd[j]->EnableWindow(FALSE);
         m_pbtArrayCmd[j]->SetState(cButtonGfx::INVISIBLE);
         m_pbtArrayCmd[j]->SetWindowText("-");
-        m_pbtArrayCmd[j]->RedrawButton(m_pScreen, m_pScene_background);
+        m_pbtArrayCmd[j]->RedrawButton(m_pScreen, m_pScene_background, m_pScreenTexture);
     }
 }
 
@@ -2691,7 +2505,7 @@ void cGameMainGfx::setCmdButton(int iButtonIndex, eSayPlayer eSay, LPCSTR strCap
     if (iButtonIndex >= 0 && iButtonIndex < NUMOFBUTTON)
     {
         m_pbtArrayCmd[iButtonIndex]->SetWindowText(strCaption);
-        m_pbtArrayCmd[iButtonIndex]->RedrawButton(m_pScreen, m_pScene_background);
+        m_pbtArrayCmd[iButtonIndex]->RedrawButton(m_pScreen, m_pScene_background, m_pScreenTexture);
 
     }
     else

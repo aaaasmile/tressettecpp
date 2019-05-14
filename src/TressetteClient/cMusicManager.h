@@ -1,4 +1,3 @@
-
 // cMusicManager.h: interface for the cMusicManager class.
 //
 //////////////////////////////////////////////////////////////////////
@@ -14,45 +13,45 @@
 
 
 //! class cMusicManager  
-class cMusicManager  
+class cMusicManager
 {
 public:
-    enum // music
+    enum
     {
-     // if you want to add music, make here:
+        /*
+        // DON'T change the position or change the load sequence
+        SND_IG_CHIAMAPIU = 0,
+        SND_IG_FUORIGIOCO,
+        SND_IG_INV_LONG,
+        SND_IG_INV_NORM,
+        SND_IG_INV_SECCO,
+        SND_IG_MONTE_AMUNT,
+        SND_IG_MONTE_NORM,
+        SND_IG_NO_BORTOLO,
+        SND_IG_NO_FRONTE,
+        SND_IG_NO_NORMAL,
+        SND_IG_PARTIDA,
+        SND_IG_TRASMAS_LONG,
+        SND_IG_TRASMAS_NEUT,
+        SND_IG_NOEF_DILECT,
+        SND_IG_NOEF_NORMA,
+        SND_IG_VABENE_GIOCA,
+        SND_IG_VABENEONLY,
+        SND_IG_VAVIA,
+        // DON'T change the position or change the load sequence
+        SND_IG_VUVIA,
+        // if you want to add music, make here:
+        */
         MUSIC_INIT_SND,
-     //... untill here. Thank you.
+        //MUSIC_ONPLAY,
+        //... untill herre. Thank you.
         NUM_OF_SOUNDS
     };
-    enum // effects: nota che l'ordine è importante e viene usato durante il caricamento
+    enum
     {
-        // synth voice
-        SND_WAV_SYF_MONTE,
-        SND_WAV_SYF_VUVIA,
-        SND_WAV_SYF_CHIADIPIU,
-        SND_WAV_SYF_FUORIGI,
-        SND_WAV_SYF_INVIDO,
-        SND_WAV_SYF_NO,
-        SND_WAV_SYF_PARTIDA,
-        SND_WAV_SYF_TRASMAS,
-        SND_WAV_SYF_NOEF,
-        SND_WAV_SYF_VABENE,
-        SND_WAV_SYF_GIOCA,
-        // igor voice
-        SND_IG_CHIAMAPIU,
-        SND_IG_FUORIGIOCO,
-        SND_IG_GIOCA,
-        SND_IG_INV_NORM,
-        SND_IG_MONTE_NORM,
-        SND_IG_NO,
-        SND_IG_PARTIDA,
-        SND_IG_TRASMAS,
-        SND_IG_TRASNOEF,
-        SND_IG_VABENE,
-        SND_IG_VUVIA,
-        SND_IG_BORTOLO,
         //effects
         SND_EFC_CLICK,
+        SND_EFC_CARDFALSE,
 
         NUM_OF_WAV
     };
@@ -62,9 +61,9 @@ public:
         LOOP_OFF
     };
     //! constructor
-	cMusicManager();
+    cMusicManager();
     //! destructor
-	virtual ~cMusicManager();
+    virtual ~cMusicManager();
 
     //! init stuff
     void Init();
