@@ -430,6 +430,137 @@ void   cMenuMgr::HandleRootMenu()
 }
 
 ////////////////////////////////////////
+//       HandleOptionMenu
+/*! Menu options
+*/
+void   cMenuMgr::HandleOptionMenu()
+{
+    SDL_Color c = staColor_white;
+    drawBackground();
+    int iNumItemInMenu = 4;
+
+    // Draw title bar
+    drawStringSH(m_pLanString->GetStringId(cLanguages::ID_MEN_OPTIONS).c_str(),
+        m_iDebx + 10, m_iDeby + 5, c, m_pfont1);
+
+    // General
+    if (m_ifocus_valuesM_A != 0)
+    {
+        c = staColor_off;
+    }
+    else
+    {
+        c = staColor_on;
+    }
+    drawStringSH(m_pLanString->GetStringId(cLanguages::ID_OPT_GENERAL).c_str(),
+        m_iDebx + 10, m_iDeby + 50, c, m_pfont1);
+    // Deck
+    if (m_ifocus_valuesM_A != 1)
+    {
+        c = staColor_off;
+    }
+    else
+    {
+        c = staColor_on;
+    }
+    drawStringSH(m_pLanString->GetStringId(cLanguages::ID_MAZZONAME).c_str(),
+        m_iDebx + 10, m_iDeby + 90, c, m_pfont1);
+    // Match
+    if (m_ifocus_valuesM_A != 2)
+    {
+        c = staColor_off;
+    }
+    else
+    {
+        c = staColor_on;
+    }
+    drawStringSH(m_pLanString->GetStringId(cLanguages::ID_OPT_GAME).c_str(),
+        m_iDebx + 10, m_iDeby + 130, c, m_pfont1);
+
+    // Go back
+    if (m_ifocus_valuesM_A != 3)
+    {
+        c = staColor_off;
+    }
+    else
+    {
+        c = staColor_on;
+    }
+    drawStringSH(m_pLanString->GetStringId(cLanguages::ID_BACK).c_str(),
+        m_iDebx + 10, m_iSy - m_iDeby - 40, c, m_pfont1);
+
+
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        if (event.type == SDL_QUIT)
+        {
+            m_pApp->LeaveMenu();
+            break;
+        }
+
+        if (event.type == SDL_KEYDOWN)
+        {
+            if (event.key.keysym.sym == SDLK_UP)
+            {
+                m_ifocus_valuesM_A--;
+                if (m_ifocus_valuesM_A < 0)
+                {
+                    m_ifocus_valuesM_A = 0;
+                }
+            }
+            if (event.key.keysym.sym == SDLK_DOWN)
+            {
+                m_ifocus_valuesM_A++;
+                if (m_ifocus_valuesM_A > iNumItemInMenu)
+                {
+                    m_ifocus_valuesM_A = iNumItemInMenu;
+                }
+            }
+            if (event.key.keysym.sym == SDLK_RETURN)
+            {
+                optionMenuNext();
+            }
+            if (event.key.keysym.sym == SDLK_ESCAPE)
+            {
+                m_pApp->LeaveMenu();
+            }
+        }
+        if (event.type == SDL_MOUSEMOTION)
+        {
+            if (event.motion.x >= m_rctPanel.x && event.motion.x <= m_rctPanel.x + m_rctPanel.h &&
+                event.motion.y >= m_rctPanel.y && event.motion.y <= m_rctPanel.y + m_rctPanel.h)
+            {
+                // mouse is inner to the box 
+                if (event.motion.y >= m_iDeby + 90 && event.motion.y < m_iDeby + 130)
+                {
+                    m_ifocus_valuesM_A = 1;
+                }
+                else if (event.motion.y >= m_iDeby + 130 && event.motion.y < m_iDeby + 170)
+                {
+                    m_ifocus_valuesM_A = 2;
+                }
+                else if (event.motion.y < m_iDeby + 90)
+                {
+                    m_ifocus_valuesM_A = 0;
+                }
+                else if (event.motion.y >= m_iSy - m_iDeby - 40)
+                {
+                    m_ifocus_valuesM_A = 3;
+                }
+
+            }
+        }
+        if (event.type == SDL_MOUSEBUTTONDOWN)
+        {
+            optionMenuNext();
+        }
+    }
+}
+
+
+
+////////////////////////////////////////
 //       rootMenuNext
 /*! Next menu after root
 */

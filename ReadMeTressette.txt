@@ -1,5 +1,6 @@
 == TressetteCpp
 14.04.2019. Progetto attuale per la conversione del tressette in SDL 2.0 con visual studio 2015.
+
 In questa repository ho cercato di attualizzare il progetto tressette. 
 Lo scopo è quello di avere la stessa applicazione compilata con visual studio 2015 (nota 2015 e no duemila diciasette) e sdl 2.0.
 La tagione per usare vs2015 è che sdl2.0 è stato compilato con vs2015.
@@ -55,8 +56,8 @@ Nota che le stringhe che provengono dalla classe Languages.cpp sono tutte in for
 sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa solo i controlli che devono mostrare un testo proveniente dall'utente.
 
 == TODO
-- cEngineApp va messo compile clean in AppGfx.cpp, poi si può cambiare il nome del file in cEngineApp.cpp. 
-- Il resto dei files in TressetteClient vanno integrati da sf.
+- EngineApp.cpp è il file da mettere compile clean. Guarda il file AppGfx.cpp del progetto invidocpp per avere un riferimento delle parti cambiate per
+sdl 2.0
 
 
 == Autore

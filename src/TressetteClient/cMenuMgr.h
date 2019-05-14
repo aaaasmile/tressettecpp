@@ -54,6 +54,7 @@ public:
     void   Init(SDL_Surface *pScreen, SDL_Renderer* pRenderer);
     //! menu root handler
     void   HandleRootMenu();
+    void   HandleOptionMenu();
     //! set background
     void   SetBackground(SDL_Surface* pVal){m_pScene_background = pVal;}
     //! label callback
