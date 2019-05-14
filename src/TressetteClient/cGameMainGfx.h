@@ -126,9 +126,8 @@ public:
     cGameMainGfx(cEngineApp*  pApp);
     ~cGameMainGfx();
     //! Initialize gfx
-    void Initialize(SDL_Surface *s);
+    void Initialize(SDL_Surface *pScreen, SDL_Renderer* pRender, SDL_Texture* pScreenTexture);
 
-    void InitAllCoords();
     //! match loop
     void MatchLoop();
     //! init  4 player game
@@ -145,8 +144,6 @@ public:
     void ButCmdClicked(int iButID);
     //! notification from music manager, effect is terminated
     void NtfyTermEff(int iCh);
-    //! free stuff after game
-    void Dispose();
     //! set python script init
     void SetPythonInitScript(BOOL bVal, LPCSTR strFileName) { m_bWeHaveAInitPythonScript = bVal; m_strFileInitPy = strFileName; }
 
@@ -183,12 +180,12 @@ public:
     //! player has declared a good game
     virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSUIT eValsuit);
 
-
 public:
     //! animation images
     SDL_Surface*      m_pAnImages[NUM_ANIMAGES];
 
 private:
+    void    cleanup();
     int     animateCards();
     void    drawStaticScene();
     void    renderChatPlayers();

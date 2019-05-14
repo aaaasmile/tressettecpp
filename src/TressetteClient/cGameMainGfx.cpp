@@ -137,8 +137,7 @@ cGameMainGfx::cGameMainGfx(cEngineApp*  pApp)
 */
 cGameMainGfx::~cGameMainGfx()
 {
-
-
+    cleanup();
 }
 
 ////////////////////////////////////////
@@ -146,10 +145,13 @@ cGameMainGfx::~cGameMainGfx()
 /*! Initialize the game gfx with the background
 // \param SDL_Surface *s : screen surface
 */
-void cGameMainGfx::Initialize(SDL_Surface *s)
+void cGameMainGfx::Initialize(SDL_Surface *pScreen, SDL_Renderer* pRender, SDL_Texture* pScreenTexture)
 {
-    m_pScreen = s;
+    m_psdlRenderer = pRender;
+    m_pScreen = pScreen;
+    m_pScreenTexture = pScreenTexture;
 
+    cleanup();
     CHAR ErrBuff[512];
 
     cLanguages* pLangMgr = m_pApp->GetLanguageMan();
@@ -157,7 +159,6 @@ void cGameMainGfx::Initialize(SDL_Surface *s)
 
     m_pDeckType = new cTipoDiMazzo;
     m_pDeckType->SetType((cTipoDiMazzo::eTypeMazzo)g_Options.All.iTipoMazzo);
-    // init deck with all  images of  cards
     initDeck();
 
     std::string strFileName;
@@ -375,11 +376,7 @@ int cGameMainGfx::loadCardPac()
 }
 
 
-////////////////////////////////////////
-//       Dispose
-/*! Free stuff after game
-*/
-void cGameMainGfx::Dispose()
+void cGameMainGfx::cleanup()
 {
     delete m_pCoreEngine;
     m_pCoreEngine = 0;
@@ -1564,24 +1561,16 @@ void cGameMainGfx::MatchLoop()
             uiLast_time = uiNowTime;
         }
 
-
-        // actualize display
-        // next action on the game
         if (m_DelayAction.CanStart())
         {
             m_pCoreEngine->NextAction();
         }
 
-        // actualize display
-        //SDL_Flip(m_pScreen);
-        m_pApp->FlipScreen(m_pScreen);
-
-        if (m_pApp->IsWxClient())
-        {
-            // go back to the wx client
-            done = 1;
-        }
-
+        // SDL 2.0
+        SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch);
+        SDL_RenderClear(m_psdlRenderer);
+        SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+        SDL_RenderPresent(m_psdlRenderer);
     }
 }
 
