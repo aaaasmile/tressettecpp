@@ -5,7 +5,7 @@
 #include "win_type_global.h"
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include "cEngineApp.h"
+#include "EngineApp.h"
 #include <string>
 #include <direct.h>
 #include "ErrorMsg.h"
