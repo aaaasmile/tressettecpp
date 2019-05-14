@@ -1,5 +1,6 @@
 //EngineApp.cpp
 // Engine application for tressette game
+
 #include "StdAfx.h"
 #include "win_type_global.h"
 
@@ -7,7 +8,7 @@
 #include <SDL_ttf.h>
 
 
-#include "AppGfx.h"
+#include "EngineApp.h"
 #include <SDL_thread.h>
 #include <SDL_mixer.h>
 #include <SDL_image.h>
@@ -34,13 +35,10 @@
 #include "OptionDeckGfx.h"
 #include "OptionGameGfx.h"
 
-#ifdef WIN32
-    #include "shellapi.h"
-    #include "Shlobj.h"
-#endif
+#include "shellapi.h"
+#include "Shlobj.h"
 #include "TraceService.h"
 
-//#include "font.h"
 
 static const char* lpszIconRes = "data/images/icona_asso.bmp";
 

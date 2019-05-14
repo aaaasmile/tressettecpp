@@ -254,6 +254,8 @@
     <ClInclude Include="..\TressetteClient\fading.h" />
     <ClInclude Include="..\TressetteClient\FastDelegate.h" />
     <ClInclude Include="..\TressetteClient\lang_gen.h" />
+    <ClInclude Include="..\TressetteClient\OptionDeckGfx.h" />
+    <ClInclude Include="..\TressetteClient\OptionGameGfx.h" />
     <ClInclude Include="..\TressetteClient\regkey.h" />
     <ClInclude Include="..\TressetteClient\resource.h" />
     <ClInclude Include="..\TressetteCore\AlgCompareFunct.h" />
@@ -312,6 +314,8 @@
     <ClCompile Include="..\TressetteClient\fading.cpp" />
     <ClCompile Include="..\TressetteClient\lang_gen.cpp" />
     <ClCompile Include="..\TressetteClient\main.cpp" />
+    <ClCompile Include="..\TressetteClient\OptionDeckGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\OptionGameGfx.cpp" />
     <ClCompile Include="..\TressetteClient\regkey.cpp" />
     <ClCompile Include="..\TressetteClient\StdAfx.cpp" />
     <ClCompile Include="..\TressetteCore\AlgSupport.cpp" />

@@ -145,6 +145,12 @@
     <ClCompile Include="..\TressetteClient\EngineApp.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
+    <ClCompile Include="..\TressetteClient\OptionDeckGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\OptionGameGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\begin_code.h">
@@ -574,6 +580,12 @@
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
     <ClInclude Include="..\TressetteClient\EngineApp.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\OptionDeckGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\OptionGameGfx.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
   </ItemGroup>

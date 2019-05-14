@@ -27,7 +27,8 @@ public:
 		TOSCANA,
 		TRENTO,
 		TREVISO,
-		TRIESTE,
+		//TRIESTE,
+        NUM_OF_MAZZI
 	};
 public:
 	cTipoDiMazzo(){}
