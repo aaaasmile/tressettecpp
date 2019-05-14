@@ -13,8 +13,8 @@
 #include <sdl.h>
 #include <SDL_ttf.h>
 
-class AppGfx;
-class cInvidoGfx;
+class cEngineApp;
+class cGameMainGfx;
 class cLanguages;
 class cLabelLinkGfx;
 class cLabelGfx;
@@ -37,7 +37,10 @@ public:
         //! help
         MENU_HELP,
         //! quit application
-        QUITAPP
+        QUITAPP,
+        OPT_GENERAL,
+        OPT_DECK,
+        OPT_GAME
     };
     enum 
     {
@@ -45,7 +48,7 @@ public:
         MYIDLABELVER = 1
     };
 
-	cMenuMgr(AppGfx* pApp, cInvidoGfx* pGfx);
+	cMenuMgr(cEngineApp* pApp, cGameMainGfx* pGfx);
 	virtual ~cMenuMgr();
     //! Init
     void   Init(SDL_Surface *pScreen, SDL_Renderer* pRenderer);
@@ -65,7 +68,7 @@ private:
     void   setPixel( SDL_Surface* pSurface , int x , int y , SDL_Color color ); 
     void   fillRect(int x0, int y0, int width, int height, Uint32 color) ;
     void   rootMenuNext();
-    
+    void   optionMenuNext();
 
 
 private:
@@ -78,15 +81,15 @@ private:
 
 private:
     //! engine app
-    AppGfx*      m_pApp;
+    cEngineApp*      m_pApp;
     //! get strings on differnt languages
     cLanguages*      m_pLanString;
     //! menu font
     TTF_Font*        m_pfont1;
     //! menu font
     TTF_Font*        m_pfont2;
-    //! invido grafic engine
-    cInvidoGfx*         m_pInvidoGfx;
+    //! game grafic engine
+    cGameMainGfx*         m_pGfx;
     //! main screen surface
     SDL_Surface*     m_pScreen;
 	SDL_Renderer*     m_psdlRenderer;

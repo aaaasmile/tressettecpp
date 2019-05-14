@@ -35,21 +35,19 @@
 #include "OptionDeckGfx.h"
 #include "OptionGameGfx.h"
 
-#include "shellapi.h"
-#include "Shlobj.h"
+
+#ifdef WIN32
+    #include "Shlwapi.h"
+    #include "shellapi.h"
+    #include "Shlobj.h"
+#endif
+
 #include "TraceService.h"
 
 
 static const char* lpszIconRes = "data/images/icona_asso.bmp";
-
-#ifdef WIN32
-    static const char* lpszIniFileOptions = "Software\\Invido.it\\tressette";
-#else
-    static const char* lpszIniFileOptions = "tressette.ini";
-#endif
-
+static const char* lpszIniFileOptions = "Software\\Invido.it\\tressette";
 static const char* lpszXmlFielName = "tressette.xml";
-
 
 static const char* lpszIniFontAriblk = "data/font/ariblk.ttf";
 static const char* lpszIniFontVera = "data/font/vera.ttf"; 
@@ -83,11 +81,9 @@ cEngineApp* g_MainApp = 0;
 cEngineApp::cEngineApp()
 {
     m_pScreen = NULL;
-    m_pWxDrawScreen = NULL;
     m_iScreenW = APP_WIN_WIDTH ; 
     m_iScreenH = APP_WIN_HEIGHT ;
-#ifdef WIN32
-    // applicazione supporta al massimo 800 x 600
+
     long min_w_poss = min(800, ::GetSystemMetrics(SM_CXFULLSCREEN));
     if(m_iScreenW < min_w_poss)
     {
@@ -98,7 +94,6 @@ cEngineApp::cEngineApp()
     {
        m_iScreenH = min_h_poss;
     }
-#endif
 
     m_iBpp = 0;
     m_pMusicManager = 0;
@@ -117,7 +112,6 @@ cEngineApp::cEngineApp()
         m_pBackgrImg[i] = 0;
     }
     m_pTracer = 0;
-    m_bIsWx_client = FALSE;
 }
 
 
@@ -137,7 +131,6 @@ cEngineApp::~cEngineApp()
 */
 void cEngineApp::loadProfile()
 {
-#ifdef WIN32
     TCHAR szPath[MAX_PATH];
     if (SUCCEEDED(SHGetFolderPath(NULL,
         CSIDL_LOCAL_APPDATA | CSIDL_FLAG_CREATE,
@@ -152,13 +145,10 @@ void cEngineApp::loadProfile()
     {
         SpacecSettings::GetProfile(lpszXmlFielName);
     }
-#else
-    SpacecSettings::GetProfile(lpszXmlFielName);
-#endif
+
     if(!g_Options.IsUsingXmlFile())
     {
         // settings di default non caricati dal file
-#ifdef WIN32
         // la lingua di default viene stabilita dall'sistema operativo dell'utente   
         //LCID lcid = ::GetUserDefaultLCID();
         //if(lcid == 1040 || lcid == 2064)
@@ -169,7 +159,6 @@ void cEngineApp::loadProfile()
         //{
         //    g_Options.All.iLanguageID = cLanguages::LANG_ENG;
         //}
-#endif
     }
 }
 
@@ -270,7 +259,7 @@ void cEngineApp::Init()
         throw Error::Init(ErrBuff);
     }
 
-    // game invido app
+    // game app
     m_pHmiGfx->SetMainApp(this);
     
     // menu manager
@@ -360,6 +349,37 @@ void cEngineApp::Init()
         //m_pTracer->SetCustomTacerInterface(this);
     }
 
+
+}
+
+void cEngineApp::intWindowAndRender()
+{
+    if (m_pWindow != NULL)
+    {
+        SDL_DestroyWindow(m_pWindow);
+    }
+    m_pWindow = SDL_CreateWindow("Invido", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iScreenW, m_iScreenH, SDL_WINDOW_SHOWN);
+    if (m_pWindow == NULL)
+    {
+        fprintf(stderr, "Cannot create window: %s\n", SDL_GetError());
+        exit(1);
+    }
+    m_psdlRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED);
+
+    if (m_psdlRenderer == NULL)
+    {
+        fprintf(stderr, "Cannot create renderer: %s\n", SDL_GetError());
+        exit(1);
+    }
+    m_pScreen = SDL_CreateRGBSurface(0, m_iScreenW, m_iScreenH, 32,
+        0x00FF0000,
+        0x0000FF00,
+        0x000000FF,
+        0xFF000000);
+    m_pScreenTexture = SDL_CreateTexture(m_psdlRenderer,
+        SDL_PIXELFORMAT_ARGB8888,
+        SDL_TEXTUREACCESS_STREAMING,
+        m_iScreenW, m_iScreenH);
 
 }
 

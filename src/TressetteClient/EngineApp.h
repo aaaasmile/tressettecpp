@@ -24,6 +24,10 @@ public:
         IMG_BACKGR_FIORE7,
         NUM_BACKGRIMAGES
     };
+    enum {
+        APP_WIN_WIDTH = 800,
+        APP_WIN_HEIGHT = 600
+    };
 
 public:
     cEngineApp();
@@ -59,29 +63,16 @@ public:
     void  ShowCredits();
     //! launch help application
     void  PickHelp();
-    //! Set WxClient flag
-    void  SetWxClientFlag(BOOL bVal){m_bIsWx_client = bVal;}
-    //! Provides draw screen
-    SDL_Surface* GetWxDrawScreen(){return m_pWxDrawScreen;}
-    //! Flip screen 
-    void FlipScreen(SDL_Surface *s);
-    // flag to recognize if we are using a wx client
-    BOOL  IsWxClient(){return m_bIsWx_client;}
-    //! Init game inside a wxclient
-    void  WxClient_InitGame();
-    //! Call game loop for wx_client
-    void  WxClient_GameLoop();
     STRING GetApplicationDir(){return m_strApplicationDir;}
     void   SetApplicationDir(STRING val){m_strApplicationDir = val;}
 
 private:
-    void    mainMenu();
+    void    intWindowAndRender();
     void    setVideoResolution();
     void    setVideoResolutionForWx();
     void    terminate();
     void    hightScoreMenu();
 	
-    void    initInvido2Player();
     void    loadProfile();
     void    writeProfile();
     void    drawSplash();
@@ -89,10 +80,10 @@ private:
     void    showEditUserName();
     
 private:
-    //! main screen surface
     SDL_Surface*      m_pScreen;
-    //! main screen surface
-    SDL_Surface*      m_pWxDrawScreen;
+    SDL_Texture*      m_pScreenTexture;
+    SDL_Window*       m_pWindow;
+    SDL_Renderer*     m_psdlRenderer;
     //! splash surface
     SDL_Surface*      m_pSlash;
     //! title credits
@@ -129,8 +120,6 @@ private:
 	BOOL              m_bOpzWinRunning;
     //! tracer
     TraceService*     m_pTracer;
-    //! wxclient flag
-    BOOL              m_bIsWx_client;
     // application directory
     STRING            m_strApplicationDir;
     

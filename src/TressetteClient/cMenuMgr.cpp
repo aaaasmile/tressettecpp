@@ -12,18 +12,18 @@
 
 #include <math.h>
 #include "cMenuMgr.h"
-#include "AppGfx.h"
+#include "EngineApp.h"
 #include "cMenuMgr.h"
-#include "Languages.h"
+#include "lang_gen.h"
 #include "gfx_util.h"
 
 #include "cLabelLinkGfx.h"
 #include "cLabelGfx.h"
-#include "myexception.h"
+#include "ErrorMsg.h"
 
 static const char* lpszUrlHome = "http://www.invido.it";
 static const char* lpszMsgUrl = "Go to www.invido.it";
-static const char* lpszVersion = "Ver 2.1.0 20180527"; // formato simile a 'Ver 0.5.4 14042008'
+static const char* lpszVersion = "Ver 2.1.0 20190514"; // formato simile a 'Ver 0.5.4 14042008'
 static const char* lpszIniFontVera = "data/font/vera.ttf"; 
 
 //////////////////////////////////////////////////////////////////////
@@ -43,12 +43,12 @@ const SDL_Color cMenuMgr::staColor_gray= { 128, 128, 128};
 // \param cEngineApp* pApp : 
 // \param cInvidoGfx* pGfx : 
 */
-cMenuMgr::cMenuMgr(AppGfx* pApp, cInvidoGfx* pGfx)
+cMenuMgr::cMenuMgr(cEngineApp* pApp, cGameMainGfx* pGfx)
 {
     m_pApp = pApp;
     m_pfont1 = 0;
     m_pfont2 = 0;
-    m_pInvidoGfx = pGfx;
+    m_pGfx = pGfx;
     m_ifocus_valuesM_A = 0;
     m_pLanString = 0;
     m_pMenuBox = 0;
@@ -429,7 +429,6 @@ void   cMenuMgr::HandleRootMenu()
     m_pLabelVersion->Draw(m_pScreen);
 }
 
-
 ////////////////////////////////////////
 //       rootMenuNext
 /*! Next menu after root
@@ -437,22 +436,50 @@ void   cMenuMgr::HandleRootMenu()
 void   cMenuMgr::rootMenuNext()
 {
 
-    switch(m_ifocus_valuesM_A) 
+    switch (m_ifocus_valuesM_A)
     {
-	    case 0 :			// Play
-		    m_pApp->SetNextMenu(MENU_GAME); 
-            break;
-	    case 1 :		 	// Options
-		    m_pApp->SetNextMenu(MENU_OPTIONS);
-            break;
-        case 2 :		 	// Credits
-		    m_pApp->SetNextMenu(MENU_CREDITS);
-            break;
-        case 3 :		 	// Help
-		    m_pApp->SetNextMenu(MENU_HELP);
-            break;
-	    case 4 :			// Quit
-		    m_pApp->LeaveMenu(); 
-            break;
+    case 0:			// Play
+        m_pApp->SetNextMenu(MENU_GAME);
+        break;
+    case 1:		 	// Options
+        m_pApp->SetNextMenu(MENU_OPTIONS);
+        break;
+    case 2:		 	// Credits
+        m_pApp->SetNextMenu(MENU_CREDITS);
+        break;
+    case 3:		 	// Help
+        m_pApp->SetNextMenu(MENU_HELP);
+        break;
+    case 4:			// Quit
+        m_pApp->LeaveMenu();
+        break;
+    }
+}
+
+
+////////////////////////////////////////
+//       optionMenuNext
+/*!
+*/
+void   cMenuMgr::optionMenuNext()
+{
+
+    switch (m_ifocus_valuesM_A)
+    {
+    case 0:			// Play
+        m_pApp->SetNextMenu(OPT_GENERAL);
+        break;
+    case 1:		 	// Options
+        m_pApp->SetNextMenu(OPT_DECK);
+        break;
+    case 2:		 	// Credits
+        m_pApp->SetNextMenu(OPT_GAME);
+        break;
+    case 3:		 	// Go back
+        m_pApp->LeaveMenu();
+        break;
+    default:
+        ASSERT(0);
+        break;
     }
 }
