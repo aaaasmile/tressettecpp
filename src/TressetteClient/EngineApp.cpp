@@ -60,11 +60,7 @@ static const char* lpszaBackGrounds_filenames[cEngineApp::NUM_BACKGRIMAGES] =
     "data/images/fiore7_back.jpg"
 };
 
-
-
 cEngineApp* g_MainApp = 0;
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// class cEngineApp ///////////////////////////////////////
@@ -591,7 +587,7 @@ int  cEngineApp::PlayGame()
 
     // load and initialize background
     m_pHmiGfx->Initialize(m_pScreen, m_psdlRenderer, m_pScreenTexture);
-    // init invido core stuff
+    // init core stuff
     m_pHmiGfx->Init4PlayerGameVsCPU();
     // match main init
     m_pHmiGfx->NewMatch();

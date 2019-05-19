@@ -32,11 +32,9 @@ public:
 
     //! init stuff
     void    Init();
-    //! application entry point
-    void    MainMenu();
     //! language translation
     cLanguages*     GetLanguageMan(){return m_pLanString;}
-    //! play the invido
+    //! play the game
     int		PlayGame();
     //! main loop
     void    MainLoop();

@@ -147,7 +147,7 @@ public:
     //! set python script init
     void SetPythonInitScript(BOOL bVal, LPCSTR strFileName) { m_bWeHaveAInitPythonScript = bVal; m_strFileInitPy = strFileName; }
 
-    //Interface I_ALG_Player (callback functions from core invido engine)
+    //Interface I_ALG_Player (callback functions from core engine)
     virtual void ALG_SetCoreInterface(I_CORE_Game* pCore) {}
     //! set player index
     virtual void ALG_SetPlayerIndex(int iIndex) { m_iPlayer1Index = iIndex; }
@@ -253,7 +253,7 @@ private:
     TTF_Font*	      m_pFontText;
     //! bar surface
     SDL_Surface*      m_pSurf_Bar;
-    //! invido core game
+    //! core game
     cCore*            m_pCoreEngine;
     //! Engine app pointer
     cEngineApp*       m_pApp;

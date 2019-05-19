@@ -61,13 +61,8 @@ static const char* lpszCST_INFO = "[INFO]";
 static const char* lpszCST_SCORE = "[SCORE]";
 static const char* lpszCST_SU = "[SU]";
 
-
-
-//invido core
 cCore*  g_pCore;
 extern cEngineApp* g_MainApp;
-
-
 
 ////////////////////// cGameMainGfx
 
@@ -414,7 +409,7 @@ void cGameMainGfx::cleanup()
 
 ////////////////////////////////////////
 //       Init4PlayerGameVsCPU
-/*! Init the 4 players invido game: player against CPU
+/*! Init the 4 players game: player against CPU
 */
 void cGameMainGfx::Init4PlayerGameVsCPU()
 {
@@ -2583,7 +2578,7 @@ void cGameMainGfx::lookforDeclGoodGames()
 
 
 // ***************************************************
-//********  interface invido core  callback **********
+//********  interface  core  callback **********
 // ***************************************************
 
 ////////////////////////////////////////

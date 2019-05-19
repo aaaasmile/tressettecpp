@@ -25,7 +25,7 @@ typedef std::map<eSayPlayer, STRING> MAP_SAY;
 /////////////////////////////////////////////////////////////////////////////////////
 
 //! class cCore
-/** the core class for the invido. Hold all information about game in progress, level
+/** the core class. Hold all information about game in progress, level
 cards and so on.
 */
 class cCore : public I_CORE_Game

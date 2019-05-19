@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by invido.rc
+// Used by tressette.rc
 //
 #define IDI_ICON1                       101
 #define IDR_MAINFRAME                   101

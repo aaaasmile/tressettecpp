@@ -68,9 +68,6 @@ typedef std::deque< cActionItemGio > DEQ_ACTIT_GIO;
 /////////////////////////////////////////////////////////////////////////////////////
 
 //! class cGiocata
-/**
-Manage a giocata on invido. There is 3 mano on one giocata.
-*/
 class cGiocata
 {
 public:
