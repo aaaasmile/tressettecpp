@@ -9,15 +9,14 @@
 #include "cCheckBoxGfx.h"
 #include "cEditGfx.h"
 #include "cComboGfx.h"
-#include "InvidoSettings.h"
-#include "AppGfx.h"
-#include "Languages.h"
+#include "cSettings.h"
+#include "EngineApp.h"
+#include "lang_gen.h"
 #include "cMusicManager.h"
-#include "cTressetteCoreEnv.h"
-#include "InvidoInfoComm.h"
+
 #include "cProgressBarGfx.h"
 
-extern AppGfx* g_MainApp;
+extern cEngineApp* g_MainApp;;
 
 static const char* stalpszUSER = "USER";
 static const char* stalpszCPUDEFAULT = "CPU_DEFAULT";
@@ -228,7 +227,7 @@ void OptionGfx::Show(SDL_Surface* pScene_background)
     m_pComboLang->SelectIndex(g_Options.All.iLanguageID);
 
     // checkbox show foto background
-    strTextBt = pLan->GetStringId(cLanguages::ID_SHOWFOTOBACK);
+    strTextBt = pLan->GetStringId(cLanguages::ID_MEN_OPTIONS);
     m_pCheckShowFotoBack->SetWindowText(strTextBt.c_str());
     m_pCheckShowFotoBack->SetState(cCheckBoxGfx::VISIBLE);
     m_pCheckShowFotoBack->SetCheckState(g_Options.All.bFotoBack);

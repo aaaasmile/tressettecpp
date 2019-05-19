@@ -15,8 +15,6 @@
 #include "EngineApp.h"
 #include "lang_gen.h"
 #include "cMusicManager.h"
-//#include "cTressetteCoreEnv.h"
-//#include "InvidoInfoComm.h"
 
 extern cEngineApp* g_MainApp;
 

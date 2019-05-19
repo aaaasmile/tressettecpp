@@ -180,10 +180,10 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
             {
 			    movecount[suit] *= moves;
             }
-            else
+            /*else
             {
 				m_HanPlayers[player].Length();
-            }
+            }*/
 		}
 	}
     
@@ -192,8 +192,8 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
     {
 		for (int j = i - 1; j >= 0 && movecount[j] > movecount[i]; --j) 
         {
-            std::swap<size_t>(movecount[j], movecount[i]);
-			std::swap<size_t>(suitorder[j], suitorder[i]);
+            std::swap(movecount[j], movecount[i]);
+			std::swap(suitorder[j], suitorder[i]);
 			i = j;
 		}
 	}
