@@ -481,6 +481,7 @@ void cEngineApp::MainLoop()
 
             case cMenuMgr::MENU_HELP:
                 ShowHelp();
+                LeaveMenu();
                 break;
 
             case cMenuMgr::MENU_CREDITS:
@@ -527,7 +528,6 @@ void cEngineApp::ShowHelp()
     STRING strCompleteHelpPath = m_strApplicationDir + "\\" + strFileName;
     ::ShellExecute(NULL, TEXT("open"), strCompleteHelpPath.c_str() , 0, 0, SW_SHOWNORMAL);
 #endif
-    LeaveMenu();
 }
 
 
