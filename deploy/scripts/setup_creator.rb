@@ -16,7 +16,7 @@ class SetupCreator
   end
   
   def read_sw_version()
-    script_fname = File.expand_path('../../src/InvidoClient/cMenuMgr.cpp')
+    script_fname = File.expand_path('../../src/TressetteClient/cMenuMgr.cpp')
     File.open(script_fname, "r").each_line do |line|
       #p line
       # search line with VER_PRG_STR it is something like:
@@ -49,28 +49,16 @@ class SetupCreator
   def create_nsi_installer_script(target_dir, app_data_fullpath)
     FileUtils.mkdir_p(target_dir) unless File.directory?(target_dir)
     
-    #@start_script = startscript
     # copy some extra file
     license_name = "License.txt"
-    manual_filename = "Invido-help.pdf"
-    #readme_filename = "Readme.txt"
-    #ruby_dirname = 'Ruby'
-    #app_dirname = 'App'
+  
     
      # copy license file
     log "Copy license"
-    file_src = File.join(File.dirname(__FILE__), "../help/#{license_name}")
+    file_src = File.join(File.dirname(__FILE__), "#{license_name}")
     dest_full = File.join(target_dir, license_name)
     FileUtils.cp(file_src, dest_full)
-    # copy manual file
-    #log "Copy manual"
-    #file_src = File.join(File.dirname(__FILE__), "../help/#{manual_filename}")
-    #dest_full = File.join(target_dir, manual_filename)
-    #FileUtils.cp(file_src, dest_full)
-   
-    #copy app
-    #copy_package(File.join(target_dir, app_dirname), app_data_fullpath)
-    #copy_package(target_dir, app_data_fullpath)
+
      
     # list of all files
     list_app_files = list_of_app_deployed_files(target_dir, target_dir + '/')
@@ -79,7 +67,7 @@ class SetupCreator
      
     # generate nsi using template
     template_name = 'nsi_install/setup_muster.nsi_tm'
-    nsi_out_name = File.join(target_dir, 'invido_gen.nsi')
+    nsi_out_name = File.join(target_dir, 'tressette_gen.nsi')
     
     aString = ""
     # use template and eruby

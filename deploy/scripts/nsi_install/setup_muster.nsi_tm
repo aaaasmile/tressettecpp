@@ -5,7 +5,7 @@
 
 ;; PER FAVORE: LASCIA QUESTO FILE IN ANSI e non convertirlo in UTF8, altrimenti non vanno gli accenti
 
-!define MUI_PRODUCT "Invido"
+!define MUI_PRODUCT "Tressette"
 
 ;--------------------------------
 ;Include Modern UI
@@ -20,7 +20,7 @@
 ; vi sono riferimenti alla versione
   ;Name and file
   Name "Invido_<%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>"
-  OutFile "..\Invido_<%="#{@ver_sw[0]}#{@ver_sw[1]}#{@ver_sw[2]}"%>_setup.exe"
+  OutFile "..\Tressette_<%="#{@ver_sw[0]}#{@ver_sw[1]}#{@ver_sw[2]}"%>_setup.exe"
 
   ;Default installation folder
   InstallDir "$PROGRAMFILES64\invido_it\${MUI_PRODUCT}\ver_<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"
@@ -89,19 +89,19 @@ uninst:
 done:
 
   Messagebox MB_YESNO|MB_ICONQUESTION \
-  "Questo setup sta per installare il programma ${MUI_PRODUCT} <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>, un'applicazione per giocare a Invido. Vuoi continuare?" IDYES NoAbort
+  "Questo setup sta per installare il programma ${MUI_PRODUCT} <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%>, un'applicazione per giocare a Tressette. Vuoi continuare?" IDYES NoAbort
      Abort ; causes installer to quit.
    NoAbort:
 FunctionEnd
 
 ; al termine dell'installazione si lancia il programma
 Function .onInstSuccess
-    MessageBox MB_YESNO "Installazione effettuata con successo. Vuoi lanciare il programma Invido?" IDNO NoReadme
-    Exec "$INSTDIR\Invido.exe"
+    MessageBox MB_YESNO "Installazione effettuata con successo. Vuoi lanciare il programma Tressette?" IDNO NoReadme
+    Exec "$INSTDIR\tressette.exe"
     NoReadme:
 FunctionEnd
 
-Section "Invido" SecInvido
+Section "Tressette" SecTressette
 
   SetOutPath "$INSTDIR"
   
@@ -133,10 +133,10 @@ Section "Invido" SecInvido
 
   ; crea un shortcut
   CreateDirectory "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"
-  CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Invido.lnk" \
-    "$INSTDIR\Invido.exe"
+  CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Tressette.lnk" \
+    "$INSTDIR\Tressette.exe"
   CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Manuale.lnk" \
-    "$INSTDIR\data\help\invido-guida.pdf"
+    "$INSTDIR\data\help\tre.chm"
   CreateShortCut "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Uninstall.lnk" \
     "$INSTDIR\Uninstall.exe"
 
@@ -147,7 +147,7 @@ SectionEnd
 ;Descriptions
 
   ;Language strings
-  LangString DESC_SecCuperativa ${LANG_ITALIAN} "Il programma Invido <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%> è un'App per giocare a invido contro il computer."
+  LangString DESC_SecCuperativa ${LANG_ITALIAN} "Il programma Tressette <%="#{@ver_sw[0]}.#{@ver_sw[1]}.#{@ver_sw[2]}"%> è un'App per giocare a Tressette contro il computer."
 
  
 ;--------------------------------
@@ -157,12 +157,12 @@ Section "Uninstall"
 
   ;Delete Files 
   RMDir /r "$INSTDIR\*.*"
-  RMDir /r "$LOCALAPPDATA\InvidoTrace\*.*"
+  RMDir /r "$LOCALAPPDATA\TressetteTrace\*.*"
  
   ;Remove the installation directory
   RMDir "$INSTDIR"
   ; remove shortcuts
-  Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Invido.lnk"
+  Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Tressette.lnk"
   Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Manuale.lnk"
   Delete "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>\Uninstall.lnk"
   RMDir /r  "$SMPROGRAMS\${MUI_PRODUCT}<%="#{@ver_sw[0]}_#{@ver_sw[1]}_#{@ver_sw[2]}"%>"

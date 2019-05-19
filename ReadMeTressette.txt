@@ -56,8 +56,7 @@ Nota che le stringhe che provengono dalla classe Languages.cpp sono tutte in for
 sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa solo i controlli che devono mostrare un testo proveniente dall'utente.
 
 == TODO
-- EngineApp.cpp è il file da mettere compile clean. Guarda il file AppGfx.cpp del progetto invidocpp per avere un riferimento delle parti cambiate per
-sdl 2.0.
+- Supporto delle dichiarazioni al socio.
 
 
 == Autore

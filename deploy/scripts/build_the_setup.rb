@@ -1,18 +1,22 @@
 #file: build_the_setup
 
+$:.unshift File.dirname(__FILE__)
+
 require 'rubygems'
 require 'yaml'
 require 'setup_creator'
 
 
+
+
 if $0 == __FILE__
   # Create the setup.exe in one step:
-  # - copy the app code into the deploy dir (Invido version is used implicitely)
+  # - copy the app code into the deploy dir (Tressette version is used implicitly)
   # - copy othe stuff like License, help and create the nsis file
   # - copile the nsis file
   # Requisites: nsis (version used 2.48). 
   # Write these full paths into the target_deploy_info.yaml
-  puts "== Create the setup for InvidoCpp ==="
+  puts "== Create the setup for TressetteCpp ==="
   dep = SetupCreator.new
   options_filename = 'target_deploy_info.yaml'
   opt = YAML::load_file( options_filename )
@@ -22,7 +26,7 @@ if $0 == __FILE__
   end
   dep.read_sw_version()
   ver_suffix = dep.get_version_suffix
-  root_version_dir = File.join(opt[:root_deploy], "invido_" + ver_suffix)
+  root_version_dir = File.join(opt[:root_deploy], "tressette_" + ver_suffix)
 
   puts "-------- Delete current deploy dir"
   if File.directory?(root_version_dir)
