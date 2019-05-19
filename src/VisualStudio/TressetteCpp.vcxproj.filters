@@ -151,6 +151,24 @@
     <ClCompile Include="..\TressetteClient\OptionGameGfx.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
+    <ClCompile Include="..\libexpat\loadlibrary.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libexpat\xmlparse.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libexpat\xmlrole.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libexpat\xmltok.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libexpat\xmltok_impl.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libexpat\xmltok_ns.c">
+      <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\begin_code.h">
@@ -588,6 +606,48 @@
     <ClInclude Include="..\TressetteClient\OptionGameGfx.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
+    <ClInclude Include="..\libexpat\ascii.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\asciitab.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\expat.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\expat_external.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\iasciitab.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\internal.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\latin1tab.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\nametab.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\siphash.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\utf8tab.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\winconfig.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\xmlrole.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\xmltok.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libexpat\xmltok_impl.h">
+      <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\out\data\images\icona_asso.bmp">
@@ -629,6 +689,9 @@
     </Filter>
     <Filter Include="Source Files\MySearchAlpha">
       <UniqueIdentifier>{e5bc26a0-bd95-4248-a537-568da0e3f95e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\libexpat">
+      <UniqueIdentifier>{e5309d60-0543-491d-bb59-8d3504150649}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

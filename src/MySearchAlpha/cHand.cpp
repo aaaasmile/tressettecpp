@@ -83,7 +83,7 @@ void cHand::PlayCard( cCardItem* pCard )
     CARDLIST_IT pCurrIter = tmpList->begin();
 
     BOOL bFound = FALSE;
-    int iIniItems = tmpList->size();
+    size_t iIniItems = tmpList->size();
 	int i;
     for (i = 0; !bFound && i < iIniItems; i++ )
     {

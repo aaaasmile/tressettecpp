@@ -95,7 +95,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient;../MySearchAlpha</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient;../MySearchAlpha;../libexpat</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;XML_BUILDING_EXPAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
@@ -235,6 +236,20 @@
     <ClInclude Include="..\Include\SDL_vulkan.h" />
     <ClInclude Include="..\Include\StdAfx.h" />
     <ClInclude Include="..\Include\win_type_global.h" />
+    <ClInclude Include="..\libexpat\ascii.h" />
+    <ClInclude Include="..\libexpat\asciitab.h" />
+    <ClInclude Include="..\libexpat\expat.h" />
+    <ClInclude Include="..\libexpat\expat_external.h" />
+    <ClInclude Include="..\libexpat\iasciitab.h" />
+    <ClInclude Include="..\libexpat\internal.h" />
+    <ClInclude Include="..\libexpat\latin1tab.h" />
+    <ClInclude Include="..\libexpat\nametab.h" />
+    <ClInclude Include="..\libexpat\siphash.h" />
+    <ClInclude Include="..\libexpat\utf8tab.h" />
+    <ClInclude Include="..\libexpat\winconfig.h" />
+    <ClInclude Include="..\libexpat\xmlrole.h" />
+    <ClInclude Include="..\libexpat\xmltok.h" />
+    <ClInclude Include="..\libexpat\xmltok_impl.h" />
     <ClInclude Include="..\MySearchAlpha\cAlgABSolver.h" />
     <ClInclude Include="..\MySearchAlpha\cCardItem.h" />
     <ClInclude Include="..\MySearchAlpha\cHand.h" />
@@ -296,6 +311,12 @@
     <ClCompile Include="..\guigfx\EnterNameGfx.cpp" />
     <ClCompile Include="..\guigfx\gfx_util.cpp" />
     <ClCompile Include="..\guigfx\OptionGfx.cpp" />
+    <ClCompile Include="..\libexpat\loadlibrary.c" />
+    <ClCompile Include="..\libexpat\xmlparse.c" />
+    <ClCompile Include="..\libexpat\xmlrole.c" />
+    <ClCompile Include="..\libexpat\xmltok.c" />
+    <ClCompile Include="..\libexpat\xmltok_impl.c" />
+    <ClCompile Include="..\libexpat\xmltok_ns.c" />
     <ClCompile Include="..\MySearchAlpha\cAlgABSolver.cpp" />
     <ClCompile Include="..\MySearchAlpha\cCardItem.cpp" />
     <ClCompile Include="..\MySearchAlpha\cHand.cpp" />
