@@ -40,11 +40,11 @@ public:
         SND_IG_VAVIA,
         // DON'T change the position or change the load sequence
         SND_IG_VUVIA,
-        // if you want to add music, make here:
+        // if you want to add music, from here:
         */
         MUSIC_INIT_SND,
         //MUSIC_ONPLAY,
-        //... untill herre. Thank you.
+        //... untill here. Thank you.
         NUM_OF_SOUNDS
     };
     enum

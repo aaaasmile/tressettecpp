@@ -125,12 +125,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient;../MySearchAlpha;../libexpat</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;XML_BUILDING_EXPAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>libexpat.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <OutputFile>.\x64\out\Tressette.exe</OutputFile>
