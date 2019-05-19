@@ -251,7 +251,7 @@ void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPla
         MTX_PINDEX mtxPIndex;
         orderSuitListOnFreq(mtxPIndex);
         CHAR buff[64];
-        int iCountIndexes = mtxPIndex[0]->size() + mtxPIndex[1]->size() + 
+        size_t iCountIndexes = mtxPIndex[0]->size() + mtxPIndex[1]->size() + 
                             mtxPIndex[2]->size() + mtxPIndex[3]->size();
 
         if ( iCountIndexes == NUM_CARDS_HAND)
@@ -1141,7 +1141,7 @@ void cAlgDefault::orderSuitListOnFreq(MTX_PINDEX& mtxPIndex)
         for (UINT i = 0; i < mtxPIndex.size(); i++)
         {
             VCT_INT* pList = mtxPIndex[i];
-            int iNumEle = pList->size();
+            size_t iNumEle = pList->size();
             if ( iNumEle > 0 )
             {
                 CardSpec Card;
@@ -1277,7 +1277,7 @@ void cAlgDefault::developFirstHandTypes()
                 break;
         }
     }
-    int iNumCombi = vctAllMyComb.size();
+    size_t iNumCombi = vctAllMyComb.size();
     //Utility::SaveContainerToFile(vctAllMyComb, "miecombi.txt");
     //TO DO: calculate the prob of each entry
     // we first calculate COMBIN( 10, A) * COMBIN ( 10, B) * COMBIN( 10, C) * COMBIN( 10, D)
@@ -1301,7 +1301,7 @@ void cAlgDefault::developFirstHandTypes()
 */
 void cAlgDefault::playRandom(CARDINFO& cardToPlay)
 {
-    int iCartaPos = CASO(10);
+    size_t iCartaPos = CASO(10);
     int iLoops = 0;
     VCT_CARDINFO vctSameSuit;
     if (m_vctCardsPlayedTricks.size() > 0)
@@ -1371,7 +1371,7 @@ void cAlgDefault::signalSomething(CARDINFO& cardPlayed, BOOL bViaDalGioco, BOOL 
         BOOL bTre = FALSE;
         BOOL bAsso = FALSE;
 
-        int iNumCard = pListIndexCard->size();
+        size_t iNumCard = pListIndexCard->size();
         ASSERT(iNumCard > 0);
         if (iNumCard == 1)
         {
@@ -1524,7 +1524,7 @@ void cAlgDefault::checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& b
 */
 VCT_INT* cAlgDefault::getListOnSuite(eSUIT eSuit)
 {
-    VCT_INT* pRes;
+    VCT_INT* pRes = NULL;
     switch(eSuit)
     {
         case BASTONI:
@@ -1588,10 +1588,10 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
     BOOL bNoDenari = FALSE;
     BOOL bNoSpade = FALSE;
 
-    int iSpadeSize = m_vctInHand_Spade.size();
-    int iBastSize = m_vctInHand_Bastoni.size();
-    int iCoppeSize = m_vctInHand_Coppe.size();
-    int iDenariSize = m_vctInHand_Denari.size();
+    size_t iSpadeSize = m_vctInHand_Spade.size();
+    size_t iBastSize = m_vctInHand_Bastoni.size();
+    size_t iCoppeSize = m_vctInHand_Coppe.size();
+    size_t iDenariSize = m_vctInHand_Denari.size();
 
     if ( pVct )
     {

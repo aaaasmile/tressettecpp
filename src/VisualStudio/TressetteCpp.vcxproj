@@ -95,7 +95,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;../TressetteCore;../guigfx;../TressetteClient;../MySearchAlpha</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>

@@ -18,7 +18,7 @@ void cProbality::SvilCombiHands(VCT_MAZZO &vct_Mazzo)
 {
     size_t lNumCard = vct_Mazzo.size();
 
-    long lNumCombi =  (long)BinomialCoef(lNumCard, m_iCardOnHand);
+    long lNumCombi =  (long)(BinomialCoef((long)lNumCard, m_iCardOnHand));
 
                        
     if (m_bIndexNotInit)
@@ -132,7 +132,7 @@ void cProbality::CheckBriscFreq(int iIndexBris, int* piRes)
         }
     }
     
-    *piRes = iFreq * 1000 / (iMax_i);
+    *piRes = (int)(iFreq * 1000 / (iMax_i));
 }
 
 

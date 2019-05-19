@@ -418,8 +418,6 @@ void cCore::Giocata_Start(long lPlayerIx)
         m_pTracer->AddCommentToLastEntry("Player start: %d", lPlayerIx);
 
     m_MatchPoints.GiocataStart();
-    // notify script 
-    NotifyScript(SCR_NFY_NEWGIOCATA);
     // notify mano
     m_Mano.GiocataStart();  
     
@@ -737,21 +735,6 @@ BOOL  cCore::Player_saySomething(int iPlayerIx, eSayPlayer eSay )
     }
 
     return bRes;
-}
-
-
-////////////////////////////////////////
-//       NotifyScript
-/*!Notify event to the script engine 
-// \param eScriptNotification eVal : 
-*/
-void  cCore::NotifyScript(eScriptNotification eVal)
-{
-    if ( m_PlayersOnTable.IsLevelPython() )
-    {
-        // notify only of some player has a level python set
-        NotifyCustomControlEvent(eVal);
-    }
 }
 
 

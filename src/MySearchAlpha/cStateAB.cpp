@@ -162,8 +162,8 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
 {
     cardlistState.clear();
 
-    int movecount[SUITCOUNT] = { 1, 1, 1, 1 };
-    int suitorder[SUITCOUNT] = { 0, 1, 2, 3 };
+    size_t movecount[SUITCOUNT] = { 1, 1, 1, 1 };
+    size_t suitorder[SUITCOUNT] = { 0, 1, 2, 3 };
     int i;
 
     // find the suit with more moves
@@ -192,8 +192,8 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
     {
 		for (int j = i - 1; j >= 0 && movecount[j] > movecount[i]; --j) 
         {
-            std::swap<int>(movecount[j], movecount[i]);
-			std::swap<int>(suitorder[j], suitorder[i]);
+            std::swap<size_t>(movecount[j], movecount[i]);
+			std::swap<size_t>(suitorder[j], suitorder[i]);
 			i = j;
 		}
 	}
@@ -202,7 +202,7 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
     // with more combinations
     for (i = 0; i < SUITCOUNT; i++)
     {
-        int iBestSuit = suitorder[i];
+        size_t iBestSuit = suitorder[i];
         CARDLIST TmpSuitPlayer = m_HanPlayers[m_PlayerIx].suitList[iBestSuit];
         //TraceCardListDbg(TmpSuitPlayer);
         for (UINT j = 0; j < TmpSuitPlayer.size(); j++)
@@ -224,14 +224,14 @@ void cStateAB::takeit_or_leaveit(CARDLIST& cardlistState)
 {
     cardlistState.clear();
 
-    int iLastHistItemIx = m_trickHist.size() - 1;
+    size_t iLastHistItemIx = m_trickHist.size() - 1;
     ASSERT(iLastHistItemIx >= 0);
 
     // get the last trick item
     TrickHistoryItem* pHistItem = &m_trickHist[iLastHistItemIx];
 
     // retrives the winning card
-    int iCurrTrickLen = pHistItem->m_Trick.size();
+    size_t iCurrTrickLen = pHistItem->m_Trick.size();
     
     BYTE byPlTrickWinIx = 0; 
     cCardItem* pWinCard = pHistItem->m_Trick[0];
@@ -412,7 +412,7 @@ void  cStateAB::MakeMove( cCardItem* pCard )
 
     // update history
     TrickHistoryItem* pLastItem = 0;
-    int iNumTrick = m_trickHist.size();
+    size_t iNumTrick = m_trickHist.size();
     BOOL bAddNewTRick = FALSE;
     if ( iNumTrick == 0 )
     {
@@ -513,7 +513,7 @@ void  cStateAB::MakeMove( cCardItem* pCard )
 */
 int cStateAB::EvaluateState()
 {
-    int iLastHistItemIx = m_trickHist.size() - 1;
+    size_t iLastHistItemIx = m_trickHist.size() - 1;
     ASSERT(iLastHistItemIx >= 0);
     // get the last trick item
     TrickHistoryItem* pHistItem = &m_trickHist[iLastHistItemIx];
@@ -559,7 +559,7 @@ int cStateAB::EvaluateState()
 int cStateAB::EvaluateLastTrick()
 {
     TrickHistoryItem* pLastItem = 0;
-    int iNumTrick = m_trickHist.size();
+    size_t iNumTrick = m_trickHist.size();
 
     //ASSERT(iNumTrick == MAXNUMTRICKS - 1);
 

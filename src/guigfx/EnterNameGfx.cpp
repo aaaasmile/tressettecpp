@@ -11,14 +11,14 @@
 #include "cCheckBoxGfx.h"
 #include "cEditGfx.h"
 #include "cComboGfx.h"
-#include "InvidoSettings.h"
-#include "AppGfx.h"
-#include "Languages.h"
+#include "cSettings.h"
+#include "EngineApp.h"
+#include "lang_gen.h"
 #include "cMusicManager.h"
-#include "cTressetteCoreEnv.h"
-#include "InvidoInfoComm.h"
+//#include "cTressetteCoreEnv.h"
+//#include "InvidoInfoComm.h"
 
-extern AppGfx* g_MainApp;
+extern cEngineApp* g_MainApp;
 
 static const char* stalpszUSER = "USER";
 static const char* stalpszCPUDEFAULT = "CPU_DEFAULT";

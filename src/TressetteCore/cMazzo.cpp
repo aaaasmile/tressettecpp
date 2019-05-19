@@ -55,7 +55,7 @@ void  cMazzo::Create()
 */
 void  cMazzo::SetIndexRaw(int iIndex, long lVal)
 {
-    int iNumEle = m_vctCards.size();
+    size_t iNumEle = m_vctCards.size();
     if (iIndex < iNumEle && iIndex >= 0)
     {
         m_vctCards[iIndex] = lVal;
@@ -144,9 +144,6 @@ bool cMazzo::Shuffle()
     {
         Utility::TraceContainer(m_vctCards, "Cards mazzo"); 
     }
-
-    // call a callback in python script for shuffle deck
-    m_pCoreGame->NotifyScript(SCR_NFY_SHUFFLEDECK);
     
     return true;
 }
@@ -160,7 +157,7 @@ bool cMazzo::Shuffle()
 long cMazzo::PickNextCard(BOOL* pbEnd)
 {
    long lResult = NOT_VALID_INDEX;
-   int iNumEle = m_vctCards.size();
+   size_t iNumEle = m_vctCards.size();
    if (m_lNextCard >= iNumEle)
    {
       *pbEnd = FALSE;
@@ -187,7 +184,7 @@ BOOL cMazzo::PickNextCard(CardSpec* pRes)
     pRes->Reset();
     BOOL  bValid  = FALSE;
     
-    int iNumEle = m_vctCards.size();
+    size_t iNumEle = m_vctCards.size();
     if (m_lNextCard < iNumEle)
     {
         bValid = TRUE;
@@ -214,7 +211,7 @@ BOOL cMazzo::PickNextCard(CardSpec* pRes)
 long cMazzo::ThrowTableCard()
 {
     long lResult = NOT_VALID_INDEX;
-    int iNumEle = m_vctCards.size();
+    size_t iNumEle = m_vctCards.size();
     if (m_lNextCard >= iNumEle)
     {
         return lResult; 
