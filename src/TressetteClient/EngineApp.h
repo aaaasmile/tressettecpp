@@ -56,8 +56,6 @@ public:
     cMusicManager*  GetMusicManager(){return m_pMusicManager;}
     //! show credits screen
     void  ShowCredits();
-    //! launch help application
-    void  PickHelp();
     STRING GetApplicationDir(){return m_strApplicationDir;}
     void   SetApplicationDir(STRING val){m_strApplicationDir = val;}
 

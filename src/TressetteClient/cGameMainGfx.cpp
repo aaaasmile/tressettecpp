@@ -2534,7 +2534,7 @@ void cGameMainGfx::ButCmdClicked(int iButID)
         }
         else if (BUTID_INFO == iButID)
         {
-            g_MainApp->PickHelp();
+            g_MainApp->ShowHelp();
         }
     }
 }

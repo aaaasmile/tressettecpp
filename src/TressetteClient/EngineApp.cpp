@@ -522,17 +522,6 @@ void cEngineApp::MainLoop()
 */
 void cEngineApp::ShowHelp()
 {
-    PickHelp();
-    LeaveMenu();
-}
-
-
-////////////////////////////////////////
-//       PickHelp
-/*! 
-*/
-void cEngineApp::PickHelp()
-{
 #ifdef WIN32
     std::string strFileName = lpszHelpFileName;
     STRING strCompleteHelpPath = m_strApplicationDir + "\\" + strFileName;
