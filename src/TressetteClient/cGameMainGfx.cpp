@@ -530,7 +530,7 @@ int cGameMainGfx::initDeck()
         throw Error::Init(ErrBuff);
     }
     //SDL_SetColorKey(m_pSmallSymbols, SDL_SRCCOLORKEY, SDL_MapRGB(m_pSmallSymbols->format, 242, 30, 206));
-    SDL_SetColorKey(m_pSmallSymbols, TRUE, SDL_MapRGB(m_pSymbols->format, 242, 30, 206)); // SDL 2.0
+    SDL_SetColorKey(m_pSmallSymbols, TRUE, SDL_MapRGB(m_pSmallSymbols->format, 242, 30, 206)); // SDL 2.0
 
     m_pSymbols = SDL_LoadBMP(strFileSymbName.c_str());
     if (m_pSymbols == 0)
