@@ -185,6 +185,7 @@ public:
     SDL_Surface*      m_pAnImages[NUM_ANIMAGES];
 
 private:
+    void    renderScreen();
     void    cleanup();
     int     animateCards();
     void    drawStaticScene();

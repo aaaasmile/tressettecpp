@@ -24,10 +24,7 @@ public:
         IMG_BACKGR_FIORE7,
         NUM_BACKGRIMAGES
     };
-    enum {
-        APP_WIN_WIDTH = 800,
-        APP_WIN_HEIGHT = 600
-    };
+   
 
 public:
     cEngineApp();
@@ -68,8 +65,6 @@ public:
 
 private:
     void    intWindowAndRender();
-    void    setVideoResolution();
-    void    setVideoResolutionForWx();
     void    terminate();
     void    hightScoreMenu();
 	
@@ -78,6 +73,7 @@ private:
     void    drawSplash();
     void    loadSplash();
     void    showEditUserName();
+    void    updateScreenTexture();
     
 private:
     SDL_Surface*      m_pScreen;

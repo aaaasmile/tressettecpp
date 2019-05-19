@@ -352,13 +352,14 @@ void cEngineApp::Init()
 
 }
 
+//intWindowAndRender
 void cEngineApp::intWindowAndRender()
 {
     if (m_pWindow != NULL)
     {
         SDL_DestroyWindow(m_pWindow);
     }
-    m_pWindow = SDL_CreateWindow("Invido", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iScreenW, m_iScreenH, SDL_WINDOW_SHOWN);
+    m_pWindow = SDL_CreateWindow("Tressette", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iScreenW, m_iScreenH, SDL_WINDOW_SHOWN);
     if (m_pWindow == NULL)
     {
         fprintf(stderr, "Cannot create window: %s\n", SDL_GetError());
@@ -391,7 +392,6 @@ void cEngineApp::intWindowAndRender()
 void cEngineApp::loadSplash()
 {
     // load background
-    SDL_Surface *Temp;
     std::string strFileName = lpszImageDir;
     strFileName += lpszImageSplash;
 
@@ -402,24 +402,9 @@ void cEngineApp::loadSplash()
         sprintf(ErrBuff, "Unable to load %s background image\n" , strFileName.c_str());
         throw Error::Init(ErrBuff);
     }
-    Temp = IMG_LoadJPG_RW(srcBack);
-    if (m_bIsWx_client)
-    {
-        // we can't use SDL_DisplayFormat beacuse we have no video settings, but only surfaces
-        m_pSlash = SDL_ConvertSurface(Temp, Temp->format, SDL_SWSURFACE);
-        /*
-        m_pSlash = SDL_CreateRGBSurface(SDL_SWSURFACE, Temp->w, Temp->h, Temp->format->BitsPerPixel, Temp->format->Rmask, Temp->format->Gmask, Temp->format->Bmask, Temp->format->Amask);
-        SDL_BlitSurface(Temp, NULL, m_pSlash, NULL);
-        */
+    m_pSlash = IMG_LoadJPG_RW(srcBack);
 
-    }
-    else
-    {
-        m_pSlash = SDL_DisplayFormat(Temp);
-    }
-    SDL_FreeSurface(Temp);
-
-    // load a other backgorund  images
+    // load other backgorund  images
     for (int i = 0; i < cEngineApp::NUM_BACKGRIMAGES; i++)
     {
         strFileName = lpszaBackGrounds_filenames[i];
@@ -431,19 +416,8 @@ void cEngineApp::loadSplash()
             sprintf(ErrBuff, "Unable to load %s background image\n" , strFileName.c_str());
             throw Error::Init(ErrBuff);
         }
-        Temp = IMG_LoadJPG_RW(srcBack);
-        if (m_bIsWx_client)
-        {
-            m_pBackgrImg[i] = SDL_ConvertSurface(Temp, Temp->format, SDL_SWSURFACE);
-        }
-        else
-        {
-            m_pBackgrImg[i] = SDL_DisplayFormat(Temp);
-        }
-        
-        SDL_FreeSurface(Temp);
+        m_pBackgrImg[i] = IMG_LoadJPG_RW(srcBack);
     }
-    
 }
 
 
@@ -621,71 +595,6 @@ void cEngineApp::ShowCredits()
     LeaveMenu();
 }
 
-void cEngineApp::intWindowAndRender()
-{
-    if (m_pWindow != NULL)
-    {
-        SDL_DestroyWindow(m_pWindow);
-    }
-    m_pWindow = SDL_CreateWindow("Invido", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iScreenW, m_iScreenH, SDL_WINDOW_SHOWN);
-    if (m_pWindow == NULL)
-    {
-        fprintf(stderr, "Cannot create window: %s\n", SDL_GetError());
-        exit(1);
-    }
-    m_psdlRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED);
-
-    if (m_psdlRenderer == NULL)
-    {
-        fprintf(stderr, "Cannot create renderer: %s\n", SDL_GetError());
-        exit(1);
-    }
-    m_pScreen = SDL_CreateRGBSurface(0, m_iScreenW, m_iScreenH, 32,
-        0x00FF0000,
-        0x0000FF00,
-        0x000000FF,
-        0xFF000000);
-    m_pScreenTexture = SDL_CreateTexture(m_psdlRenderer,
-        SDL_PIXELFORMAT_ARGB8888,
-        SDL_TEXTUREACCESS_STREAMING,
-        m_iScreenW, m_iScreenH);
-
-}
-
-////////////////////////////////////////
-//       setVideoResolution
-/*! Set video resolution
-*/
-void cEngineApp::setVideoResolution()
-{
-    if (m_pScreen)
-    {
-        SDL_FreeSurface(m_pScreen);
-    }
-    m_pScreen = SDL_SetVideoMode(m_iScreenW, m_iScreenH, m_iBpp, SDL_SWSURFACE /*| SDL_RESIZABLE */);
-    if ( m_pScreen == NULL )
-    {
-        fprintf(stderr, "Error setvideomode: %s\n", SDL_GetError());
-        exit(1);
-        
-    }
-    
-}
-
-////////////////////////////////////////
-//       setVideoResolutionForWx
-/*! Set video resolution for wx panel
-*/
-void cEngineApp::setVideoResolutionForWx()
-{
-    if (m_pScreen)
-    {
-        SDL_FreeSurface(m_pScreen);
-        m_pScreen = NULL;
-    }
-    SDL_SetVideoMode(0, 0, 0, SDL_SWSURFACE);
-}
-
 
 ////////////////////////////////////////
 //       hightScoreMenu
@@ -715,15 +624,9 @@ int  cEngineApp::PlayGame()
         // default name, show  a dialogbox to set the name
         showEditUserName();
     }
-#ifndef NOPYTHON
-    m_pHmiGfx->SetPythonInitScript(g_Options.All.bUsePythonAsInit, 
-                        g_Options.All.strPythonInitScriptName.c_str() );
-    
-#endif
-
 
     // load and initialize background
-    m_pHmiGfx->Initialize(m_pScreen);
+    m_pHmiGfx->Initialize(m_pScreen, m_psdlRenderer, m_pScreenTexture);
     // init invido core stuff
     m_pHmiGfx->Init4PlayerGameVsCPU();
     // match main init
@@ -731,42 +634,11 @@ int  cEngineApp::PlayGame()
     
     // match main loop
     m_pHmiGfx->MatchLoop();
-    
-    // game terminated, free stuff
-    m_pHmiGfx->Dispose(); 
     
     LeaveMenu();
     
     return 0;
 }
-
-
-////////////////////////////////////////
-//       WxClient_InitGame
-/*! 
-*/
-void cEngineApp::WxClient_InitGame()
-{
-    // load and initialize background
-    m_pHmiGfx->Initialize(m_pScreen);
-    // init invido core stuff
-    m_pHmiGfx->Init4PlayerGameVsCPU();
-    // match main init
-    m_pHmiGfx->NewMatch();
-    
-}
-
-
-////////////////////////////////////////
-//       WxClient_GameLoop
-/*! 
-*/
-void cEngineApp::WxClient_GameLoop()
-{
-    // match main loop
-    m_pHmiGfx->MatchLoop();
-}
-
 
 ////////////////////////////////////////
 //       LeaveMenu
@@ -795,7 +667,7 @@ void cEngineApp::showEditUserName()
     rctWin.y = (m_pScreen->h - rctWin.h) / 2;
     
 
-    Dlg.Init(&rctWin, m_pScreen, m_pfontVera, m_pfontAriblk);
+    Dlg.Init(&rctWin, m_pScreen, m_pfontVera, m_pfontAriblk, m_psdlRenderer);
     STRING strTmp = m_pLanString->GetStringId(cLanguages::ID_CHOOSENAME);
     Dlg.SetCaption(strTmp); 
     Dlg.Show(m_pSlash);
@@ -820,7 +692,7 @@ void cEngineApp::ShowOptionsGeneral()
     rctOptionWin.y = (m_pScreen->h - rctOptionWin.h) / 2;
     
 
-    Optio.Init(&rctOptionWin, m_pScreen, m_pfontVera, m_pfontAriblk);
+    Optio.Init(&rctOptionWin, m_pScreen, m_pfontVera, m_pfontAriblk, m_psdlRenderer);
     STRING strTmp = m_pLanString->GetStringId(cLanguages::ID_OPT_CONTRL_GENERAL);
     Optio.SetCaption(strTmp); 
     Optio.Show(m_pBackgrImg[IMG_BACKGR_FIORE7]);
@@ -874,7 +746,7 @@ void cEngineApp::ShowOptionsGame()
     rctOptionWin.y = (m_pScreen->h - rctOptionWin.h) / 2;
     
 
-    Optio.Init(&rctOptionWin, m_pScreen, m_pfontVera, m_pfontAriblk);
+    Optio.Init(&rctOptionWin, m_pScreen, m_pfontVera, m_pfontAriblk, m_psdlRenderer);
     STRING strTmp = m_pLanString->GetStringId(cLanguages::ID_OPT_CONTRL_GAME);
     Optio.SetCaption(strTmp); 
     Optio.Show(m_pBackgrImg[IMG_BACKGR_TAVOLINO]);

@@ -750,8 +750,10 @@ void cGameMainGfx::drawStaticScene()
         m_pbalGfx[i]->Draw(m_pScreen);
     }
 
-    //SDL_Flip(m_pScreen);
-    m_pApp->FlipScreen(m_pScreen);
+    SDL_RenderClear(m_psdlRenderer);
+    SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+    SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+    SDL_RenderPresent(m_psdlRenderer);
 }
 
 
@@ -987,8 +989,10 @@ void cGameMainGfx::animateBeginGiocata()
                 cardTmp[i].DrawGeneric(m_pScreen);
             }
 
-            //SDL_Flip(m_pScreen);
-            m_pApp->FlipScreen(m_pScreen);
+            SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+            SDL_RenderClear(m_psdlRenderer);
+            SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+            SDL_RenderPresent(m_psdlRenderer);
 
         }
 
@@ -1004,7 +1008,6 @@ void cGameMainGfx::animateBeginGiocata()
         }
         uiTickTot = uiNowTime - uiInitialTick;
     } while (uiTickTot < 3000 && !bEnd);
-    //while(!bEnd);
 
     // restore begin scene
     m_DelayAction.CheckPoint(500, cDelayNextAction::CHANGE_AVAIL);
@@ -1118,8 +1121,10 @@ void cGameMainGfx::animateManoEnd(int iPlayerIx)
         }
 
         SDL_BlitSurface(m_pAlphaDisplay, NULL, m_pScreen, NULL);
-        //SDL_Flip(m_pScreen);
-        m_pApp->FlipScreen(m_pScreen);
+        //SDL_Flip(m_pScreen); // sdl 1.2
+        SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+        SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+        SDL_RenderPresent(m_psdlRenderer);
 
         int iIncVel = iPhase2Speed;
 
@@ -1256,7 +1261,9 @@ int cGameMainGfx::animateCards()
 
             cardGfx.DrawCard(m_pScreen);
             //SDL_Flip(m_pScreen);
-            m_pApp->FlipScreen(m_pScreen);
+            SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+            SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+            SDL_RenderPresent(m_psdlRenderer);
         } while ((cardGfx.m_iX + 73 > 0) && (cardGfx.m_iX < m_pScreen->w));
     } while (1);
 
@@ -1806,9 +1813,16 @@ void cGameMainGfx::drawPlayedCard(cCardGfx* pCard, int iPlayerIx)
         m_vctPlayedCardsGfx.push_back(&m_CardsTable[iPlayerIx]);
 
         //SDL_Flip(m_pScreen);
-        m_pApp->FlipScreen(m_pScreen);
+        renderScreen();
     }
 
+}
+
+void cGameMainGfx::renderScreen()
+{
+    SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+    SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+    SDL_RenderPresent(m_psdlRenderer);
 }
 
 
@@ -2068,7 +2082,9 @@ void cGameMainGfx::animatePlayCard(cCardGfx* pCard, int iPlayerIx)
 
         SDL_BlitSurface(m_pAlphaDisplay, NULL, m_pScreen, NULL);
         //SDL_Flip(m_pScreen);
-        m_pApp->FlipScreen(m_pScreen);
+        SDL_UpdateTexture(m_pScreenTexture, NULL, m_pScreen->pixels, m_pScreen->pitch); // sdl 2.0
+        SDL_RenderCopy(m_psdlRenderer, m_pScreenTexture, NULL, NULL);
+        SDL_RenderPresent(m_psdlRenderer);
 
 
         // synch to frame rate

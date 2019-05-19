@@ -25,6 +25,18 @@
 #include <assert.h>
 #include <stdio.h>
 
+#define APP_WIN_HEIGHT 700//480
+#define APP_WIN_WIDTH 1024//800
+
+#define OPT_WIN_GAME_WIDTH	500
+#define OPT_WIN_GAME_HEIGHT 390
+
+#define OPT_WIN_DECK_WIDTH	500
+#define OPT_WIN_DECK_HEIGHT 360
+
+#define OPT_WIN_GENERAL_WIDTH	500
+#define OPT_WIN_GENERAL_HEIGHT 420
+
 #define DLL_EXPORTIMPORT   __declspec( dllimport )
 
 
