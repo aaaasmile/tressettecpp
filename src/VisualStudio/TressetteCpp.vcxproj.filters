@@ -37,9 +37,6 @@
     <ClCompile Include="..\guigfx\gfx_util.cpp">
       <Filter>Source Files\guigfx</Filter>
     </ClCompile>
-    <ClCompile Include="..\guigfx\OptionGfx.cpp">
-      <Filter>Source Files\guigfx</Filter>
-    </ClCompile>
     <ClCompile Include="..\MySearchAlpha\cAlgABSolver.cpp">
       <Filter>Source Files\MySearchAlpha</Filter>
     </ClCompile>
@@ -168,6 +165,9 @@
     </ClCompile>
     <ClCompile Include="..\libexpat\xmltok_ns.c">
       <Filter>Source Files\libexpat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TressetteClient\OptionGfx.cpp">
+      <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -459,9 +459,6 @@
     <ClInclude Include="..\guigfx\gfx_util.h">
       <Filter>Source Files\guigfx</Filter>
     </ClInclude>
-    <ClInclude Include="..\guigfx\OptionGfx.h">
-      <Filter>Source Files\guigfx</Filter>
-    </ClInclude>
     <ClInclude Include="..\Include\cSettings.h">
       <Filter>Source Files\Include</Filter>
     </ClInclude>
@@ -647,6 +644,9 @@
     </ClInclude>
     <ClInclude Include="..\libexpat\xmltok_impl.h">
       <Filter>Source Files\libexpat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TressetteClient\OptionGfx.h">
+      <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,3 @@
-
-
 // OptionGfx.h: interface for the OptionGfx class.
 //
 //////////////////////////////////////////////////////////////////////
@@ -42,8 +40,7 @@ class OptionGfx
         MYIDCHKSHOWANIMATIONS = 11,
         MYIDPROGBARSPEEDANI = 12,
         MYIDCHKBLOCKAFTERMANOEND = 13,
-        MYIDCHKSIGNALRMOUSE = 14,
-        MYIDSHOWFOTOBACK = 15
+        MYIDCHKSIGNALRMOUSE = 14
     };
 public:
 	OptionGfx();
@@ -62,9 +59,12 @@ public:
     //! set caption text
     void SetCaption(STRING& strCaption){m_strHeaderText = strCaption;}
 
-    
 private:
-	SDL_Renderer*   m_psdlRenderer;
+    void showComboBox_AlgPlayers();
+    void findDllInstalled(VCT_STRING& vctInstPlug, VCT_STRING& vctEngNam);
+
+private:
+    SDL_Renderer*   m_psdlRenderer;
     //! rectangle of the options control
     SDL_Rect        m_rctOptBox; 
     //! text on the messagebox
@@ -91,21 +91,37 @@ private:
     cCheckBoxGfx*   m_pCheckMusic;
     //! checkbox effect
     cCheckBoxGfx*   m_pCheckSoundEffect;
-    //! checkbox show foto back 
-    cCheckBoxGfx*   m_pCheckShowFotoBack;
+    //! checkbox show alg controls
+    cCheckBoxGfx*   m_pCheckShowAlgControl;
+    //! checkbox show animations
+    cCheckBoxGfx*   m_pCheckShowAnimations;
     //! Name edit control
     cEditGfx*       m_pEditName;
     //! combo language selection
     cComboGfx*      m_pComboLang;
+    //! combo algorithm  player 1
+    cComboGfx*      m_pComboAlg_Pl_1;
+    //! combo algorithm  player 2
+    cComboGfx*      m_pComboAlg_Pl_2;
+    //! combo algorithm  player 3
+    cComboGfx*      m_pComboAlg_Pl_3;
+    //! combo algorithm  player 4
+    cComboGfx*      m_pComboAlg_Pl_4;
     //! installed plugin list
     VCT_STRING      m_vct_InstPlugDllName;
     //! installed plugin engine name
     VCT_STRING      m_vct_PlugEngineName;
     //! shows advanced flag
     BOOL            m_bShowAlgControls;
+    //! progrees bar animation speed
+    cProgressBarGfx*  m_pProgSpeedAni;
     //! flag show progress bar animation speed
     BOOL              m_bShowProgSpeedAni;
-   
+    //! checkbox block after manoend
+    cCheckBoxGfx*     m_pCheckBlockAfterManoend;
+    //! checkbox signal with right mouse
+    cCheckBoxGfx*     m_pCheckSignalRightMouse;
+
 };
 
 #endif // !defined(AFX_OPTIONGFX_H__A046DEBA_EC10_4D5D_A499_EF9A331516FD__INCLUDED_)

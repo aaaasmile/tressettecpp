@@ -197,11 +197,6 @@ void OptionGameGfx::Show(SDL_Surface* pScene_background)
     strTextBt = pLan->GetStringId(cLanguages::ID_LOCAL_CHITARELLA);
     m_pComboLocal->AddLineText(strTextBt.c_str());
 
-    /*
-    strTextBt = pLan->GetStringId(cLanguages::ID_LOCAL_ROMANA);
-    m_pComboLocal->AddLineText(strTextBt.c_str());
-    */
-
     m_pComboLocal->SetState(cComboGfx::VISIBLE);
     m_pComboLocal->SelectIndex(g_Options.Match.iLocalGameType);
 

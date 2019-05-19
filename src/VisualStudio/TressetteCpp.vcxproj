@@ -100,7 +100,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libexpat.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -149,7 +149,6 @@
     <ClInclude Include="..\guigfx\cProgressBarGfx.h" />
     <ClInclude Include="..\guigfx\EnterNameGfx.h" />
     <ClInclude Include="..\guigfx\gfx_util.h" />
-    <ClInclude Include="..\guigfx\OptionGfx.h" />
     <ClInclude Include="..\Include\begin_code.h" />
     <ClInclude Include="..\Include\close_code.h" />
     <ClInclude Include="..\Include\cSettings.h" />
@@ -271,6 +270,7 @@
     <ClInclude Include="..\TressetteClient\lang_gen.h" />
     <ClInclude Include="..\TressetteClient\OptionDeckGfx.h" />
     <ClInclude Include="..\TressetteClient\OptionGameGfx.h" />
+    <ClInclude Include="..\TressetteClient\OptionGfx.h" />
     <ClInclude Include="..\TressetteClient\regkey.h" />
     <ClInclude Include="..\TressetteClient\resource.h" />
     <ClInclude Include="..\TressetteCore\AlgCompareFunct.h" />
@@ -310,7 +310,6 @@
     <ClCompile Include="..\guigfx\cProgressBarGfx.cpp" />
     <ClCompile Include="..\guigfx\EnterNameGfx.cpp" />
     <ClCompile Include="..\guigfx\gfx_util.cpp" />
-    <ClCompile Include="..\guigfx\OptionGfx.cpp" />
     <ClCompile Include="..\libexpat\loadlibrary.c" />
     <ClCompile Include="..\libexpat\xmlparse.c" />
     <ClCompile Include="..\libexpat\xmlrole.c" />
@@ -337,6 +336,7 @@
     <ClCompile Include="..\TressetteClient\main.cpp" />
     <ClCompile Include="..\TressetteClient\OptionDeckGfx.cpp" />
     <ClCompile Include="..\TressetteClient\OptionGameGfx.cpp" />
+    <ClCompile Include="..\TressetteClient\OptionGfx.cpp" />
     <ClCompile Include="..\TressetteClient\regkey.cpp" />
     <ClCompile Include="..\TressetteClient\StdAfx.cpp" />
     <ClCompile Include="..\TressetteCore\AlgSupport.cpp" />
