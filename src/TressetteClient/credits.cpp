@@ -1,5 +1,4 @@
 // credits.cpp
-
 #include "StdAfx.h"
 #include "win_type_global.h"
 
@@ -16,35 +15,30 @@
 
 
 char * credit_text[] = {
-  "-INVIDO",  /* '-' at beginning makes highlighted: */
-  "",
-  "",
-  "PART OF THE 'CUPERATIVA' PROJECT",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "-PROJECT",
+  "-PROJECT LEADER",  /* '-' at beginning makes highlighted: */
   "IGOR SARZI SARTORI",
+  "www.invido.it",
   "",
   "",
   "",
-  "",
-  "",
-  "",
-  "-INVIDO TECHNICAL EVANGELIST ",
+  "-TRISET TECHNICAL EVANGELIST ",
   "REALDO SARTORI",
   "",
   "",
   "",
-  "",
-  "",
-  "-MUSICHE",
-  "WOLMER BELTRAMI",
+  "-SUPPORTO",
+  "DOMENICO STARNA",
   "",
   "",
   "",
+  "-ARTS",
+  "LORENZO DALCO'",
+  "www.lorenzodalco.com",
+  "",
+  "",
+  "-SPECIAL THANKS",
+  "FABIO SPATARO",
+  "IL SAN",
   "",
   "",
   "-HOME PAGE ",
@@ -317,139 +311,137 @@ cCredits::cCredits(TTF_Font* psdlFont)
 
 
 
+
 ////////////////////////////////////////
 //       credits
 /*! Show credits
-// \param SDL_Surface* screen : 
-// \param SDL_Surface *pSurfTitle : 
+// \param SDL_Surface* screen :
+// \param SDL_Surface *pSurfTitle :
 */
 int cCredits::Show(SDL_Surface* pScreen, SDL_Surface *pSurfTitle, SDL_Renderer* psdlRenderer)
 {
-	int done, quit, scroll;
-	SDL_Rect src, dest;
-	SDL_Event event;
-	Uint32 last_time, now_time;
-	//SDLKey key; // SDL 1.2
-	SDL_Keycode key; // SDL 2.0
+    int done, quit, scroll;
+    SDL_Rect src, dest;
+    SDL_Event event;
+    Uint32 last_time, now_time;
+    //SDLKey key; // SDL 1.2
+    SDL_Keycode key; // SDL 2.0
 
-	SDL_Texture *pScreenTexture = SDL_CreateTextureFromSurface(psdlRenderer, pScreen);
+    SDL_Texture *pScreenTexture = SDL_CreateTextureFromSurface(psdlRenderer, pScreen);
 
-	/* Clear window: */
-	fade (pScreen, pScreen, 2, 1, psdlRenderer) ;
-
-
-	/* Draw title: */
-
-	dest.x = (pScreen->w - pSurfTitle->w) / 2;
-	dest.y = 0;
-	dest.w = pSurfTitle->w;
-	dest.h = pSurfTitle->h;
-
-	SDL_BlitSurface(pSurfTitle, NULL, pScreen, &dest);
+    /* Clear window: */
+    fade(pScreen, pScreen, 2, 1, psdlRenderer);
 
 
-	/* --- MAIN OPTIONS SCREEN LOOP: --- */
+    /* Draw title: */
 
-	done = 0;
-	quit = 0;
-	scroll = 0;
-	m_iLine = 0;
-	int iLocalScroll;
-	BOOL bLineShow = FALSE; 
+    dest.x = (pScreen->w - pSurfTitle->w) / 2;
+    dest.y = 0;
+    dest.w = pSurfTitle->w;
+    dest.h = pSurfTitle->h;
 
-	do
+    SDL_BlitSurface(pSurfTitle, NULL, pScreen, &dest);
+
+
+    /* --- MAIN OPTIONS SCREEN LOOP: --- */
+
+    done = 0;
+    quit = 0;
+    scroll = 0;
+    m_iLine = 0;
+    int iLocalScroll;
+    BOOL bLineShow = FALSE;
+
+    do
     {
-		last_time = SDL_GetTicks();
+        last_time = SDL_GetTicks();
 
-		/* Handle any incoming events: */      
-		while (SDL_PollEvent(&event) > 0)
-		{
-			if (event.type == SDL_QUIT)
-			{
-				/* Window close event - quit! */
-				quit = 1;
-				done = 1;
-			}
-			else if (event.type == SDL_KEYDOWN)
-			{
-				key = event.key.keysym.sym;
-				if (key == SDLK_ESCAPE)
-				{
-					/* Escape key - quit! */
-					done = 1;
-				}
-			}
-		}
-		/* Scroll: */
-		src.x = 0;
-		src.y = (pSurfTitle->h) + 2;
-		src.w = pScreen->w;
-		src.h = pScreen->h - (pSurfTitle->h);
+        /* Handle any incoming events: */
+        while (SDL_PollEvent(&event) > 0)
+        {
+            if (event.type == SDL_QUIT)
+            {
+                /* Window close event - quit! */
+                quit = 1;
+                done = 1;
+            }
+            else if (event.type == SDL_KEYDOWN)
+            {
+                key = event.key.keysym.sym;
+                if (key == SDLK_ESCAPE)
+                {
+                    /* Escape key - quit! */
+                    done = 1;
+                }
+            }
+        }
+        /* Scroll: */
+        src.x = 0;
+        src.y = (pSurfTitle->h) + 2;
+        src.w = pScreen->w;
+        src.h = pScreen->h - (pSurfTitle->h);
 
-		dest.x = 0;
-		dest.y = (pSurfTitle->h);
-		dest.w = src.w;
-		dest.h = src.h;
+        dest.x = 0;
+        dest.y = (pSurfTitle->h);
+        dest.w = src.w;
+        dest.h = src.h;
 
-		SDL_BlitSurface(pScreen, &src, pScreen, &dest);
+        SDL_BlitSurface(pScreen, &src, pScreen, &dest);
 
-		dest.x = 0;
-		dest.y = (pScreen->h) - 2;
-		dest.w = pScreen->w;
-		dest.h = 2;
+        dest.x = 0;
+        dest.y = (pScreen->h) - 2;
+        dest.w = pScreen->w;
+        dest.h = 2;
 
-		SDL_FillRect(pScreen, &dest, SDL_MapRGB(pScreen->format, 0, 0, 0));
-		scroll++;
+        SDL_FillRect(pScreen, &dest, SDL_MapRGB(pScreen->format, 0, 0, 0));
+        scroll++;
 
-		if (m_eFontType == EASY)
-		{
-			draw_text(credit_text[m_iLine], scroll, pScreen);
-			iLocalScroll = 9;
-		}
-		else
-		{
-			iLocalScroll = 9;
-			if (!bLineShow)
-			{
-				draw_textFontM(credit_text[m_iLine], scroll, pScreen);
-				bLineShow = TRUE;
-				
-			}
-		}
+        if (m_eFontType == EASY)
+        {
+            draw_text(credit_text[m_iLine], scroll, pScreen);
+            iLocalScroll = 9;
+        }
+        else
+        {
+            iLocalScroll = 9;
+            if (!bLineShow)
+            {
+                draw_textFontM(credit_text[m_iLine], scroll, pScreen);
+                bLineShow = TRUE;
 
-		if (scroll >= iLocalScroll)
-		{
-			scroll = 0;
-			bLineShow = FALSE;
-			m_iLine++;
+            }
+        }
 
-			if (credit_text[m_iLine] == NULL)
-			{
-				done = 1;
-			}
-		}
-		//SDL_Flip(screen); // SDL 1.2
-		SDL_UpdateTexture(pScreenTexture, NULL, pScreen->pixels, pScreen->pitch); // sdl 2.0
-		SDL_RenderCopy(psdlRenderer, pScreenTexture, NULL, NULL);
-		SDL_RenderPresent(psdlRenderer);
+        if (scroll >= iLocalScroll)
+        {
+            scroll = 0;
+            bLineShow = FALSE;
+            m_iLine++;
+
+            if (credit_text[m_iLine] == NULL)
+            {
+                done = 1;
+            }
+        }
+        //SDL_Flip(screen); // SDL 1.2
+        SDL_UpdateTexture(pScreenTexture, NULL, pScreen->pixels, pScreen->pitch); // sdl 2.0
+        SDL_RenderCopy(psdlRenderer, pScreenTexture, NULL, NULL);
+        SDL_RenderPresent(psdlRenderer);
 
         /* Pause (keep frame-rate event) */
-      
-		now_time = SDL_GetTicks();
-		if (now_time < last_time + (1000 / 20))
-		{
-			SDL_Delay(last_time + (1000 / 20) - now_time);
-		}
-    }
-	while (!done);
-  
-	fade (pScreen, pScreen, 1, 1, psdlRenderer) ;
-	/* Return the chosen command: */
-	SDL_DestroyTexture(pScreenTexture);
-	return quit;
+
+        now_time = SDL_GetTicks();
+        if (now_time < last_time + (1000 / 20))
+        {
+            SDL_Delay(last_time + (1000 / 20) - now_time);
+        }
+    } while (!done);
+
+    fade(pScreen, pScreen, 1, 1, psdlRenderer);
+    /* Return the chosen command: */
+    SDL_DestroyTexture(pScreenTexture);
+    return quit;
 }
-
-
 
 ////////////////////////////////////////
 //       draw_text
@@ -460,7 +452,7 @@ int cCredits::Show(SDL_Surface* pScreen, SDL_Surface *pSurfTitle, SDL_Renderer* 
 */
 void cCredits::draw_text(char * str, int offset, SDL_Surface* screen)
 {
-	int i, c, x, y, cur_x, start, hilite;
+	size_t i, c, x, y, cur_x, start, hilite;
 	SDL_Rect dest;
 	Uint8 r, g, b;
 
@@ -477,7 +469,7 @@ void cCredits::draw_text(char * str, int offset, SDL_Surface* screen)
 	}
 
 
-	cur_x = (int)((screen->w - ((strlen(str) - start) * 18)) / 2);
+	cur_x = (screen->w - ((strlen(str) - start) * 18)) / 2;
 
 	for (i = start; i < (int)strlen(str); i++)
 	{
@@ -538,17 +530,17 @@ void cCredits::draw_text(char * str, int offset, SDL_Surface* screen)
 // \param int offset : 
 // \param SDL_Surface* screen : 
 */
-void cCredits::draw_textFontM(char* pstrLine, int offset, SDL_Surface* pScreen)
+void cCredits::draw_textFontM(char* pstrLine, int offset, SDL_Surface* screen)
 {
 	ASSERT(m_pMainFont);
 
     int tx, ty;
 	TTF_SizeText(m_pMainFont,pstrLine, &tx, &ty);
-	int iY = pScreen->h - (offset * ty);
+	int iY = screen->h - (offset * ty);
 	SDL_Rect trect;
 	STRING strLayout = pstrLine;
 	STRING strRes = strLayout;
-	int iLen = (int)strRes.length(); 
+	size_t iLen = strRes.length(); 
 	if (pstrLine[0] == '-')
 	{
 		// highlight
@@ -556,22 +548,23 @@ void cCredits::draw_textFontM(char* pstrLine, int offset, SDL_Surface* pScreen)
 		strRes = strLayout.substr(1,iLen - 1); 
 		trect.y= iY - 2;
 		//trect.x =  (screen->w/2 - ((int)strRes.size()*tx + 3)/2) - 4;
-        trect.x =  (pScreen->w  - tx)/ 2;
+        trect.x =  (screen->w  - tx)/ 2;
 		//trect.w = (int)strRes.size()*tx + 8;
         trect.w = tx;
 		trect.h = ty + 4;
         SDL_Rect rctBox = trect;
         rctBox.x -= 4;
         rctBox.w += 4;
-		Uint32 tcolor = SDL_MapRGBA(pScreen->format, 128, 0, 0,255);
-		SDL_FillRect(pScreen,&rctBox,tcolor);
+		Uint32 tcolor = SDL_MapRGBA(screen->format, 128, 0, 0,255);
+		SDL_FillRect(screen,&rctBox,tcolor);
 	}
 	else
 	{
 		trect.y= iY - 2;
-		trect.x =  (pScreen->w  - tx)/ 2;
+		trect.x =  (screen->w  - tx)/ 2;
 		
 	}
-    GFX_UTIL::DrawString(pScreen, strRes.c_str(), trect.x,trect.y, m_colCurrent, m_pMainFont, false);
+    GFX_UTIL::DrawString(screen, strRes.c_str(), trect.x, 
+                                trect.y, m_colCurrent, m_pMainFont,false);
 
 }

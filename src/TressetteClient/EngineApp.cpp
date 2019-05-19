@@ -44,9 +44,6 @@
 
 #include "TraceService.h"
 
-
-static const char* lpszIconRes = "data/images/icona_asso.bmp";
-static const char* lpszIniFileOptions = "Software\\Invido.it\\tressette";
 static const char* lpszXmlFielName = "tressette.xml";
 
 static const char* lpszIniFontAriblk = "data/font/ariblk.ttf";
@@ -145,21 +142,6 @@ void cEngineApp::loadProfile()
     {
         SpacecSettings::GetProfile(lpszXmlFielName);
     }
-
-    if(!g_Options.IsUsingXmlFile())
-    {
-        // settings di default non caricati dal file
-        // la lingua di default viene stabilita dall'sistema operativo dell'utente   
-        //LCID lcid = ::GetUserDefaultLCID();
-        //if(lcid == 1040 || lcid == 2064)
-        //{
-        //    g_Options.All.iLanguageID = cLanguages::LANG_ITA;
-        //}
-        //else
-        //{
-        //    g_Options.All.iLanguageID = cLanguages::LANG_ENG;
-        //}
-    }
 }
 
 ////////////////////////////////////////
@@ -221,21 +203,7 @@ void cEngineApp::Init()
     
     // caption
     SDL_SetWindowTitle(m_pWindow, m_pLanString->GetCStringId(cLanguages::ID_GAMENAME));
-    
-    // hight score
-    //m_HScore.Load(); 
-    
-    //trasparent icon
-    SDL_Surface * psIcon = SDL_LoadBMP(lpszIconRes);
-    if (psIcon == 0)
-    {
-        sprintf(ErrBuff, "Icon not found");
-        throw Error::Init(ErrBuff);
-    }
-    SDL_SetColorKey(psIcon, TRUE, SDL_MapRGB(psIcon->format, 0, 128, 0)); // SDL 2.0
-
-    SDL_SetWindowIcon(m_pWindow, psIcon); // SDL 2.0
-    
+ 
     // font TTF
     if (TTF_Init() == -1) 
     {
@@ -495,8 +463,6 @@ void cEngineApp::terminate()
 void cEngineApp::MainLoop()
 {
     bool bquit = false;
-    
-    // set background of menu
     m_pMenuMgr->SetBackground(m_pSlash);
     
     
@@ -547,9 +513,7 @@ void cEngineApp::MainLoop()
                 break;
             
         }
-    
         // actualize display
-        //SDL_Flip(m_pScreen);
         updateScreenTexture();
 
     }

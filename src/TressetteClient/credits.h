@@ -15,7 +15,7 @@ class cCredits
 	};
 public:
 	cCredits(TTF_Font* pFont);
-	int Show(SDL_Surface* screen,SDL_Surface *pSurfTitle, SDL_Renderer* psdlRenderer);
+    int   Show(SDL_Surface* pScreen, SDL_Surface *pSurfTitle, SDL_Renderer* psdlRenderer);
 
 private:
 	void draw_text(char * str, int offset, SDL_Surface* screen);
