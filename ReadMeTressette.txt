@@ -2,8 +2,8 @@
 14.04.2019. Progetto attuale per la conversione del tressette in SDL 2.0 con visual studio 2015.
 
 In questa repository ho cercato di attualizzare il progetto tressette. 
-Lo scopo è quello di avere la stessa applicazione compilata con visual studio 2015 (nota 2015 e no duemila diciasette) e sdl 2.0.
-La tagione per usare vs2015 è che sdl2.0 è stato compilato con vs2015.
+Lo scopo è quello di avere la stessa applicazione compilata con visual studio 2015 (nota 2015 e non duemila diciassette) e sdl 2.0.
+La ragione per usare vs2015 è che sdl2.0 è stato compilato con vs2015.
 Sono partito con i srgenti dell'invido per poi aggiornarli con quelli del tressette.
 Piattaforma supportata è x64 e solo questa.
 Nella directory release ho solo gli obj, l'exe viene messo in out, dove ci sono i dati e anche le dll.
