@@ -9,8 +9,6 @@
 #include "cCardItem.h"
 #include "win_type_global.h"
 
-
-
 using namespace searchalpha;
 
 //////////////////////////////////////////////////////////////////////
@@ -92,33 +90,33 @@ void cCardItem::SetCardIndex(int itmpIndex)
 
     if (card.byIndex >= 0 && card.byIndex < 10 )
     {
-        card.eSuit = BASTONI;
+        card.eSeed = BASTONI;
         m_strSuitName = g_SuitName[BASTONI];
-        chSuitLetter = g_SuitName[BASTONI].at(0) ;
+        chSeedLetter = g_SuitName[BASTONI].at(0) ;
     }
     else if (card.byIndex >= 10 && card.byIndex < 20 )
     {
-        card.eSuit = COPPE;
+        card.eSeed = COPPE;
         m_strSuitName = g_SuitName[COPPE];
-        chSuitLetter = g_SuitName[COPPE].at(0) ;
+        chSeedLetter = g_SuitName[COPPE].at(0) ;
     }
     else if (card.byIndex >= 20 && card.byIndex < 30 )
     {
-        card.eSuit = DENARI;
+        card.eSeed = DENARI;
         m_strSuitName = g_SuitName[DENARI];
-        chSuitLetter = g_SuitName[DENARI].at(0) ;
+        chSeedLetter = g_SuitName[DENARI].at(0) ;
     }
     else if (card.byIndex  >= 30 && card.byIndex < 40 )
     {
-        card.eSuit = SPADE;
+        card.eSeed = SPADE;
         m_strSuitName = g_SuitName[SPADE];
-        chSuitLetter = g_SuitName[SPADE].at(0) ;
+        chSeedLetter = g_SuitName[SPADE].at(0) ;
     }
     else
     {
-        card.eSuit = UNDEF;
+        card.eSeed = UNDEF;
         m_strSuitName = g_SuitName[UNDEF];
-        chSuitLetter = g_SuitName[UNDEF].at(0) ;
+        chSeedLetter = g_SuitName[UNDEF].at(0) ;
     }
 }
 
@@ -183,7 +181,7 @@ int cCardItem::LetterToIndex(char lett)
 int cCardItem::CardCompareSbF(cCardItem* pFirst, cCardItem* pSecond)
 {
     int iRet = 0;
-    if (pFirst->card.eSuit == pSecond->card.eSuit )
+    if (pFirst->card.eSeed == pSecond->card.eSeed )
     {
         if (pFirst->card.iRank < pSecond->card.iRank )
         {

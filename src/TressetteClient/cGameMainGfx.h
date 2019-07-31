@@ -57,12 +57,12 @@ class cmpCardInfoSuit
 public:
     bool operator ()(const PCARDINFO& Card_1, const PCARDINFO& Card_2) const
     {
-        if (Card_1->eSuit > Card_2->eSuit)
+        if (Card_1->eSeed > Card_2->eSeed)
         {
             // swap element
             return true;
         }
-        else if (Card_1->eSuit == Card_2->eSuit)
+        else if (Card_1->eSeed == Card_2->eSeed)
         {
             int iVal_1 = g_RankTable[Card_1->byIndex];
             int iVal_2 = g_RankTable[Card_2->byIndex];

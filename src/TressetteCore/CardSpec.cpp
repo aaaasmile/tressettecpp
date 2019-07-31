@@ -41,27 +41,27 @@ void CardSpec::SetCardIndex(int itmpIndex)
 
     if (m_CardInfo.byIndex >= 0 && m_CardInfo.byIndex < 10 )
     {
-        m_CardInfo.eSuit = BASTONI;
+        m_CardInfo.eSeed = BASTONI;
         m_strSuitName = g_SuitName[BASTONI];
     }
     else if (m_CardInfo.byIndex >= 10 && m_CardInfo.byIndex < 20 )
     {
-        m_CardInfo.eSuit = COPPE;
+        m_CardInfo.eSeed = COPPE;
         m_strSuitName = g_SuitName[COPPE];
     }
     else if (m_CardInfo.byIndex >= 20 && m_CardInfo.byIndex < 30 )
     {
-        m_CardInfo.eSuit = DENARI;
+        m_CardInfo.eSeed = DENARI;
         m_strSuitName = g_SuitName[DENARI];
     }
     else if (m_CardInfo.byIndex  >= 30 && m_CardInfo.byIndex < 40 )
     {
-        m_CardInfo.eSuit = SPADE;
+        m_CardInfo.eSeed = SPADE;
         m_strSuitName = g_SuitName[SPADE];
     }
     else
     {
-        m_CardInfo.eSuit = UNDEF;
+        m_CardInfo.eSeed = UNDEF;
         m_strSuitName = g_SuitName[UNDEF];
     }
 }
@@ -76,7 +76,7 @@ void CardSpec::operator = (const CardSpec &r)
 {
     strncpy(m_CardInfo.CardName, r.m_CardInfo.CardName, NUM_BYTE_NAME);
     m_CardInfo.byIndex = r.m_CardInfo.byIndex;
-    m_CardInfo.eSuit = r.m_CardInfo.eSuit; 
+    m_CardInfo.eSeed = r.m_CardInfo.eSeed; 
     m_iSymbolIx = r.m_iSymbolIx;
     m_CardInfo.iRank = r.m_CardInfo.iRank ; 
     m_strSuitName = r.m_strSuitName;
@@ -91,7 +91,7 @@ void CardSpec::Reset()
 {
     m_CardInfo.byIndex = NOT_VALID_INDEX;
     m_CardInfo.CardName[0] = '\0';
-    m_CardInfo.eSuit = UNDEF;
+    m_CardInfo.eSeed = UNDEF;
     m_iSymbolIx = 0;
     m_strSuitName = "";
     m_CardInfo.iRank = 0;
@@ -107,7 +107,7 @@ void  CardSpec::SetCardInfo(CARDINFO& Card)
 {
     strncpy(m_CardInfo.CardName, Card.CardName, NUM_BYTE_NAME);
     m_CardInfo.byIndex = Card.byIndex;
-    m_CardInfo.eSuit = Card.eSuit;   
+    m_CardInfo.eSeed = Card.eSeed;   
     m_CardInfo.iRank = Card.iRank ;
 }
 
@@ -122,7 +122,7 @@ void CardSpec::FillInfo(CARDINFO* pCardInfo)
     ASSERT(pCardInfo);
     strncpy(pCardInfo->CardName, m_CardInfo.CardName, NUM_BYTE_NAME);
     pCardInfo->byIndex = m_CardInfo.byIndex;
-    pCardInfo->eSuit = m_CardInfo.eSuit;  
+    pCardInfo->eSeed = m_CardInfo.eSeed;  
     pCardInfo->iRank = m_CardInfo.iRank ;
 }
 

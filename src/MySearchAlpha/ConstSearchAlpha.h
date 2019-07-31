@@ -8,7 +8,7 @@ namespace searchalpha
 {
     enum
     {
-        SUITCOUNT = 4,
+        SEEDCOUNT = 4,
         DECKSIZE = 40,
         PLAYERCOUNT = 4,
         POINTSTOT = 35,

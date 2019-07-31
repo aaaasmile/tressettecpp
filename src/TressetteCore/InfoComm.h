@@ -83,7 +83,7 @@ typedef struct _CardInfo
     //! index of the card
    BYTE   byIndex;
    //! seed of the card
-   eSUIT  eSuit;
+   eSUIT  eSeed;
    //! name of the card
    char   CardName[NUM_BYTE_NAME];
    //! rank card

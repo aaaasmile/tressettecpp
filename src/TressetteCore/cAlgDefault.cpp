@@ -15,52 +15,52 @@
 using namespace AlgSupport;
 
 // hand information on suit
-static AlgSupport::HandInfo tableHandInfo[] = 
+static AlgSupport::HandInfo tableHandInfo[] =
 {
     // 10-0-0-0
-    {_10_0_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_10_0_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 9-1-0-0
-    {_9_1_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_9_1_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 8-2-0-0
-    {_8_2_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_8_2_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 8-1-1-0
-    {_8_1_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_8_1_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 7-3-0-0
-    {_7_3_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_7_3_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 7-2-1-0
-    {_7_2_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_7_2_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 7-1-1-1
     {_7_1_1_1,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 6-4-0-0
-    {_6_4_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_6_4_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 6-3-1-0
-    {_6_3_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_6_3_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 6-2-2-0
-    {_6_2_2_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_6_2_2_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 6-2-1-1
-    {_6_2_1_1,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_6_2_1_1,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 5-5-0-0
-    {_5_5_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_5_5_0_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 5-4-1-0
-    {_5_4_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_5_4_1_0,MOLTOFORTE,MOLTO_SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 5-3-2-0
-    {_5_3_2_0,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_5_3_2_0,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 5-3-1-1
-    {_5_3_1_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_5_3_1_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 5-2-2-1
-    {_5_2_2_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_5_2_2_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 4-4-2-0
-    {_4_4_2_0,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_4_4_2_0,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 4-4-1-1
-    {_4_4_1_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_4_4_1_1,FORTE,SBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 4-3-3-0
-    {_4_3_3_0,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_4_3_3_0,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 4-3-2-1
-    {_4_3_2_1,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_4_3_2_1,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 4-2-2-2
-    {_4_2_2_2,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_4_2_2_2,ATTACCO,SEMIBILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 3-3-3-1
-    {_3_3_3_1,DEBOLE,BILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}, 
+    {_3_3_3_1,DEBOLE,BILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF},
     // 3-3-2-2
     {_3_3_2_2,DEBOLE,BILANCIATA,0,0,0,0,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,PIZZ_NONE,NOTDEF,NOTDEF,NOTDEF,NOTDEF}
 };
@@ -77,29 +77,29 @@ cAlgDefault::cAlgDefault()
     m_eLocal = LT_NEUTRO;
 
     // fill the map to get an entry in the table hand info
-    m_mapHandInfo["10-0-0-0"] =  &tableHandInfo[0];
-    m_mapHandInfo["9-1-0-0"] =  &tableHandInfo[1];
-    m_mapHandInfo["8-2-0-0"] =  &tableHandInfo[2];
-    m_mapHandInfo["8-1-1-0"] =  &tableHandInfo[3];
-    m_mapHandInfo["7-3-0-0"] =  &tableHandInfo[4];
-    m_mapHandInfo["7-2-1-0"] =  &tableHandInfo[5];
-    m_mapHandInfo["7-1-1-1"] =  &tableHandInfo[6];
-    m_mapHandInfo["6-4-0-0"] =  &tableHandInfo[7];
-    m_mapHandInfo["6-3-1-0"] =  &tableHandInfo[8];
-    m_mapHandInfo["6-2-2-0"] =  &tableHandInfo[9];
-    m_mapHandInfo["6-2-1-1"] =  &tableHandInfo[10];
-    m_mapHandInfo["5-5-0-0"] =  &tableHandInfo[11];
-    m_mapHandInfo["5-4-1-0"] =  &tableHandInfo[12];
-    m_mapHandInfo["5-3-2-0"] =  &tableHandInfo[13];
-    m_mapHandInfo["5-3-1-1"] =  &tableHandInfo[14];
-    m_mapHandInfo["5-2-2-1"] =  &tableHandInfo[15];
-    m_mapHandInfo["4-4-2-0"] =  &tableHandInfo[16];
-    m_mapHandInfo["4-4-1-1"] =  &tableHandInfo[17];
-    m_mapHandInfo["4-3-3-0"] =  &tableHandInfo[18];
-    m_mapHandInfo["4-3-2-1"] =  &tableHandInfo[19];
-    m_mapHandInfo["4-2-2-2"] =  &tableHandInfo[20];
-    m_mapHandInfo["3-3-3-1"] =  &tableHandInfo[21];
-    m_mapHandInfo["3-3-2-2"] =  &tableHandInfo[22];
+    m_mapHandInfo["10-0-0-0"] = &tableHandInfo[0];
+    m_mapHandInfo["9-1-0-0"] = &tableHandInfo[1];
+    m_mapHandInfo["8-2-0-0"] = &tableHandInfo[2];
+    m_mapHandInfo["8-1-1-0"] = &tableHandInfo[3];
+    m_mapHandInfo["7-3-0-0"] = &tableHandInfo[4];
+    m_mapHandInfo["7-2-1-0"] = &tableHandInfo[5];
+    m_mapHandInfo["7-1-1-1"] = &tableHandInfo[6];
+    m_mapHandInfo["6-4-0-0"] = &tableHandInfo[7];
+    m_mapHandInfo["6-3-1-0"] = &tableHandInfo[8];
+    m_mapHandInfo["6-2-2-0"] = &tableHandInfo[9];
+    m_mapHandInfo["6-2-1-1"] = &tableHandInfo[10];
+    m_mapHandInfo["5-5-0-0"] = &tableHandInfo[11];
+    m_mapHandInfo["5-4-1-0"] = &tableHandInfo[12];
+    m_mapHandInfo["5-3-2-0"] = &tableHandInfo[13];
+    m_mapHandInfo["5-3-1-1"] = &tableHandInfo[14];
+    m_mapHandInfo["5-2-2-1"] = &tableHandInfo[15];
+    m_mapHandInfo["4-4-2-0"] = &tableHandInfo[16];
+    m_mapHandInfo["4-4-1-1"] = &tableHandInfo[17];
+    m_mapHandInfo["4-3-3-0"] = &tableHandInfo[18];
+    m_mapHandInfo["4-3-2-1"] = &tableHandInfo[19];
+    m_mapHandInfo["4-2-2-2"] = &tableHandInfo[20];
+    m_mapHandInfo["3-3-3-1"] = &tableHandInfo[21];
+    m_mapHandInfo["3-3-2-2"] = &tableHandInfo[22];
 
     m_pABSolver = 0;
 }
@@ -121,8 +121,8 @@ cAlgDefault::~cAlgDefault()
 
 ////////////////////////////////////////
 //       ALG_SetCoreInterface
-/*! 
-// \param I_CORE_Game* pCore : 
+/*!
+// \param I_CORE_Game* pCore :
 */
 void cAlgDefault::ALG_SetCoreInterface(I_CORE_Game* pCore)
 {
@@ -133,9 +133,9 @@ void cAlgDefault::ALG_SetCoreInterface(I_CORE_Game* pCore)
 ////////////////////////////////////////
 //       ALG_SetPlayerIndex
 /*! set player index
-// \param int iIndex : 
+// \param int iIndex :
 */
-void cAlgDefault::ALG_SetPlayerIndex(int iIndex) 
+void cAlgDefault::ALG_SetPlayerIndex(int iIndex)
 {
     m_iMyIndex = iIndex;
 }
@@ -143,12 +143,12 @@ void cAlgDefault::ALG_SetPlayerIndex(int iIndex)
 ////////////////////////////////////////
 //       ALG_NewMatch
 /*! new match notification
-// \param int iNumPlayer : 
+// \param int iNumPlayer :
 */
-void cAlgDefault::ALG_NewMatch(int iNumPlayer) 
+void cAlgDefault::ALG_NewMatch(int iNumPlayer)
 {
     newAlgSolver();
-    m_eLocal = (eTypeLocal)g_Options.Match.iLocalGameType;   
+    m_eLocal = (eTypeLocal)g_Options.Match.iLocalGameType;
 }
 
 
@@ -162,55 +162,55 @@ void cAlgDefault::calculateSuiteIndexes()
     m_vctInHand_Denari.clear();
     m_vctInHand_Coppe.clear();
     m_vctInHand_Spade.clear();
-    
+
     for (int i = 0; i < NUM_CARDS_HAND; i++)
     {
-        if ( m_arrCardAllPlayers[m_iMyIndex][i].byIndex == NOT_VALID_INDEX)
+        if (m_arrCardAllPlayers[m_iMyIndex][i].byIndex == NOT_VALID_INDEX)
         {
             continue;
         }
-        
+
         // store indexes in suit list
-        if (m_arrCardAllPlayers[m_iMyIndex][i].eSuit == BASTONI)
+        if (m_arrCardAllPlayers[m_iMyIndex][i].eSeed == BASTONI)
         {
             m_vctInHand_Bastoni.push_back(i);
         }
-        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSuit == SPADE)
+        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSeed == SPADE)
         {
             m_vctInHand_Spade.push_back(i);
         }
-        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSuit == COPPE)
+        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSeed == COPPE)
         {
             m_vctInHand_Coppe.push_back(i);
         }
-        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSuit == DENARI)
+        else if (m_arrCardAllPlayers[m_iMyIndex][i].eSeed == DENARI)
         {
             m_vctInHand_Denari.push_back(i);
         }
     }
     // sort all list in order to have a descending list
-    std::sort(m_vctInHand_Spade.begin(), m_vctInHand_Spade.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]) );
-    std::sort(m_vctInHand_Bastoni.begin(), m_vctInHand_Bastoni.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]) );
-    std::sort(m_vctInHand_Coppe.begin(), m_vctInHand_Coppe.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]) );
-    std::sort(m_vctInHand_Denari.begin(), m_vctInHand_Denari.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]) );
+    std::sort(m_vctInHand_Spade.begin(), m_vctInHand_Spade.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]));
+    std::sort(m_vctInHand_Bastoni.begin(), m_vctInHand_Bastoni.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]));
+    std::sort(m_vctInHand_Coppe.begin(), m_vctInHand_Coppe.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]));
+    std::sort(m_vctInHand_Denari.begin(), m_vctInHand_Denari.end(), cmpCardOnIndex(m_arrCardAllPlayers[m_iMyIndex]));
 
 }
 
 ////////////////////////////////////////
 //       ALG_NewGiocata
 /*! new giocata notification
-// \param CARDINFO* pCardArray : hand card array 
+// \param CARDINFO* pCardArray : hand card array
 // \param int iNumOfCards : number of cards in the hand
 // \param int iPlayerIx : Player that start the giocata
 */
-void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPlayerIx) 
+void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPlayerIx)
 {
     ASSERT(m_iMyIndex != NOT_VALID_INDEX);
     ASSERT(m_pABSolver);
 
     m_vctCardsPlayedTricks.clear();
     m_iTrickRound = 0;
-    m_currTrickInfo.Reset(); 
+    m_currTrickInfo.Reset();
 
     if (iNumOfCards == NUM_CARDS_HAND)
     {
@@ -220,8 +220,8 @@ void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPla
             m_arrCardAllPlayers[m_iMyIndex][i] = pCardArray[i];
         }
         calculateSuiteIndexes();
-        
-        if (g_Options.All.iDebugLevel > 5 )
+
+        if (g_Options.All.iDebugLevel > 5)
         {
             traceAllCardInHand("--- After sort, card in hand:----\n");
         }
@@ -229,13 +229,13 @@ void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPla
         MTX_PINDEX mtxPIndex;
         orderSuitListOnFreq(mtxPIndex);
         CHAR buff[64];
-        size_t iCountIndexes = mtxPIndex[0]->size() + mtxPIndex[1]->size() + 
-                            mtxPIndex[2]->size() + mtxPIndex[3]->size();
+        size_t iCountIndexes = mtxPIndex[0]->size() + mtxPIndex[1]->size() +
+            mtxPIndex[2]->size() + mtxPIndex[3]->size();
 
-        if ( iCountIndexes == NUM_CARDS_HAND)
+        if (iCountIndexes == NUM_CARDS_HAND)
         {
-            sprintf(buff, "%d-%d-%d-%d", (mtxPIndex[0])->size(), 
-                                 (mtxPIndex[1])->size(), (mtxPIndex[2])->size(), (mtxPIndex[3])->size());
+            sprintf(buff, "%d-%d-%d-%d", (mtxPIndex[0])->size(),
+                (mtxPIndex[1])->size(), (mtxPIndex[2])->size(), (mtxPIndex[3])->size());
             STRING strKey = buff;
             m_currHandInfo = *(m_mapHandInfo[strKey]);
 
@@ -249,12 +249,12 @@ void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPla
             // prepare cards at the begin of the trick
             copyCardsBeginTrick();
 
-            for (int j = 0; j < MAX_NUM_PLAYER; j++ )
+            for (int j = 0; j < MAX_NUM_PLAYER; j++)
             {
                 // setup the alphabeta alg
-                m_pABSolver->SetHands(j,  &m_arrCardAllPlayers[j][0], NUM_CARDS_HAND);
+                m_pABSolver->SetHands(j, &m_arrCardAllPlayers[j][0], NUM_CARDS_HAND);
             }
-            m_pABSolver->SetInitialPlayer( iPlayerIx );
+            m_pABSolver->SetInitialPlayer(iPlayerIx);
         }
         else
         {
@@ -273,7 +273,7 @@ void cAlgDefault::ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPla
 
 ////////////////////////////////////////
 //       copyCardsBeginTrick
-/*! Copy cards of all players in the begin trick card array 
+/*! Copy cards of all players in the begin trick card array
 */
 void cAlgDefault::copyCardsBeginTrick()
 {
@@ -295,7 +295,7 @@ void cAlgDefault::calculatePizzOnHand()
 {
     BOOL bTre = FALSE;
     BOOL bDue = FALSE;
-    BOOL bAsso =  FALSE;
+    BOOL bAsso = FALSE;
     m_currHandInfo.iNum3 = 0;
     m_currHandInfo.iNum2 = 0;
     m_currHandInfo.iNum1 = 0;
@@ -323,26 +323,26 @@ void cAlgDefault::calculatePizzOnHand()
     }
     else if (bTre)
     {
-        m_currHandInfo.iNum3 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum3++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnBastoni = TRE;
     }
-    else if(bDue)
+    else if (bDue)
     {
-        m_currHandInfo.iNum2 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum2++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnBastoni = DUE;
     }
-    else if(bAsso)
+    else if (bAsso)
     {
-        m_currHandInfo.iNum1 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum1++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnBastoni = ASSO;
     }
     // denari
     bTre = FALSE;
     bDue = FALSE;
-    bAsso =  FALSE;
+    bAsso = FALSE;
     m_currHandInfo.ePizzOnDenari = PIZZ_NONE;
     checkListBigCards(&m_vctInHand_Denari, bTre, bDue, bAsso);
     if (bTre && bDue && bAsso)
@@ -363,26 +363,26 @@ void cAlgDefault::calculatePizzOnHand()
     }
     else if (bTre)
     {
-        m_currHandInfo.iNum3 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum3++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnDenari = TRE;
     }
-    else if(bDue)
+    else if (bDue)
     {
-        m_currHandInfo.iNum2 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum2++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnDenari = DUE;
     }
-    else if(bAsso)
+    else if (bAsso)
     {
-        m_currHandInfo.iNum1 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum1++;
+        m_currHandInfo.iNumOfPizzichi++;
         m_currHandInfo.ePizzOnDenari = ASSO;
     }
     // coppe
     bTre = FALSE;
     bDue = FALSE;
-    bAsso =  FALSE;
+    bAsso = FALSE;
     m_currHandInfo.ePizzOnCoppe = PIZZ_NONE;
     checkListBigCards(&m_vctInHand_Coppe, bTre, bDue, bAsso);
     if (bTre && bDue && bAsso)
@@ -404,30 +404,30 @@ void cAlgDefault::calculatePizzOnHand()
     else if (bTre)
     {
         m_currHandInfo.ePizzOnCoppe = TRE;
-        m_currHandInfo.iNum3 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum3++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
-    else if(bDue)
+    else if (bDue)
     {
         m_currHandInfo.ePizzOnCoppe = DUE;
-        m_currHandInfo.iNum2 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum2++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
-    else if(bAsso)
+    else if (bAsso)
     {
         m_currHandInfo.ePizzOnCoppe = ASSO;
-        m_currHandInfo.iNum1 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.iNum1++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
     // spade
     bTre = FALSE;
     bDue = FALSE;
-    bAsso =  FALSE;
+    bAsso = FALSE;
     m_currHandInfo.ePizzOnSpade = PIZZ_NONE;
     checkListBigCards(&m_vctInHand_Spade, bTre, bDue, bAsso);
     if (bTre && bDue && bAsso)
     {
-        m_currHandInfo.ePizzOnSpade  = NAPOLA;
+        m_currHandInfo.ePizzOnSpade = NAPOLA;
     }
     else if (bTre && bDue)
     {
@@ -443,21 +443,21 @@ void cAlgDefault::calculatePizzOnHand()
     }
     else if (bTre)
     {
-        m_currHandInfo.ePizzOnSpade  = TRE;
-        m_currHandInfo.iNum3 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.ePizzOnSpade = TRE;
+        m_currHandInfo.iNum3++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
-    else if(bDue)
+    else if (bDue)
     {
-        m_currHandInfo.ePizzOnSpade  = DUE;
-        m_currHandInfo.iNum2 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.ePizzOnSpade = DUE;
+        m_currHandInfo.iNum2++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
-    else if(bAsso)
+    else if (bAsso)
     {
-        m_currHandInfo.ePizzOnSpade  = ASSO;
-        m_currHandInfo.iNum1 ++;
-        m_currHandInfo.iNumOfPizzichi ++;
+        m_currHandInfo.ePizzOnSpade = ASSO;
+        m_currHandInfo.iNum1++;
+        m_currHandInfo.iNumOfPizzichi++;
     }
 }
 
@@ -473,7 +473,7 @@ void cAlgDefault::otherPlayersCardRandom()
         BOOL bCardAlreadyInDeck = FALSE;
         for (int j = 0; j < NUM_CARDS_HAND; j++)
         {
-            if ( i == m_arrCardAllPlayers[m_iMyIndex][j].byIndex  )
+            if (i == m_arrCardAllPlayers[m_iMyIndex][j].byIndex)
             {
                 bCardAlreadyInDeck = TRUE;
                 break;
@@ -485,7 +485,7 @@ void cAlgDefault::otherPlayersCardRandom()
             vctCards.push_back(i);
         }
     }
-    ASSERT(NUM_CARDS_MAZZBRI - NUM_CARDS_HAND  == vctCards.size() );
+    ASSERT(NUM_CARDS_MAZZBRI - NUM_CARDS_HAND == vctCards.size());
     // shuffle the deck
     std::random_shuffle(vctCards.begin(), vctCards.end());
     // distribuite cards to all other players
@@ -499,9 +499,9 @@ void cAlgDefault::otherPlayersCardRandom()
         for (int g = 0; g < NUM_CARDS_HAND; g++)
         {
             CardSpec cdTemp;
-            ASSERT(iCardCount < vctCards.size() );
-            cdTemp.SetCardIndex( vctCards[iCardCount] ) ;
-            cdTemp.FillInfo(&m_arrCardAllPlayers[k][g])  ;
+            ASSERT(iCardCount < vctCards.size());
+            cdTemp.SetCardIndex(vctCards[iCardCount]);
+            cdTemp.FillInfo(&m_arrCardAllPlayers[k][g]);
             iCardCount++;
         }
     }
@@ -563,7 +563,7 @@ void cAlgDefault::removeListIndex(VCT_INT&  vctInHand, int iIndex)
 // \param int iPlayerIx : player that has played
 // \param CARDINFO* pCard : card played
 */
-void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard) 
+void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard)
 {
     if (iPlayerIx == m_iMyIndex)
     {
@@ -573,28 +573,28 @@ void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard)
         // card successfully played
         for (int i = 0; !bFound && i < NUM_CARDS_HAND; i++)
         {
-            if (pCard->byIndex  == m_arrCardAllPlayers[m_iMyIndex][i].byIndex )
+            if (pCard->byIndex == m_arrCardAllPlayers[m_iMyIndex][i].byIndex)
             {
                 for (int j = NUM_CARDS_HAND - 1; j >= 0; j--)
                 {
                     // find a first valid card
-                    if (m_arrCardAllPlayers[m_iMyIndex][j].byIndex  != NOT_VALID_INDEX)
+                    if (m_arrCardAllPlayers[m_iMyIndex][j].byIndex != NOT_VALID_INDEX)
                     {
                         // swap with the last valid
                         m_arrCardAllPlayers[m_iMyIndex][i] = m_arrCardAllPlayers[m_iMyIndex][j];
-                        
+
                         m_arrCardAllPlayers[m_iMyIndex][j].byIndex = NOT_VALID_INDEX;
-                        m_arrCardAllPlayers[m_iMyIndex][j].eSuit = UNDEF;
+                        m_arrCardAllPlayers[m_iMyIndex][j].eSeed = UNDEF;
                         bFoundValid = TRUE;
                         //Adjust indexes
                         calculateSuiteIndexes();
                         break;
-                        
+
                     }
                 }
                 bFound = TRUE;
             }
-            
+
         }
         ASSERT(bFound);
         ASSERT(bFoundValid);
@@ -613,7 +613,7 @@ void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard)
             }
             for (int k = 0; k < NUM_CARDS_HAND; k++)
             {
-                if ( m_arrCardAllPlayers[g][k].byIndex  == pCard->byIndex )
+                if (m_arrCardAllPlayers[g][k].byIndex == pCard->byIndex)
                 {
                     // card found on player g
                     if (iPlayerIx == g)
@@ -634,15 +634,15 @@ void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard)
 
                     }
                     // make the selected index invalid: put it at the end
-                    for (int h = NUM_CARDS_HAND - 1; h >= 0; h-- )
+                    for (int h = NUM_CARDS_HAND - 1; h >= 0; h--)
                     {
-                        if (m_arrCardAllPlayers[iPlayerIx][h].byIndex  != NOT_VALID_INDEX)
+                        if (m_arrCardAllPlayers[iPlayerIx][h].byIndex != NOT_VALID_INDEX)
                         {
-                            m_arrCardAllPlayers[iPlayerIx][iIndexToInvalidate] = 
-                                            m_arrCardAllPlayers[iPlayerIx][h];
-                        
+                            m_arrCardAllPlayers[iPlayerIx][iIndexToInvalidate] =
+                                m_arrCardAllPlayers[iPlayerIx][h];
+
                             m_arrCardAllPlayers[iPlayerIx][h].byIndex = NOT_VALID_INDEX;
-                            m_arrCardAllPlayers[iPlayerIx][h].eSuit = UNDEF;
+                            m_arrCardAllPlayers[iPlayerIx][h].eSeed = UNDEF;
                             break;
                         }
                     }
@@ -656,15 +656,15 @@ void cAlgDefault::ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard)
     m_vctCardsPlayedTricks.push_back(*pCard);
 
     CardSpec cardPlayed;
-    cardPlayed.SetCardInfo(*pCard); 
-    m_currTrickInfo.vctCardsPlayed.push_back(cardPlayed); 
-    m_currTrickInfo.byNumPlayerPlayed ++;
+    cardPlayed.SetCardInfo(*pCard);
+    m_currTrickInfo.vctCardsPlayed.push_back(cardPlayed);
+    m_currTrickInfo.byNumPlayerPlayed++;
     if (m_currTrickInfo.vctCardsPlayed.size() == 1)
     {
         m_currTrickInfo.iPlayer_S = iPlayerIx;
     }
- 
-    
+
+
 }
 
 
@@ -685,13 +685,13 @@ void cAlgDefault::swapCardOnInitTrick(int iPlayerIx, CARDINFO* pCard)
         }
         for (int k = 0; k < NUM_CARDS_HAND; k++)
         {
-            if ( m_arrCardAllTrickInit[g][k].byIndex  == pCard->byIndex )
+            if (m_arrCardAllTrickInit[g][k].byIndex == pCard->byIndex)
             {
                 // swap  cards in the stored initial trick array, use the first card as index
                 CARDINFO ciTemp = m_arrCardAllTrickInit[g][k];
                 m_arrCardAllTrickInit[g][k] = m_arrCardAllTrickInit[iPlayerIx][0];
                 m_arrCardAllTrickInit[iPlayerIx][0] = ciTemp;
-    
+
                 //TRACE("[%d]Swap card: %s with %s (playerplay: %d, plaswap: %d, cardhasplayed: %s)\n", m_iMyIndex,m_arrCardAllTrickInit[g][k].CardName, ciTemp.CardName, iPlayerIx, g, pCard->CardName  );
                 // ok ready to return
                 return;
@@ -704,15 +704,15 @@ void cAlgDefault::swapCardOnInitTrick(int iPlayerIx, CARDINFO* pCard)
 ////////////////////////////////////////
 //       ALG_PlayerHasSaid
 /*! player has said something
-// \param int iPlayerIx : 
-// \param eSayPlayer eSay : 
+// \param int iPlayerIx :
+// \param eSayPlayer eSay :
 */
-void cAlgDefault::ALG_PlayerHasSaid(int iPlayerIx, eSayPlayer eSay) 
+void cAlgDefault::ALG_PlayerHasSaid(int iPlayerIx, eSayPlayer eSay)
 {
     SayPlayer stPlaySaid;
-    stPlaySaid.eSay =  eSay; 
+    stPlaySaid.eSay = eSay;
     stPlaySaid.iPlayerIx = iPlayerIx;
-    m_currTrickInfo.vctSayPlayer.push_back( stPlaySaid ); 
+    m_currTrickInfo.vctSayPlayer.push_back(stPlaySaid);
 }
 
 
@@ -735,17 +735,17 @@ void cAlgDefault::lookforDeclGoodGames()
 
     for (UINT i = 0; i < vct_GGRec.size(); i++)
     {
-        m_pCoreGame->DeclareGoodGame( m_iMyIndex, vct_GGRec[i].eGGval, vct_GGRec[i].eSManca); 
+        m_pCoreGame->DeclareGoodGame(m_iMyIndex, vct_GGRec[i].eGGval, vct_GGRec[i].eSManca);
     }
 
-   
+
 }
 
 ////////////////////////////////////////
 //       ALG_Play
 /*! player have to play notification
 */
-void cAlgDefault::ALG_Play() 
+void cAlgDefault::ALG_Play()
 {
     ASSERT(m_pCoreGame);
 
@@ -757,7 +757,7 @@ void cAlgDefault::ALG_Play()
         // look if some declaration are available
         lookforDeclGoodGames();
     }
-    
+
     BOOL bViaDalGioco = FALSE;
     BOOL bBusso = FALSE;
     BOOL bStayQuite = FALSE;
@@ -765,7 +765,7 @@ void cAlgDefault::ALG_Play()
 
     // play a card in a dummy art
     //playRandom(cardToPlay);
-    
+
     //m_pABSolver->Solve(); 
     if (m_vctCardsPlayedTricks.size() == 0)
     {
@@ -776,7 +776,7 @@ void cAlgDefault::ALG_Play()
     {
         playAsNotFirst(cardToPlay);
     }
-    
+
     //eventually make a declaration
     if (!bStayQuite)
     {
@@ -785,9 +785,9 @@ void cAlgDefault::ALG_Play()
 
     // play the card
     // pay attention that the core call the callback function ALG_PlayerHasPlayed
-    BOOL bRes = m_pCoreGame->Player_playCard(m_iMyIndex, &cardToPlay ); 
+    BOOL bRes = m_pCoreGame->Player_playCard(m_iMyIndex, &cardToPlay);
     ASSERT(bRes);
-    
+
 }
 
 
@@ -809,7 +809,7 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
         return;
     }
-    else if (m_firstHandInfo.ePizzOnBastoni  == AlgSupport::NAPOLA && m_vctInHand_Bastoni.size() > 0)
+    else if (m_firstHandInfo.ePizzOnBastoni == AlgSupport::NAPOLA && m_vctInHand_Bastoni.size() > 0)
     {
         int iCardIx = m_vctInHand_Bastoni[0];
         cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
@@ -839,15 +839,15 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         // END_SEED_INSPECT
         ASSERT(m_currHandInfo.eForce != NOTDEF);
 
-        if ( m_currHandInfo.eForce == FORTE || 
-             m_currHandInfo.eForce == MOLTOFORTE )
+        if (m_currHandInfo.eForce == FORTE ||
+            m_currHandInfo.eForce == MOLTOFORTE)
         {
-            eSUIT          eSuitStark = UNDEF ;
+            eSUIT          eSuitStark = UNDEF;
             UINT iPos = 0;
-            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed( eSuitStark );
-            if ( ePizz != ASSO && ePizz != DUE )
+            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
+            if (ePizz != ASSO && ePizz != DUE)
             {
-                
+
                 iPos = 0;
             }
             else
@@ -855,36 +855,36 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
                 // bigger seed grant index inner the list
                 iPos = 1;
             }
-            VCT_INT* pList = getListOnSuite(eSuitStark);
+            VCT_INT* pList = getListOnSeed(eSuitStark);
             ASSERT(iPos < pList->size());
-            int iCardIx = (* pList)[iPos];
+            int iCardIx = (*pList)[iPos];
             cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
             return;
         }
-         
+
         // IF ATTACCO THEN WHILE EXAMS_BIGGER_SEED
         //    IF 25 THEN  PLAY 3 ||
         //    IF 28 THEN  PLAY BIGGER SCARTINO ||
         //    IF 29 THEN  PLAY BIGGER SCARTINO
         // ENDIF
-        if ( m_currHandInfo.eForce == ATTACCO  )
+        if (m_currHandInfo.eForce == ATTACCO)
         {
-            eSUIT          eSuitStark = UNDEF ;
-            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed( eSuitStark );
-            if ( ePizz != VENTICINQUE)
+            eSUIT          eSuitStark = UNDEF;
+            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
+            if (ePizz != VENTICINQUE)
             {
                 // index of the bigger scartino
-                int iCardIx  = indexOfTheBiggerScartino(eSuitStark);
+                int iCardIx = indexOfTheBiggerScartino(eSuitStark);
                 cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
                 return;
             }
             // on 25 play the 3 (the first card)
-            VCT_INT* pList = getListOnSuite(eSuitStark);
-            int iCardIx = (* pList)[0];
+            VCT_INT* pList = getListOnSeed(eSuitStark);
+            int iCardIx = (*pList)[0];
             cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
             return;
         }
-        
+
         // IF DEBOLE THEN 
         //   WHILE EXAMS_BIGGER_SEED
         //      IF ASSO ISPRESENT CHANGESEED
@@ -892,29 +892,29 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         //   LOOP
         //   PLAY THE SMALLER 
         // ENDIF 
-        if ( m_currHandInfo.eForce == DEBOLE  )
+        if (m_currHandInfo.eForce == DEBOLE)
         {
-            eSUIT          eSuitStark = UNDEF ;
-            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed( eSuitStark );
+            eSUIT          eSuitStark = UNDEF;
+            ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
             eSUIT          eSuitStarkInitial = eSuitStark;
-            BOOL bSearchTer  = FALSE;
+            BOOL bSearchTer = FALSE;
             VCT_SUITE vct_exclude;
             do
             {
-                if ( ePizz == VENTINOVE || 
-                     ePizz == VENTOTTO ||
-                     ePizz == ASSO)
+                if (ePizz == VENTINOVE ||
+                    ePizz == VENTOTTO ||
+                    ePizz == ASSO)
                 {
-                    vct_exclude.push_back( eSuitStark );
-                    if(vct_exclude.size() < 4)
+                    vct_exclude.push_back(eSuitStark);
+                    if (vct_exclude.size() < 4)
                     {
                         // change seed
-                        ePizz = pizzicoOnBiggerSeed( eSuitStark, &vct_exclude );
+                        ePizz = pizzicoOnBiggerSeed(eSuitStark, &vct_exclude);
                     }
                     else
                     {
                         // each seed has something, so back to the inial start suit
-                        eSuitStark = eSuitStarkInitial; 
+                        eSuitStark = eSuitStarkInitial;
                         bSearchTer = TRUE;
                     }
                 }
@@ -922,118 +922,114 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
                 {
                     bSearchTer = TRUE;
                 }
-            }while(!bSearchTer);
+            } while (!bSearchTer);
 
             // index of the bigger scartino
             int iCardIx = indexOfTheBiggerScartino(eSuitStark);
             cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
             return;
         }
-		
+
     }
     else
     {
         // use alpha beta
         useAlphaBeta(cardToPlay);
-        
+
     }
 }
 
 ////////////////////////////////////////
 //       playAsNotFirst
 /*! Provides the card to play. Player is not the first (second, third or fourth).
-// \param CARDINFO& cardToPlay : 
+// \param CARDINFO& cardToPlay :
 */
 void cAlgDefault::playAsNotFirst(CARDINFO& cardToPlay)
 {
-	if ( m_currTrickInfo.byNumPlayerPlayed > 1)
-	{
+    if (m_currTrickInfo.byNumPlayerPlayed > 1)
+    {
         // partner has already played
         BOOL bPartnetBusso = FALSE;
-        int iPartner = AlgSupport::GetPartnerIndex( m_iMyIndex );
-        for (UINT i = 0; i < m_currTrickInfo.vctSayPlayer.size() ; i++ )
+        int iPartner = AlgSupport::GetPartnerIndex(m_iMyIndex);
+        for (UINT i = 0; i < m_currTrickInfo.vctSayPlayer.size(); i++)
         {
-            if ( m_currTrickInfo.vctSayPlayer[i].eSay == BUSSO_LAMIGLIORE  && 
-                 m_currTrickInfo.vctSayPlayer[i].iPlayerIx == iPartner )
+            if (m_currTrickInfo.vctSayPlayer[i].eSay == BUSSO_LAMIGLIORE  &&
+                m_currTrickInfo.vctSayPlayer[i].iPlayerIx == iPartner)
             {
                 bPartnetBusso = TRUE;
                 break;
             }
         }
         // PARTNER HAS BUSSO THE BEST CARD
-		// IF CARDS ON SEED
-		//   PLAY THE BIGGER ON SEED
+        // IF CARDS ON SEED
+        //   PLAY THE BIGGER ON SEED
         // END
-		if (bPartnetBusso)
+        eSUIT eSeedStark;
+        eSeedStark = m_currTrickInfo.vctCardsPlayed[0].GetSeed();
+        if (bPartnetBusso)
         {
-            eSUIT eSuitStark;
-            eSuitStark = m_currTrickInfo.vctCardsPlayed[0].GetSuit() ;
-            VCT_INT* pList = getListOnSuite(eSuitStark);
+            VCT_INT* pList = getListOnSeed(eSeedStark);
             if (pList->size() > 0)
             {
-                int iCardIx = (* pList)[0];
+                int iCardIx = (*pList)[0];
                 cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
                 return;
             }
         }
+        /*if (partnerTakesSure()) {
+            int iCardIx;
+            if (getAssoOnSeed(eSeedStark, &iCardIx)) {
+                cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
+                return;
+            }
+        }*/
     }
-    
-    //if (m_iTrickRound == 1)
-    if (0)
+
+    // use alpha beta
+
+    // adjust deph because we are inner the trick
+    int iDeph = 12 - m_currTrickInfo.byNumPlayerPlayed;
+    //int iDeph = 12;
+    int iTotDeph = (NUM_CARDS_HAND - (m_iTrickRound - 1)) * 4 - m_currTrickInfo.byNumPlayerPlayed;
+    if (iTotDeph < iDeph)
     {
-    	// TO DO
-        // TAKE IT OR LEAVE IT
-        // this is not so simple, avoid it and use alpha beta
-        ASSERT(0);
+        iDeph = iTotDeph;
     }
-    else
+
+    m_pABSolver->SetHandDeph(iDeph);
+    for (int j = 0; j < MAX_NUM_PLAYER; j++)
     {
-        // use alpha beta
-
-        // adjust deph because we are inner the trick
-        int iDeph = 12 -  m_currTrickInfo.byNumPlayerPlayed;
-        //int iDeph = 12;
-        int iTotDeph = ( NUM_CARDS_HAND - ( m_iTrickRound - 1)) * 4 - m_currTrickInfo.byNumPlayerPlayed;
-        if ( iTotDeph < iDeph)
-        {
-            iDeph = iTotDeph;
-        }
-
-        m_pABSolver->SetHandDeph(iDeph); 
-        for (int j = 0; j < MAX_NUM_PLAYER; j++ )
-        {
-            // setup the alphabeta alg
-            // all valid cards are sorted, valid card are at the beginning, at the the invalid one
-            m_pABSolver->SetHands(j,  &m_arrCardAllTrickInit[j][0], NUM_CARDS_HAND - ( m_iTrickRound - 1) );
-        }
-
-        if (g_Options.All.iDebugLevel > 4  )
-        {
-            traceAllTrickInit();
-        }
-        
-        // set the current trick history
-        CARDINFO arrTrickHist[MAX_NUM_PLAYER];
-        ASSERT(m_currTrickInfo.byNumPlayerPlayed == m_currTrickInfo.vctCardsPlayed.size() );
-	int k;
-        for ( k = 0; k < m_currTrickInfo.byNumPlayerPlayed; k++)
-        {
-            m_currTrickInfo.vctCardsPlayed[k].FillInfo(&arrTrickHist[k]);
-        }
-        
-        if (g_Options.All.iDebugLevel > 4  )
-        {
-            traceArrOfCardInfo(arrTrickHist, k);
-        }
-
-        // set the current player that have to play
-        m_pABSolver->SetInitialPlayer(m_iMyIndex);
-        m_pABSolver->SetCurrTrickHistory(m_currTrickInfo.iPlayer_S, arrTrickHist, m_currTrickInfo.byNumPlayerPlayed );
-        
-        m_pABSolver->Solve(); 
-        m_pABSolver->GetBestCardToPlay(m_iMyIndex, &cardToPlay); 
-        //ASSERT(0);
+        // setup the alphabeta alg
+        // all valid cards are sorted, valid card are at the beginning, at the the invalid one
+        m_pABSolver->SetHands(j, &m_arrCardAllTrickInit[j][0], NUM_CARDS_HAND - (m_iTrickRound - 1));
     }
+
+    if (g_Options.All.iDebugLevel > 4)
+    {
+        traceAllTrickInit();
+    }
+
+    // set the current trick history
+    CARDINFO arrTrickHist[MAX_NUM_PLAYER];
+    ASSERT(m_currTrickInfo.byNumPlayerPlayed == m_currTrickInfo.vctCardsPlayed.size());
+    int k;
+    for (k = 0; k < m_currTrickInfo.byNumPlayerPlayed; k++)
+    {
+        m_currTrickInfo.vctCardsPlayed[k].FillInfo(&arrTrickHist[k]);
+    }
+
+    if (g_Options.All.iDebugLevel > 4)
+    {
+        traceArrOfCardInfo(arrTrickHist, k);
+    }
+
+    // set the current player that have to play
+    m_pABSolver->SetInitialPlayer(m_iMyIndex);
+    m_pABSolver->SetCurrTrickHistory(m_currTrickInfo.iPlayer_S, arrTrickHist, m_currTrickInfo.byNumPlayerPlayed);
+
+    m_pABSolver->Solve();
+    m_pABSolver->GetBestCardToPlay(m_iMyIndex, &cardToPlay);
+    //ASSERT(0);
 }
 
 
@@ -1043,13 +1039,13 @@ void cAlgDefault::playAsNotFirst(CARDINFO& cardToPlay)
 */
 void cAlgDefault::traceAllTrickInit()
 {
-    TRACE("Playerme %d\n:", m_iMyIndex );
+    TRACE("Playerme %d\n:", m_iMyIndex);
     for (int i = 0; i < MAX_NUM_PLAYER; i++)
     {
         TRACE("Player %d:\n", i);
         for (int j = 0; j < NUM_CARDS_HAND; j++)
         {
-            TRACE( "%s, ", m_arrCardAllTrickInit[i][j].CardName );
+            TRACE("%s, ", m_arrCardAllTrickInit[i][j].CardName);
         }
         TRACE("\n");
     }
@@ -1058,7 +1054,7 @@ void cAlgDefault::traceAllTrickInit()
 
 ////////////////////////////////////////
 //       traceArrOfCardInfo
-/*! Trace an array of cards 
+/*! Trace an array of cards
 // \param CARDINFO* arrTrickHist : cards to be traced
 // \param int iNumEle : number of elements
 */
@@ -1066,7 +1062,7 @@ void cAlgDefault::traceArrOfCardInfo(CARDINFO* arrTrickHist, int iNumEle)
 {
     for (int i = 0; i < iNumEle; i++)
     {
-        TRACE( "%s, ", arrTrickHist[i].CardName );
+        TRACE("%s, ", arrTrickHist[i].CardName);
     }
     TRACE("\n");
 }
@@ -1079,29 +1075,29 @@ void cAlgDefault::traceArrOfCardInfo(CARDINFO* arrTrickHist, int iNumEle)
 */
 void cAlgDefault::useAlphaBeta(CARDINFO& cardToPlay)
 {
-    for (int j = 0; j < MAX_NUM_PLAYER; j++ )
+    for (int j = 0; j < MAX_NUM_PLAYER; j++)
     {
         // setup the alphabeta alg
         // all valid cards are sorted, valid card are at the beginning, at the end the invalid one
-        m_pABSolver->SetHands(j,  &m_arrCardAllPlayers[j][0], NUM_CARDS_HAND - (m_iTrickRound - 1));
+        m_pABSolver->SetHands(j, &m_arrCardAllPlayers[j][0], NUM_CARDS_HAND - (m_iTrickRound - 1));
     }
-    int iDeph = 12  - m_currTrickInfo.byNumPlayerPlayed ;
-    int iTotDeph = ( NUM_CARDS_HAND - ( m_iTrickRound - 1)) * 4 - m_currTrickInfo.byNumPlayerPlayed;
-    if ( iTotDeph < iDeph)
+    int iDeph = 12 - m_currTrickInfo.byNumPlayerPlayed;
+    int iTotDeph = (NUM_CARDS_HAND - (m_iTrickRound - 1)) * 4 - m_currTrickInfo.byNumPlayerPlayed;
+    if (iTotDeph < iDeph)
     {
         iDeph = iTotDeph;
     }
 
-    m_pABSolver->SetInitialPlayer( m_iMyIndex );
-    m_pABSolver->Solve(); 
-    m_pABSolver->GetBestCardToPlay(m_iMyIndex, &cardToPlay); 
+    m_pABSolver->SetInitialPlayer(m_iMyIndex);
+    m_pABSolver->Solve();
+    m_pABSolver->GetBestCardToPlay(m_iMyIndex, &cardToPlay);
 }
 
 
 ////////////////////////////////////////
 //       orderSuitListOnFreq
 /*! Order suite list on size.
-// \param MTX_PINDEX& mtxPIndex : sort result 
+// \param MTX_PINDEX& mtxPIndex : sort result
 */
 void cAlgDefault::orderSuitListOnFreq(MTX_PINDEX& mtxPIndex)
 {
@@ -1113,20 +1109,20 @@ void cAlgDefault::orderSuitListOnFreq(MTX_PINDEX& mtxPIndex)
 
     std::sort(mtxPIndex.begin(), mtxPIndex.end(), cmpListOnSize());
 
-    if (g_Options.All.iDebugLevel > 5  )
+    if (g_Options.All.iDebugLevel > 5)
     {
         TRACE("List order\n");
         for (UINT i = 0; i < mtxPIndex.size(); i++)
         {
             VCT_INT* pList = mtxPIndex[i];
             size_t iNumEle = pList->size();
-            if ( iNumEle > 0 )
+            if (iNumEle > 0)
             {
                 CardSpec Card;
                 // pick the first item of the list to print the suit
                 int iCurrIndex = (*pList)[0];
                 // use CardSpec to fill all info about this card
-                Card.SetCardIndex( m_arrCardAllPlayers[m_iMyIndex][iCurrIndex].byIndex ); 
+                Card.SetCardIndex(m_arrCardAllPlayers[m_iMyIndex][iCurrIndex].byIndex);
                 TRACE("List suit %s, num elements: %d\n", Card.GetSuitName(), iNumEle);
             }
             else
@@ -1146,29 +1142,29 @@ void cAlgDefault::developFirstHandTypes()
 {
     // develop all combinations of the first hand
     /*
-    10-0-0-0 = 
-    9-1-0-0 = 
-    8-2-0-0 = 
-    8-1-1-0 = 
-    7-3-0-0 = 
-    7-2-1-0 = 
-    7-1-1-1 = 
-    6-4-0-0 = 
-    6-3-1-0 = 
-    6-2-2-0 = 
-    6-2-1-1 = 
-    5-5-0-0 = 
-    5-4-1-0 = 
-    5-3-2-0 = 
-    5-3-1-1 = 
-    5-2-2-1 = 
-    4-4-2-0 = 
-    4-4-1-1 = 
-    4-3-3-0 = 
-    4-3-2-1 = 
-    4-2-2-2 = 
-    3-3-3-1 = 
-    3-3-2-2 = 
+    10-0-0-0 =
+    9-1-0-0 =
+    8-2-0-0 =
+    8-1-1-0 =
+    7-3-0-0 =
+    7-2-1-0 =
+    7-1-1-1 =
+    6-4-0-0 =
+    6-3-1-0 =
+    6-2-2-0 =
+    6-2-1-1 =
+    5-5-0-0 =
+    5-4-1-0 =
+    5-3-2-0 =
+    5-3-1-1 =
+    5-2-2-1 =
+    4-4-2-0 =
+    4-4-1-1 =
+    4-3-3-0 =
+    4-3-2-1 =
+    4-2-2-2 =
+    3-3-3-1 =
+    3-3-2-2 =
     */
     int j0 = 10;
     int j1 = 0;
@@ -1183,76 +1179,76 @@ void cAlgDefault::developFirstHandTypes()
     {
         if (!bNoWrite)
         {
-            if( (j0 + j1 + j2 + j3) == 10 && 
-                (j0 >= j1 && j1 >= j2 && j2 >= j3)) 
+            if ((j0 + j1 + j2 + j3) == 10 &&
+                (j0 >= j1 && j1 >= j2 && j2 >= j3))
             {
-                sprintf(buff,"%d-%d-%d-%d = ", j0, j1, j2, j3);
+                sprintf(buff, "%d-%d-%d-%d = ", j0, j1, j2, j3);
                 STRING strCurrCombi = buff;
                 vctAllMyComb.push_back(strCurrCombi);
             }
         }
         switch (iCurrIndexToChange)
         {
-            case 0:
-               j0 --;
-               if (j0 < 3)
-               {
-                   // end
-                   bEnd = TRUE;
-                   break;
-               }
-               bNoWrite = FALSE;
-               j1 = 10 - j0;
-               j2 = 0;
-               j3 = 0;
-               iCurrIndexToChange = 1;
-               break;
-            case 1:
-                j1 --;
-                if (j1 <= 0)
-                {
-                    // redo the switch
-                    iCurrIndexToChange = 0;
-                    bNoWrite = TRUE;
-                }
-                else
-                {
-                    bNoWrite = FALSE;
-                    j2 = 10 - j0 - j1;
-                    j3 = 0;
-                    iCurrIndexToChange = 2;
-                }
+        case 0:
+            j0--;
+            if (j0 < 3)
+            {
+                // end
+                bEnd = TRUE;
                 break;
-            case 2:
-                j2 --;
-                if (j2 <= 0)
-                {
-                    // redo the switch
-                    iCurrIndexToChange = 1;
-                    bNoWrite = TRUE;
-                }
-                else
-                {
-                    bNoWrite = FALSE;
-                    j3 = 10 - j0 - j1 - j2;
-                    iCurrIndexToChange = 3;
-                }
-                break;
+            }
+            bNoWrite = FALSE;
+            j1 = 10 - j0;
+            j2 = 0;
+            j3 = 0;
+            iCurrIndexToChange = 1;
+            break;
+        case 1:
+            j1--;
+            if (j1 <= 0)
+            {
+                // redo the switch
+                iCurrIndexToChange = 0;
+                bNoWrite = TRUE;
+            }
+            else
+            {
+                bNoWrite = FALSE;
+                j2 = 10 - j0 - j1;
+                j3 = 0;
+                iCurrIndexToChange = 2;
+            }
+            break;
+        case 2:
+            j2--;
+            if (j2 <= 0)
+            {
+                // redo the switch
+                iCurrIndexToChange = 1;
+                bNoWrite = TRUE;
+            }
+            else
+            {
+                bNoWrite = FALSE;
+                j3 = 10 - j0 - j1 - j2;
+                iCurrIndexToChange = 3;
+            }
+            break;
 
-            case 3:
-                j3 --;
-                if (j3 + j0 + j1 + j2 < 10)
-                {
-                    // redo the switch
-                    iCurrIndexToChange = 2;
-                    bNoWrite = TRUE;
-                }
-                else
-                {
-                    bNoWrite = FALSE;
-                    iCurrIndexToChange = 3;
-                }
-                break;
+        case 3:
+            j3--;
+            if (j3 + j0 + j1 + j2 < 10)
+            {
+                // redo the switch
+                iCurrIndexToChange = 2;
+                bNoWrite = TRUE;
+            }
+            else
+            {
+                bNoWrite = FALSE;
+                iCurrIndexToChange = 3;
+            }
+            break;
         }
     }
     size_t iNumCombi = vctAllMyComb.size();
@@ -1275,7 +1271,7 @@ void cAlgDefault::developFirstHandTypes()
 ////////////////////////////////////////
 //       playRandom
 /*! Play a card in a random manner
-// \param CARDINFO& cardToPlay : 
+// \param CARDINFO& cardToPlay :
 */
 void cAlgDefault::playRandom(CARDINFO& cardToPlay)
 {
@@ -1284,38 +1280,38 @@ void cAlgDefault::playRandom(CARDINFO& cardToPlay)
     VCT_CARDINFO vctSameSuit;
     if (m_vctCardsPlayedTricks.size() > 0)
     {
-        ASSERT(m_vctCardsPlayedTricks[0].eSuit != UNDEF);
+        ASSERT(m_vctCardsPlayedTricks[0].eSeed != UNDEF);
         // check suit
         for (int i = 0; i < NUM_CARDS_HAND; i++)
         {
-            if (m_arrCardAllPlayers[m_iMyIndex][i].eSuit == m_vctCardsPlayedTricks[0].eSuit)
+            if (m_arrCardAllPlayers[m_iMyIndex][i].eSeed == m_vctCardsPlayedTricks[0].eSeed)
             {
                 // same suit
-                ASSERT(m_arrCardAllPlayers[m_iMyIndex][i].eSuit != UNDEF);
-                ASSERT(m_arrCardAllPlayers[m_iMyIndex][i].byIndex  != NOT_VALID_INDEX);
-                vctSameSuit.push_back(m_arrCardAllPlayers[m_iMyIndex][i]); 
+                ASSERT(m_arrCardAllPlayers[m_iMyIndex][i].eSeed != UNDEF);
+                ASSERT(m_arrCardAllPlayers[m_iMyIndex][i].byIndex != NOT_VALID_INDEX);
+                vctSameSuit.push_back(m_arrCardAllPlayers[m_iMyIndex][i]);
             }
         }
     }
-    if (vctSameSuit.size() > 0 )
+    if (vctSameSuit.size() > 0)
     {
-        iCartaPos = CASO( vctSameSuit.size() );
+        iCartaPos = CASO(vctSameSuit.size());
         // use a copy otherwise on notification  ALG_PlayerHasPlayed goes reset
         cardToPlay = vctSameSuit[iCartaPos];
     }
     else
     {
-        while (m_arrCardAllPlayers[m_iMyIndex][iCartaPos].eSuit == UNDEF && iLoops < NUM_CARDS_HAND)
+        while (m_arrCardAllPlayers[m_iMyIndex][iCartaPos].eSeed == UNDEF && iLoops < NUM_CARDS_HAND)
         {
             iCartaPos++;
             if (iCartaPos >= NUM_CARDS_HAND)
             {
                 iCartaPos = 0;
             }
-            iLoops ++;
+            iLoops++;
         }
         ASSERT(m_pCoreGame);
-        ASSERT(m_arrCardAllPlayers[m_iMyIndex][iCartaPos].eSuit != UNDEF );
+        ASSERT(m_arrCardAllPlayers[m_iMyIndex][iCartaPos].eSeed != UNDEF);
         // use a copy otherwise on notification  ALG_PlayerHasPlayed goes reset
         cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCartaPos];
     }
@@ -1328,23 +1324,23 @@ void cAlgDefault::playRandom(CARDINFO& cardToPlay)
 */
 void cAlgDefault::signalSomething(CARDINFO& cardPlayed, BOOL bViaDalGioco, BOOL bBusso)
 {
-    if ((m_eLocal == LT_CHITARELLA || m_eLocal ==  LT_ROMANA) && m_currTrickInfo.byNumPlayerPlayed > 0 )
+    if ((m_eLocal == LT_CHITARELLA || m_eLocal == LT_ROMANA) && m_currTrickInfo.byNumPlayerPlayed > 0)
     {
         // admit declarations only for the first in the trick
         return;
     }
-    
+
     if (bViaDalGioco && m_eLocal == LT_BREDA)
     {
-        m_pCoreGame->Player_saySomething(m_iMyIndex, VIA_DAQUESTOGIOCO );
+        m_pCoreGame->Player_saySomething(m_iMyIndex, VIA_DAQUESTOGIOCO);
     }
     else if (bBusso)
     {
-        m_pCoreGame->Player_saySomething(m_iMyIndex, BUSSO_LAMIGLIORE );
+        m_pCoreGame->Player_saySomething(m_iMyIndex, BUSSO_LAMIGLIORE);
     }
     else
     {
-        VCT_INT* pListIndexCard = getListOnSuite(cardPlayed.eSuit);
+        VCT_INT* pListIndexCard = getListOnSeed(cardPlayed.eSeed);
         BOOL bDue = FALSE;
         BOOL bTre = FALSE;
         BOOL bAsso = FALSE;
@@ -1355,35 +1351,35 @@ void cAlgDefault::signalSomething(CARDINFO& cardPlayed, BOOL bViaDalGioco, BOOL 
         {
             if (m_eLocal == LT_CHITARELLA)
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, PIOMBO );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, PIOMBO);
             }
             else
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, VOLO );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, VOLO);
             }
         }
         else if (iNumCard == 2)
         {
-            m_pCoreGame->Player_saySomething(m_iMyIndex, PUNTO_ANCORAUNA );
+            m_pCoreGame->Player_saySomething(m_iMyIndex, PUNTO_ANCORAUNA);
         }
         else if (iNumCard > 2)
         {
             checkListBigCards(pListIndexCard, bTre, bDue, bAsso);
             if (bTre && !isTre(cardPlayed))
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ILTRE );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ILTRE);
             }
             else if (bDue && !isDue(cardPlayed))
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ILDUE );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ILDUE);
             }
             else if (bAsso && !isAsso(cardPlayed))
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ASSO );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, HO_ASSO);
             }
             else
             {
-                m_pCoreGame->Player_saySomething(m_iMyIndex, STRISCIO_NEHOTANTE );
+                m_pCoreGame->Player_saySomething(m_iMyIndex, STRISCIO_NEHOTANTE);
             }
 
         }
@@ -1403,7 +1399,7 @@ BOOL cAlgDefault::isTre(CARDINFO& cardPlayed)
     if (cardPlayed.byIndex == 2 ||
         cardPlayed.byIndex == 12 ||
         cardPlayed.byIndex == 22 ||
-        cardPlayed.byIndex == 32 )
+        cardPlayed.byIndex == 32)
     {
         bRes = TRUE;
     }
@@ -1422,7 +1418,7 @@ BOOL cAlgDefault::isDue(CARDINFO& cardPlayed)
     if (cardPlayed.byIndex == 1 ||
         cardPlayed.byIndex == 11 ||
         cardPlayed.byIndex == 21 ||
-        cardPlayed.byIndex == 31 )
+        cardPlayed.byIndex == 31)
     {
         bRes = TRUE;
     }
@@ -1441,7 +1437,7 @@ BOOL cAlgDefault::isAsso(CARDINFO& cardPlayed)
     if (cardPlayed.byIndex == 0 ||
         cardPlayed.byIndex == 10 ||
         cardPlayed.byIndex == 20 ||
-        cardPlayed.byIndex == 30 )
+        cardPlayed.byIndex == 30)
     {
         bRes = TRUE;
     }
@@ -1451,10 +1447,10 @@ BOOL cAlgDefault::isAsso(CARDINFO& cardPlayed)
 ////////////////////////////////////////
 //       checkListBigCards
 /*! Check the list if big card are present
-// \param VCT_INT* pListIndexCard : 
-// \param BOOL bTre : 
-// \param BOOL bDue : 
-// \param BOOL bAsso : 
+// \param VCT_INT* pListIndexCard :
+// \param BOOL bTre :
+// \param BOOL bDue :
+// \param BOOL bAsso :
 */
 void cAlgDefault::checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& bDue, BOOL& bAsso)
 {
@@ -1465,31 +1461,31 @@ void cAlgDefault::checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& b
     for (UINT i = 0; i < pListIndexCard->size(); i++)
     {
         int iIndex = (*pListIndexCard)[i];
-        switch ( m_arrCardAllPlayers[m_iMyIndex][iIndex].byIndex)
+        switch (m_arrCardAllPlayers[m_iMyIndex][iIndex].byIndex)
         {
             // ass
-            case 0:
-            case 10:
-            case 20:
-            case 30:
-                bAsso = TRUE;
-                break;
+        case 0:
+        case 10:
+        case 20:
+        case 30:
+            bAsso = TRUE;
+            break;
 
             // two
-            case 1:
-            case 11:
-            case 21:
-            case 31:
-                bDue = TRUE;
-                break;
+        case 1:
+        case 11:
+        case 21:
+        case 31:
+            bDue = TRUE;
+            break;
 
-                // 3
-            case 2:
-            case 12:
-            case 22:
-            case 32:
-                bTre = TRUE;
-                break;
+            // 3
+        case 2:
+        case 12:
+        case 22:
+        case 32:
+            bTre = TRUE;
+            break;
         }
     }
 }
@@ -1500,23 +1496,23 @@ void cAlgDefault::checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& b
 /*! Provides the list on suite
 // \param eSUIT eSuit : suite for the list
 */
-VCT_INT* cAlgDefault::getListOnSuite(eSUIT eSuit)
+VCT_INT* cAlgDefault::getListOnSeed(eSUIT eSuit)
 {
     VCT_INT* pRes = NULL;
-    switch(eSuit)
+    switch (eSuit)
     {
-        case BASTONI:
-            pRes = &m_vctInHand_Bastoni;
-            break;
-        case COPPE:
-            pRes = &m_vctInHand_Coppe;
-            break;
-        case DENARI:
-            pRes = &m_vctInHand_Denari;
-            break;
-        case SPADE:
-            pRes = &m_vctInHand_Spade;
-            break;
+    case BASTONI:
+        pRes = &m_vctInHand_Bastoni;
+        break;
+    case COPPE:
+        pRes = &m_vctInHand_Coppe;
+        break;
+    case DENARI:
+        pRes = &m_vctInHand_Denari;
+        break;
+    case SPADE:
+        pRes = &m_vctInHand_Spade;
+        break;
     }
     return pRes;
 }
@@ -1527,18 +1523,18 @@ VCT_INT* cAlgDefault::getListOnSuite(eSUIT eSuit)
 /*! Provides the index of the biggest scartino card in a index list
 // \param eSUIT eSuitStark : suite to search
 */
-int cAlgDefault::indexOfTheBiggerScartino( eSUIT eSuitStark )
+int cAlgDefault::indexOfTheBiggerScartino(eSUIT eSuitStark)
 {
     int iRetVal = 0;
 
-    VCT_INT* pList = getListOnSuite(eSuitStark);
+    VCT_INT* pList = getListOnSeed(eSuitStark);
 
     int iMax = 0;
-    for(UINT i = 0; i < pList->size(); i++)
+    for (UINT i = 0; i < pList->size(); i++)
     {
         int iCardIndex = (*pList)[i];
         int iCurrRank = m_arrCardAllPlayers[m_iMyIndex][iCardIndex].iRank;
-        if ( iCurrRank > iMax && iCurrRank != 11 && iCurrRank != 12 && iCurrRank != 13)
+        if (iCurrRank > iMax && iCurrRank != 11 && iCurrRank != 12 && iCurrRank != 13)
         {
             // max rank of not pizzico
             iMax = iCurrRank;
@@ -1551,12 +1547,12 @@ int cAlgDefault::indexOfTheBiggerScartino( eSUIT eSuitStark )
 
 ////////////////////////////////////////
 //       pizzicoOnBiggerSeed
-/*! Check all suite list and provides the biggest suite on size. 
+/*! Check all suite list and provides the biggest suite on size.
 // \param eSUIT& eSuitStark : returned biggest suite value
 // \param VCT_SUITE* pVct : exclude a suite list
-// \return : value of the pizzico in the biggest suite 
+// \return : value of the pizzico in the biggest suite
 */
-ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* pVct)
+ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed(eSUIT& eSuitStark, VCT_SUITE* pVct)
 {
     ePizzicoInSuit eRetVal = PIZZ_NONE;
     eSuitStark = UNDEF;
@@ -1571,26 +1567,26 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
     size_t iCoppeSize = m_vctInHand_Coppe.size();
     size_t iDenariSize = m_vctInHand_Denari.size();
 
-    if ( pVct )
+    if (pVct)
     {
         for (UINT i = 0; i < pVct->size(); i++)
         {
-            if ( (*pVct)[i] == BASTONI )
+            if ((*pVct)[i] == BASTONI)
             {
                 bNoBastoni = TRUE;
                 iBastSize = 0;
             }
-            else if ( (*pVct)[i] == COPPE )
+            else if ((*pVct)[i] == COPPE)
             {
                 bNoCoppe = TRUE;
                 iCoppeSize = 0;
             }
-            else if ( (*pVct)[i] == DENARI )
+            else if ((*pVct)[i] == DENARI)
             {
                 bNoDenari = TRUE;
                 iDenariSize = 0;
             }
-            else if ( (*pVct)[i] == SPADE )
+            else if ((*pVct)[i] == SPADE)
             {
                 bNoSpade = TRUE;
                 iSpadeSize = 0;
@@ -1600,21 +1596,21 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
                 ASSERT(0);
             }
         }
-        
+
     }
 
-    if (iBastSize >=  iCoppeSize &&
-        iBastSize >=  iDenariSize &&
-        iBastSize >=  iSpadeSize && !bNoBastoni)
+    if (iBastSize >= iCoppeSize &&
+        iBastSize >= iDenariSize &&
+        iBastSize >= iSpadeSize && !bNoBastoni)
     {
         // bastoni is the most populated suite
         eRetVal = m_currHandInfo.ePizzOnBastoni;
         eSuitStark = BASTONI;
     }
-    
-    if (iCoppeSize >=  iBastSize &&
-        iCoppeSize >=  iDenariSize &&
-        iCoppeSize >=  iSpadeSize && !bNoCoppe)
+
+    if (iCoppeSize >= iBastSize &&
+        iCoppeSize >= iDenariSize &&
+        iCoppeSize >= iSpadeSize && !bNoCoppe)
     {
         if (eRetVal == PIZZ_NONE ||
             eRetVal > m_currHandInfo.ePizzOnCoppe)
@@ -1625,9 +1621,9 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
         }
     }
 
-    if (iDenariSize >=  iBastSize &&
-        iDenariSize >=  iCoppeSize &&
-        iDenariSize >=  iSpadeSize && !bNoDenari)
+    if (iDenariSize >= iBastSize &&
+        iDenariSize >= iCoppeSize &&
+        iDenariSize >= iSpadeSize && !bNoDenari)
     {
         if (eRetVal == PIZZ_NONE ||
             eRetVal > m_currHandInfo.ePizzOnDenari)
@@ -1638,11 +1634,11 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
         }
     }
 
-    if (iSpadeSize >=  iBastSize &&
-        iSpadeSize >=  iCoppeSize &&
-        iSpadeSize >=  iDenariSize && !bNoSpade)
+    if (iSpadeSize >= iBastSize &&
+        iSpadeSize >= iCoppeSize &&
+        iSpadeSize >= iDenariSize && !bNoSpade)
     {
-        if (eRetVal == PIZZ_NONE ||  
+        if (eRetVal == PIZZ_NONE ||
             eRetVal > m_currHandInfo.ePizzOnSpade)
         {
             // spade is the most populated suite
@@ -1660,29 +1656,29 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* 
 
 ////////////////////////////////////////
 //       ALG_PLayerDeclareGoodGame
-/*! 
-// \param int iPlayerIx : 
-// \param eDeclGoodGame eValgg : 
-// \param eSUIT eValsuit : 
+/*!
+// \param int iPlayerIx :
+// \param eDeclGoodGame eValgg :
+// \param eSUIT eValsuit :
 */
-void cAlgDefault::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit)
+void cAlgDefault::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSUIT eValsuit)
 {
-    
+
 }
 
 ////////////////////////////////////////
 //       ALG_ManoEnd
 /*! mano end notification
 */
-void cAlgDefault::ALG_ManoEnd(I_MatchScore* pScore) 
+void cAlgDefault::ALG_ManoEnd(I_MatchScore* pScore)
 {
-    m_vctCardsPlayedTricks.clear(); 
-    m_currTrickInfo.Reset(); 
+    m_vctCardsPlayedTricks.clear();
+    m_currTrickInfo.Reset();
     copyCardsBeginTrick();
 
     // WORK AROUND, we have to reset instead of delete
     newAlgSolver();
-    
+
 }
 
 
@@ -1703,9 +1699,9 @@ void cAlgDefault::newAlgSolver()
 
 ////////////////////////////////////////
 //       ALG_GiocataEnd
-/*! 
+/*!
 */
-void cAlgDefault::ALG_GiocataEnd(I_MatchScore* pScore) 
+void cAlgDefault::ALG_GiocataEnd(I_MatchScore* pScore)
 {
 
 }
@@ -1714,7 +1710,7 @@ void cAlgDefault::ALG_GiocataEnd(I_MatchScore* pScore)
 //       ALG_MatchEnd
 /*! match end notification
 */
-void cAlgDefault::ALG_MatchEnd(I_MatchScore* pScore) 
+void cAlgDefault::ALG_MatchEnd(I_MatchScore* pScore)
 {
 
 }
@@ -1731,8 +1727,8 @@ void cAlgDefault::ALG_Say()
 
 ////////////////////////////////////////
 //       ALG_GicataScoreChange
-/*! 
-// \param eGiocataScoreState eNewScore : 
+/*!
+// \param eGiocataScoreState eNewScore :
 */
 void cAlgDefault::ALG_GicataScoreChange(eGiocataScoreState eNewScore)
 {
@@ -1742,7 +1738,7 @@ void cAlgDefault::ALG_GicataScoreChange(eGiocataScoreState eNewScore)
 ////////////////////////////////////////
 //       ALG_PLayerSaidFalse
 /*! player said somithing false
-// \param int iPlayerIx : 
+// \param int iPlayerIx :
 */
 void cAlgDefault::ALG_PLayerSaidFalse(int iPlayerIx)
 {
@@ -1751,10 +1747,10 @@ void cAlgDefault::ALG_PLayerSaidFalse(int iPlayerIx)
 ////////////////////////////////////////
 //       ALG_SetOpponentIndex
 /*! set opponent index
-// \param int iIndex : 
-// \param int iOpponentNr : 
+// \param int iIndex :
+// \param int iOpponentNr :
 */
-void cAlgDefault::ALG_SetOpponentIndex(int iIndex, int iOpponentNr) 
+void cAlgDefault::ALG_SetOpponentIndex(int iIndex, int iOpponentNr)
 {
 }
 
@@ -1764,7 +1760,7 @@ void cAlgDefault::ALG_SetOpponentIndex(int iIndex, int iOpponentNr)
 /*! Set associate index (the algorithm player index) to recognize notifications of a player.
 // \param int iIndex : new index of the algorithm
 */
-void cAlgDefault::ALG_SetAssociateIndex(int iIndex) 
+void cAlgDefault::ALG_SetAssociateIndex(int iIndex)
 {
 
 }

@@ -35,7 +35,7 @@ public:
 public:
     CARDINFO   card;
     char       chCardLetter;
-    char       chSuitLetter;
+    char       chSeedLetter;
     BYTE       byPoints;
 
 private:
@@ -54,12 +54,12 @@ class cmp2CardAscen
 public:
     bool operator ()(const P_MYCARDITEM& Card_1, const P_MYCARDITEM& Card_2) const
     {
-        if (Card_1->card.eSuit > Card_2->card.eSuit  )
+        if (Card_1->card.eSeed > Card_2->card.eSeed  )
         {
             // swap element
             return true;
         }
-        else if (Card_1->card.eSuit == Card_2->card.eSuit)
+        else if (Card_1->card.eSeed == Card_2->card.eSeed)
         {
             if (Card_1->card.iRank > Card_2->card.iRank)
             {
@@ -85,12 +85,12 @@ class cmp2CardDesc
 public:
     bool operator ()(const P_MYCARDITEM& Card_1, const P_MYCARDITEM& Card_2) const
     {
-        if (Card_1->card.eSuit < Card_2->card.eSuit  )
+        if (Card_1->card.eSeed < Card_2->card.eSeed  )
         {
             // swap element
             return true;
         }
-        else if (Card_1->card.eSuit == Card_2->card.eSuit)
+        else if (Card_1->card.eSeed == Card_2->card.eSeed)
         {
             if (Card_1->card.iRank < Card_2->card.iRank)
             {

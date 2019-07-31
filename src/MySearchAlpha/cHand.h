@@ -35,12 +35,12 @@ public:
     //! a card in the hand was played, adjust hand information
     void    PlayCard( cCardItem* pCard );
     //! reset the hand
-    void    ResetHand(){for(int i = 0; i < searchalpha::SUITCOUNT; i++)suitList[i].clear();}
+    void    ResetHand(){for(int i = 0; i < searchalpha::SEEDCOUNT; i++)suitList[i].clear();}
     //! provides the last card
     cCardItem* GetLastPlayableCard();
 
 public:
-    CARDLIST  suitList[searchalpha::SUITCOUNT];
+    CARDLIST  suitList[searchalpha::SEEDCOUNT];
 
 };
 

@@ -130,7 +130,7 @@ BOOL  cMatchPoints::CheckRejecting(int iPlayerIx, CARDINFO* pCard)
     {
         CardSpec Card;
         Card = m_vctCardPlayed[0].cardSpec;
-        if (Card.GetSuit() ==  pCard->eSuit )
+        if (Card.GetSeed() ==  pCard->eSeed )
         {
             // ok same suit
             bRes = TRUE;
@@ -174,16 +174,16 @@ void    cMatchPoints::ManoEnd()
 
         // give points only if it was the same seed as the first
         arPoints[0] = g_RankTable[m_vctCardPlayed[PLAYER1].cardSpec.GetCardIndex()];
-        eSUIT eFirst = m_vctCardPlayed[PLAYER1].cardSpec.GetSuit(); 
-        if (m_vctCardPlayed[PLAYER2].cardSpec.GetSuit() == eFirst)
+        eSUIT eFirst = m_vctCardPlayed[PLAYER1].cardSpec.GetSeed(); 
+        if (m_vctCardPlayed[PLAYER2].cardSpec.GetSeed() == eFirst)
         {
             arPoints[1] = g_RankTable[m_vctCardPlayed[PLAYER2].cardSpec.GetCardIndex()];
         }
-        if (m_vctCardPlayed[PLAYER3].cardSpec.GetSuit() == eFirst)
+        if (m_vctCardPlayed[PLAYER3].cardSpec.GetSeed() == eFirst)
         {
             arPoints[2] = g_RankTable[m_vctCardPlayed[PLAYER3].cardSpec.GetCardIndex()];
         }
-        if (m_vctCardPlayed[PLAYER4].cardSpec.GetSuit() == eFirst)
+        if (m_vctCardPlayed[PLAYER4].cardSpec.GetSeed() == eFirst)
         {
             arPoints[3] = g_RankTable[m_vctCardPlayed[PLAYER4].cardSpec.GetCardIndex()];
         }

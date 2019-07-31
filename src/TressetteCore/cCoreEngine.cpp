@@ -633,7 +633,7 @@ void cCore::RaiseError( const std::string &errorMsg)
 BOOL  cCore::Player_playCard(int iPlayerIx, CARDINFO* pCardPl)
 {
     BOOL bRes = FALSE;
-    ASSERT(pCardPl->eSuit != UNDEF );
+    ASSERT(pCardPl->eSeed != UNDEF );
 
     CARDINFO cardPlayed = *pCardPl;
 
@@ -657,7 +657,7 @@ BOOL  cCore::Player_playCard(int iPlayerIx, CARDINFO* pCardPl)
         for (int i = 0; i < NUM_CARDS_HAND; i++)
         {
             int iPlayerPosIx = iPlayerIx * NUM_CARDS_HAND + i;
-            if (m_aCardInfo[iPlayerPosIx].GetSuit() == cardTmp.GetSuit() )
+            if (m_aCardInfo[iPlayerPosIx].GetSeed() == cardTmp.GetSeed() )
             {
                 // uppss the player can't reject the suit, he has an admitted card.
                 // play not admitted
@@ -983,7 +983,7 @@ void cCore::checkForBussoVoloLiscieBasse(BOOL& bBusso, BOOL& bVolo, BOOL& bLisci
         for (int i = 0; i < NUM_CARDS_HAND; i++)
         {
             int iPlayerPosIx = iPlayerIndex * NUM_CARDS_HAND + i;
-            if (m_aCardInfo[iPlayerPosIx].GetSuit() == cardClicked.GetSuit() )
+            if (m_aCardInfo[iPlayerPosIx].GetSeed() == cardClicked.GetSeed() )
             {
                 iCardOnSuitCount ++;
                 if (cardClicked > m_aCardInfo[iPlayerPosIx] && 
@@ -1004,7 +1004,7 @@ void cCore::checkForBussoVoloLiscieBasse(BOOL& bBusso, BOOL& bVolo, BOOL& bLisci
         CardSpec cardTmp;
         m_MatchPoints.GetCardPlayedOnTrick(0, &cardTmp);
         // check if the card is not a reject
-        if (cardClicked.GetSuit() !=  cardTmp.GetSuit() )
+        if (cardClicked.GetSeed() !=  cardTmp.GetSeed() )
         {
             // card is a reject,
             // signal not available
@@ -1017,7 +1017,7 @@ void cCore::checkForBussoVoloLiscieBasse(BOOL& bBusso, BOOL& bVolo, BOOL& bLisci
         for (int i = 0; i < NUM_CARDS_HAND; i++)
         {
             int iPlayerPosIx = iPlayerIndex * NUM_CARDS_HAND + i;
-            if (m_aCardInfo[iPlayerPosIx].GetSuit() == cardTmp.GetSuit() )
+            if (m_aCardInfo[iPlayerPosIx].GetSeed() == cardTmp.GetSeed() )
             {
                 iCardOnSuitCount ++;
                 if (cardClicked > m_aCardInfo[iPlayerPosIx] && 
@@ -1056,7 +1056,7 @@ BOOL cCore::checkForStriscioNeHoTante(int iPlayerIndex, CardSpec&   cardClicked)
         for (int i = 0; i < NUM_CARDS_HAND; i++)
         {
             int iPlayerPosIx = iPlayerIndex * NUM_CARDS_HAND + i;
-            if (m_aCardInfo[iPlayerPosIx].GetSuit() == cardClicked.GetSuit() )
+            if (m_aCardInfo[iPlayerPosIx].GetSeed() == cardClicked.GetSeed() )
             {
                 iCardOnSuitCount ++;
             }

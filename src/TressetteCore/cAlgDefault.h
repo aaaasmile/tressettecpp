@@ -78,7 +78,7 @@ private:
     void    traceListInhand(VCT_INT& vctListIndexes);
     void    removeListIndex(VCT_INT&  vctInHand, int iIndex);
     void    signalSomething(CARDINFO& cardPlayed, BOOL bViaDalGioco, BOOL bBusso);
-    VCT_INT* getListOnSuite(eSUIT eSuit);
+    VCT_INT* getListOnSeed(eSUIT eSuit);
     void    checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& bDue, BOOL& bAsso);
     void    playRandom(CARDINFO& cardToPlay);
     void    playAsFirst(CARDINFO& cardToPlay);
@@ -90,7 +90,6 @@ private:
     BOOL    isAsso(CARDINFO& cardPlayed);
     void    otherPlayersCardRandom();
     void    calculatePizzOnHand();
-    BOOL    isNapula();
     void    calculateSuiteIndexes();
     void    useAlphaBeta(CARDINFO& cardToPlay);
     AlgSupport::ePizzicoInSuit pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* pVct = NULL);

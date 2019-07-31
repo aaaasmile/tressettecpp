@@ -32,7 +32,7 @@ void  cHand::AddCards(CARDLIST& handSubmit)
 {
     for (UINT i = 0; i  < handSubmit.size(); i++)
     {
-        eSUIT esuit = handSubmit[i]->card.eSuit;
+        eSUIT esuit = handSubmit[i]->card.eSeed;
         suitList[esuit].push_back(handSubmit[i]);
     }
 
@@ -54,7 +54,7 @@ STRING cHand::RenderSuit(eSUIT esuit)
     {
         pCurr += offset;
         cCardItem* pCard = suitList[esuit][i];
-        offset = sprintf(pCurr, "%c%c,", pCard->chCardLetter, pCard->chSuitLetter);
+        offset = sprintf(pCurr, "%c%c,", pCard->chCardLetter, pCard->chSeedLetter);
     }
     if (offset > 0)
     {
@@ -76,7 +76,7 @@ STRING cHand::RenderSuit(eSUIT esuit)
 */
 void cHand::PlayCard( cCardItem* pCard )
 {
-    CARDLIST*  tmpList = &suitList[pCard->card.eSuit];
+    CARDLIST*  tmpList = &suitList[pCard->card.eSeed];
 
 //    cStateAB::TraceCardListDbg(*tmpList); 
 

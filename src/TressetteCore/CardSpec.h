@@ -20,8 +20,8 @@ public:
     void    SetCardIndex(int itmpIndex);
     //! provides index
     int     GetCardIndex(){return m_CardInfo.byIndex;}
-    //! provides suit
-    eSUIT   GetSuit(){return m_CardInfo.eSuit;}
+    //! provides seed
+    eSUIT   GetSeed(){return m_CardInfo.eSeed;}
     //! provides card name
     LPCSTR  GetName(){return m_CardInfo.CardName;}
     //! provides the suit card name

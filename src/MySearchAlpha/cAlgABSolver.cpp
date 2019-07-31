@@ -208,7 +208,7 @@ void  cAlgABSolver::Solve()
     }
 
 
-    // Implements the follow algorithm:
+    // Implements the following algorithm:
     // http://www.seanet.com/~brucemo/topics/alphabeta.htm
     cStateAB* pCurrState = new cStateAB(m_StateInitial);
 
@@ -314,7 +314,6 @@ void  cAlgABSolver::GetBestCardToPlay(int iPlayerIx,  CARDINFO* pCardInfo)
 // \param int beta : 
 */
 int cAlgABSolver::alphaBeta(int depth, int alpha, int beta, cStateAB* pCurrState)
-
 {
     
     Uint32 uiNowTime = SDL_GetTicks();
@@ -475,7 +474,7 @@ void cAlgABSolver::renderBestLine(cBestLine& lstMainLine)
     for (i = 0; i < lstMainLine.m_CardListBest.size(); i++)
     {
         cCardItem* pCard = lstMainLine.m_CardListBest[i];
-        sprintf(&buff[3*i], "%c%c ",pCard->chCardLetter,pCard->chSuitLetter);
+        sprintf(&buff[3*i], "%c%c ",pCard->chCardLetter,pCard->chSeedLetter);
     }
     CHAR bufFin[512];
     sprintf(bufFin, "\r%d :", m_iNumOfCalc);

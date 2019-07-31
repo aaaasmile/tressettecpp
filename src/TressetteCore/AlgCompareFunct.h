@@ -20,12 +20,12 @@ public:
         CARDINFO Card_1 = vct_MazzoInHand[iIndex_1];
         CARDINFO Card_2 = vct_MazzoInHand[iIndex_2];
 
-        if (Card_1.eSuit > Card_2.eSuit  )
+        if (Card_1.eSeed > Card_2.eSeed  )
         {
             // swap element
             return true;
         }
-        else if (Card_1.eSuit == Card_2.eSuit)
+        else if (Card_1.eSeed == Card_2.eSeed)
         {
             int iVal_1 = g_RankTable[Card_1.byIndex];
             int iVal_2 = g_RankTable[Card_2.byIndex];

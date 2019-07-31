@@ -1,12 +1,7 @@
 // AlgSupport.cpp
-
-
 #include "StdAfx.h"
 #include "win_type_global.h"
 #include "AlgSupport.h"
-
-
-
 
 ////////////////////////////////////////
 //       GetAvailbDeclGoodGames
@@ -25,19 +20,19 @@ void AlgSupport::GetAvailbDeclGoodGames(VCT_CARDINFO& vctCardInHand, VCT_GOODGAM
 	UINT i;
     for (i = 0; i < iNumOfCards; i++)
     {
-        if (vctCardInHand[i].eSuit == BASTONI)
+        if (vctCardInHand[i].eSeed == BASTONI)
         {
             vctInHand_Bastoni.push_back(i);
         }
-        else if (vctCardInHand[i].eSuit == SPADE)
+        else if (vctCardInHand[i].eSeed == SPADE)
         {
             vctInHand_Spade.push_back(i);
         }
-        else if (vctCardInHand[i].eSuit == COPPE)
+        else if (vctCardInHand[i].eSeed == COPPE)
         {
             vctInHand_Coppe.push_back(i);
         }
-        else if (vctCardInHand[i].eSuit == DENARI)
+        else if (vctCardInHand[i].eSeed == DENARI)
         {
             vctInHand_Denari.push_back(i);
         }
