@@ -49,9 +49,6 @@
     <ClCompile Include="..\MySearchAlpha\cStateAB.cpp">
       <Filter>Source Files\MySearchAlpha</Filter>
     </ClCompile>
-    <ClCompile Include="..\MySearchAlpha\TrickHistory.cpp">
-      <Filter>Source Files\MySearchAlpha</Filter>
-    </ClCompile>
     <ClCompile Include="..\TressetteClient\cCardGfx.cpp">
       <Filter>Source Files\Tressette Client</Filter>
     </ClCompile>
@@ -168,6 +165,9 @@
     </ClCompile>
     <ClCompile Include="..\TressetteClient\OptionGfx.cpp">
       <Filter>Source Files\Tressette Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MySearchAlpha\TrickHistoryItem.cpp">
+      <Filter>Source Files\MySearchAlpha</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -483,9 +483,6 @@
     <ClInclude Include="..\MySearchAlpha\cStateAB.h">
       <Filter>Source Files\MySearchAlpha</Filter>
     </ClInclude>
-    <ClInclude Include="..\MySearchAlpha\TrickHistory.h">
-      <Filter>Source Files\MySearchAlpha</Filter>
-    </ClInclude>
     <ClInclude Include="..\TressetteClient\cCardGfx.h">
       <Filter>Source Files\Tressette Client</Filter>
     </ClInclude>
@@ -647,6 +644,9 @@
     </ClInclude>
     <ClInclude Include="..\TressetteClient\OptionGfx.h">
       <Filter>Source Files\Tressette Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MySearchAlpha\TrickHistoryItem.h">
+      <Filter>Source Files\MySearchAlpha</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

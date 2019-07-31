@@ -13,7 +13,7 @@
 
 #include "win_type_global.h"
 #include "cHand.h"
-#include "TrickHistory.h"
+#include "TrickHistoryItem.h"
 
 
 //! class cStateAB

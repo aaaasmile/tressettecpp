@@ -61,7 +61,7 @@ public:
     void   LabelClicked(int iButID);
 
 private:
-    void   drawBackground();
+    void   drawBackground(BOOL isOption);
     void   drawStringSH(const char* tmp, int x, int y, SDL_Color& color, TTF_Font* customfont);
     void   drawStaticSpriteEx(int src_x, int src_y, int src_dx, int src_dy, int dst_x, int dst_y, SDL_Surface* sprite); 
     void   drawRect(int x, int y, int dx, int dy, SDL_Color c);

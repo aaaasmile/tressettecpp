@@ -255,7 +255,7 @@
     <ClInclude Include="..\MySearchAlpha\cHand.h" />
     <ClInclude Include="..\MySearchAlpha\ConstSearchAlpha.h" />
     <ClInclude Include="..\MySearchAlpha\cStateAB.h" />
-    <ClInclude Include="..\MySearchAlpha\TrickHistory.h" />
+    <ClInclude Include="..\MySearchAlpha\TrickHistoryItem.h" />
     <ClInclude Include="..\TressetteClient\cCardGfx.h" />
     <ClInclude Include="..\TressetteClient\cDelayNextAction.h" />
     <ClInclude Include="..\TressetteClient\cHightScoreMgr.h" />
@@ -321,7 +321,7 @@
     <ClCompile Include="..\MySearchAlpha\cCardItem.cpp" />
     <ClCompile Include="..\MySearchAlpha\cHand.cpp" />
     <ClCompile Include="..\MySearchAlpha\cStateAB.cpp" />
-    <ClCompile Include="..\MySearchAlpha\TrickHistory.cpp" />
+    <ClCompile Include="..\MySearchAlpha\TrickHistoryItem.cpp" />
     <ClCompile Include="..\TressetteClient\cCardGfx.cpp" />
     <ClCompile Include="..\TressetteClient\cDelayNextAction.cpp" />
     <ClCompile Include="..\TressetteClient\cHightScoreMgr.cpp" />
