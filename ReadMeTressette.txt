@@ -56,6 +56,12 @@ Nota che le stringhe che provengono dalla classe Languages.cpp sono tutte in for
 sono in formato UTF8. Quindi la funzione DrawString con il parametro UTF8 le usa solo i controlli che devono mostrare un testo proveniente dall'utente.
 
 == TODO
+- Ho messo il supporto che il socio scarta l'asso quando il partner prende. La funzione che stabilisce quando il partner prende,
+la partnerIsTakingSureOnMyTurn può essere migliorata. La funzione isFuoriBigger infatti non fa nulla. Questo perché manca una history
+delle mani giocate. Essa è presente solo nell'alphabeta. 
+- Quando il socio parte non sempre azzecca l'uscita migliore. Non usa alpha/beta, ma l'euristica della funzione cAlgDefault::playAsFirst
+va migliorata.
+
 - Supporto delle dichiarazioni al socio.
 
 
