@@ -16,10 +16,6 @@
 #include "ConstSearchAlpha.h"
 #include <deque>
 
-
-
-
-
 //! class cCardItem
 class cCardItem  
 {
@@ -33,13 +29,13 @@ public:
     static int CardCompareSbF(cCardItem* pFirst, cCardItem* pSecond);
 
 public:
-    CARDINFO   card;
-    char       chCardLetter;
-    char       chSeedLetter;
-    BYTE       byPoints;
+    CARDINFO   CardInfo;
+    char       CardLetter;
+    char       SeedLetter;
+    BYTE       Points;
 
 private:
-    std::string m_strSuitName;
+    std::string m_strSeedName;
 
 };
 
@@ -54,14 +50,14 @@ class cmp2CardAscen
 public:
     bool operator ()(const P_MYCARDITEM& Card_1, const P_MYCARDITEM& Card_2) const
     {
-        if (Card_1->card.eSeed > Card_2->card.eSeed  )
+        if (Card_1->CardInfo.eSeed > Card_2->CardInfo.eSeed  )
         {
             // swap element
             return true;
         }
-        else if (Card_1->card.eSeed == Card_2->card.eSeed)
+        else if (Card_1->CardInfo.eSeed == Card_2->CardInfo.eSeed)
         {
-            if (Card_1->card.iRank > Card_2->card.iRank)
+            if (Card_1->CardInfo.iRank > Card_2->CardInfo.iRank)
             {
                 // bigger card, swap
                 return true;
@@ -85,14 +81,14 @@ class cmp2CardDesc
 public:
     bool operator ()(const P_MYCARDITEM& Card_1, const P_MYCARDITEM& Card_2) const
     {
-        if (Card_1->card.eSeed < Card_2->card.eSeed  )
+        if (Card_1->CardInfo.eSeed < Card_2->CardInfo.eSeed  )
         {
             // swap element
             return true;
         }
-        else if (Card_1->card.eSeed == Card_2->card.eSeed)
+        else if (Card_1->CardInfo.eSeed == Card_2->CardInfo.eSeed)
         {
-            if (Card_1->card.iRank < Card_2->card.iRank)
+            if (Card_1->CardInfo.iRank < Card_2->CardInfo.iRank)
             {
                 // bigger card, swap
                 return true;
@@ -116,14 +112,14 @@ class cmp2CardDescOnlyValue
 public:
     bool operator ()(const P_MYCARDITEM& Card_1, const P_MYCARDITEM& Card_2) const
     {
-        if (Card_1->byPoints < Card_2->byPoints)
+        if (Card_1->Points < Card_2->Points)
         {
             // bigger card, swap
             return true;
         }
-        else if (Card_1->byPoints == Card_2->byPoints)
+        else if (Card_1->Points == Card_2->Points)
         {
-            if (Card_1->card.iRank < Card_2->card.iRank)
+            if (Card_1->CardInfo.iRank < Card_2->CardInfo.iRank)
             {
                 // bigger card, swap
                 return true;

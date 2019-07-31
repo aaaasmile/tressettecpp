@@ -143,7 +143,7 @@ void cStateAB::TraceCardListDbg(CARDLIST& cardlistState)
     {
         cCardItem* pCard = cardlistState[i];
         //TRACE("%c%c ",pCard->chCardLetter,pCard->chSuitLetter); 
-        sprintf(&buff[3 * i], "%c%c ", pCard->chCardLetter, pCard->chSeedLetter);
+        sprintf(&buff[3 * i], "%c%c ", pCard->CardLetter, pCard->SeedLetter);
     }
     //TRACE("\n");
     if (pTracer->AddNewEntry(TR_ALPHABETA_CH, 4, EntryTraceDetail::TR_INFO, __FILE__, __LINE__))
@@ -434,7 +434,7 @@ void  cStateAB::MakeMove(cCardItem* pCard)
     if (m_eSuit == UNDEF)
     {
         // first card played in the trick
-        m_eSuit = pCard->card.eSeed;
+        m_eSuit = pCard->CardInfo.eSeed;
     }
     ASSERT(pLastItem);
     // add card in the current trick
@@ -445,33 +445,33 @@ void  cStateAB::MakeMove(cCardItem* pCard)
         // --------  trick is terminated --------
         //TRACE("TRICK end:");TraceCardListDbg(pLastItem->m_Trick);
 
-        BYTE byPlayerWinner = pLastItem->m_byPlayer_S;
+        BYTE playerWinnerIx = pLastItem->m_Player_Start;
         cCardItem* pWinCard = pLastItem->m_Trick[0];
-        BYTE byPointsOnThisTrick = pWinCard->byPoints;
+        BYTE pointsOnThisTrick = pWinCard->Points;
         // check the trick for the winning card
         for (int i = 1; i < PLAYERCOUNT; i++)
         {
             cCardItem* pCandCard = pLastItem->m_Trick[i];
-            BYTE byPlayerCandidate = getPlayerIncremented(pLastItem->m_byPlayer_S, i);
+            BYTE byPlayerCandidate = getPlayerIncremented(pLastItem->m_Player_Start, i);
             // accumulate also trick points
-            byPointsOnThisTrick += pCandCard->byPoints;
-            if (pWinCard->card.eSeed == pCandCard->card.eSeed)
+            pointsOnThisTrick += pCandCard->Points;
+            if (pWinCard->CardInfo.eSeed == pCandCard->CardInfo.eSeed)
             {
                 // cards could be comparated
-                if (pCandCard->card.iRank > pWinCard->card.iRank)
+                if (pCandCard->CardInfo.iRank > pWinCard->CardInfo.iRank)
                 {
                     // ok, new winning card
-                    byPlayerWinner = byPlayerCandidate;
+                    playerWinnerIx = byPlayerCandidate;
                     pWinCard = pCandCard;
                 }
             }
         }
-        pLastItem->m_byPlayer_T = byPlayerWinner;
-        pLastItem->m_byPointsTrick = byPointsOnThisTrick;
+        pLastItem->m_Player_Taken = playerWinnerIx;
+        pLastItem->m_PointsTrick = pointsOnThisTrick;
 
         // update team points
-        BYTE byTeamWinner = getTeamIndex(byPlayerWinner);
-        m_arrTeamPoints[byTeamWinner] += byPointsOnThisTrick;
+        BYTE byTeamWinner = getTeamIndex(playerWinnerIx);
+        m_arrTeamPoints[byTeamWinner] += pointsOnThisTrick;
         // reset trick suit
         m_eSuit = UNDEF;
         m_byTricksleft--;
@@ -491,7 +491,7 @@ void  cStateAB::MakeMove(cCardItem* pCard)
             m_bIsMaximize = !m_bIsMaximize;
         }
         // next player is the trick winner
-        m_PlayerIx = byPlayerWinner;
+        m_PlayerIx = playerWinnerIx;
     }
     else
     {
@@ -520,7 +520,7 @@ int cStateAB::EvaluateState()
 
         // get the player index that have played first, it correspond to the maximize player
         TrickHistoryItem* pFirstItem = &(m_trickHist[0]);
-        BYTE byTeamMaximize = getTeamIndex(pFirstItem->m_byPlayer_S);
+        BYTE byTeamMaximize = getTeamIndex(pFirstItem->m_Player_Start);
         BYTE byTeamMinimize = !byTeamMaximize;
 
         // ritornando solo i punti l'algoritmo non funziona bene (avversario gioca assi terzi)
@@ -560,28 +560,28 @@ int cStateAB::EvaluateLastTrick()
 
     pLastItem = &(m_trickHist[iNumTrick - 1]);
 
-    BYTE byPlayerWinner = pLastItem->m_byPlayer_T;
+    BYTE byPlayerWinner = pLastItem->m_Player_Taken;
     cCardItem* pWinCard = 0;
     // retrieves the last card
     pWinCard = m_HanPlayers[byPlayerWinner].GetLastPlayableCard();
     ASSERT(pWinCard);
 
-    BYTE byPointsOnThisTrick = pWinCard->byPoints;
+    BYTE byPointsOnThisTrick = pWinCard->Points;
     // play the last trick
     for (int i = 1; i < PLAYERCOUNT; i++)
     {
         // the next player on table
-        BYTE byPlayerCandidate = getPlayerIncremented(pLastItem->m_byPlayer_T, i);
+        BYTE byPlayerCandidate = getPlayerIncremented(pLastItem->m_Player_Taken, i);
         // the card that play
         cCardItem* pCandCard = m_HanPlayers[byPlayerCandidate].GetLastPlayableCard();
         ASSERT(pCandCard);
 
         // accumulate also trick points
-        byPointsOnThisTrick += pCandCard->byPoints;
-        if (pWinCard->card.eSeed == pCandCard->card.eSeed)
+        byPointsOnThisTrick += pCandCard->Points;
+        if (pWinCard->CardInfo.eSeed == pCandCard->CardInfo.eSeed)
         {
             // cards could be comparated
-            if (pCandCard->card.iRank > pWinCard->card.iRank)
+            if (pCandCard->CardInfo.iRank > pWinCard->CardInfo.iRank)
             {
                 // ok, new winning card
                 byPlayerWinner = byPlayerCandidate;
@@ -597,7 +597,7 @@ int cStateAB::EvaluateLastTrick()
     // add last hand points
     m_arrTeamPoints[byTeamWinner] += 3;
 
-    BYTE byTeamStarter = getTeamIndex(pLastItem->m_byPlayer_T);
+    BYTE byTeamStarter = getTeamIndex(pLastItem->m_Player_Taken);
     if (byTeamStarter != byTeamWinner)
     {
         // the trick taker has changed
@@ -606,7 +606,7 @@ int cStateAB::EvaluateLastTrick()
 
     // calculate return value
     TrickHistoryItem* pFirstItem = &(m_trickHist[0]);
-    BYTE byTeamMaximize = getTeamIndex(pFirstItem->m_byPlayer_S);
+    BYTE byTeamMaximize = getTeamIndex(pFirstItem->m_Player_Start);
     BYTE byTeamMinimize = !byTeamMaximize;
 
     int iPoints = 0;
@@ -658,7 +658,7 @@ void  cStateAB::GetBestLine(cBestLine& lstBest)
 
     for (UINT i = 0; i < m_trickHist.size(); i++)
     {
-        int iPlayerIx = m_trickHist[i].m_byPlayer_S;
+        int iPlayerIx = m_trickHist[i].m_Player_Start;
         for (UINT j = 0; j < m_trickHist[i].m_Trick.size(); j++)
         {
             lstBest.m_CardListBest.push_back(m_trickHist[i].m_Trick[j]);

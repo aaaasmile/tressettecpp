@@ -32,7 +32,7 @@ void  cHand::AddCards(CARDLIST& handSubmit)
 {
     for (UINT i = 0; i  < handSubmit.size(); i++)
     {
-        eSEED esuit = handSubmit[i]->card.eSeed;
+        eSEED esuit = handSubmit[i]->CardInfo.eSeed;
         suitList[esuit].push_back(handSubmit[i]);
     }
 
@@ -54,7 +54,7 @@ STRING cHand::RenderSuit(eSEED esuit)
     {
         pCurr += offset;
         cCardItem* pCard = suitList[esuit][i];
-        offset = sprintf(pCurr, "%c%c,", pCard->chCardLetter, pCard->chSeedLetter);
+        offset = sprintf(pCurr, "%c%c,", pCard->CardLetter, pCard->SeedLetter);
     }
     if (offset > 0)
     {
@@ -76,7 +76,7 @@ STRING cHand::RenderSuit(eSEED esuit)
 */
 void cHand::PlayCard( cCardItem* pCard )
 {
-    CARDLIST*  tmpList = &suitList[pCard->card.eSeed];
+    CARDLIST*  tmpList = &suitList[pCard->CardInfo.eSeed];
 
 //    cStateAB::TraceCardListDbg(*tmpList); 
 
@@ -88,7 +88,7 @@ void cHand::PlayCard( cCardItem* pCard )
     for (i = 0; !bFound && i < iIniItems; i++ )
     {
         cCardItem* pCardInList = (*tmpList)[i];
-        if (pCardInList->card.byIndex ==  pCard->card.byIndex )
+        if (pCardInList->CardInfo.byIndex ==  pCard->CardInfo.byIndex )
         {
             // card found
             bFound = TRUE;

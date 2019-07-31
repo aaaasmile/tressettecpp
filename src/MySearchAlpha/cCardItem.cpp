@@ -73,10 +73,10 @@ void cCardItem::SetCardIndex(int itmpIndex)
 {
     if (itmpIndex >= 0 && itmpIndex <= DECKSIZE)
     {
-        card.byIndex = itmpIndex;
-        card.iRank = g_RankTable[itmpIndex];
-        chCardLetter = g_LetterName[itmpIndex];
-        byPoints = g_PointsTable[itmpIndex];
+        CardInfo.byIndex = itmpIndex;
+        CardInfo.iRank = g_RankTable[itmpIndex];
+        CardLetter = g_LetterName[itmpIndex];
+        Points = g_PointsTable[itmpIndex];
     }
     else
     {
@@ -85,38 +85,38 @@ void cCardItem::SetCardIndex(int itmpIndex)
 
     if (itmpIndex >= 0 && itmpIndex < DECKSIZE)
     {
-        strcpy(card.CardName, const_cast<char*>(g_CardsNameX[itmpIndex].c_str()) );
+        strcpy(CardInfo.CardName, const_cast<char*>(g_CardsNameX[itmpIndex].c_str()) );
     }
 
-    if (card.byIndex >= 0 && card.byIndex < 10 )
+    if (CardInfo.byIndex >= 0 && CardInfo.byIndex < 10 )
     {
-        card.eSeed = BASTONI;
-        m_strSuitName = g_SuitName[BASTONI];
-        chSeedLetter = g_SuitName[BASTONI].at(0) ;
+        CardInfo.eSeed = BASTONI;
+        m_strSeedName = g_SuitName[BASTONI];
+        SeedLetter = g_SuitName[BASTONI].at(0) ;
     }
-    else if (card.byIndex >= 10 && card.byIndex < 20 )
+    else if (CardInfo.byIndex >= 10 && CardInfo.byIndex < 20 )
     {
-        card.eSeed = COPPE;
-        m_strSuitName = g_SuitName[COPPE];
-        chSeedLetter = g_SuitName[COPPE].at(0) ;
+        CardInfo.eSeed = COPPE;
+        m_strSeedName = g_SuitName[COPPE];
+        SeedLetter = g_SuitName[COPPE].at(0) ;
     }
-    else if (card.byIndex >= 20 && card.byIndex < 30 )
+    else if (CardInfo.byIndex >= 20 && CardInfo.byIndex < 30 )
     {
-        card.eSeed = DENARI;
-        m_strSuitName = g_SuitName[DENARI];
-        chSeedLetter = g_SuitName[DENARI].at(0) ;
+        CardInfo.eSeed = DENARI;
+        m_strSeedName = g_SuitName[DENARI];
+        SeedLetter = g_SuitName[DENARI].at(0) ;
     }
-    else if (card.byIndex  >= 30 && card.byIndex < 40 )
+    else if (CardInfo.byIndex  >= 30 && CardInfo.byIndex < 40 )
     {
-        card.eSeed = SPADE;
-        m_strSuitName = g_SuitName[SPADE];
-        chSeedLetter = g_SuitName[SPADE].at(0) ;
+        CardInfo.eSeed = SPADE;
+        m_strSeedName = g_SuitName[SPADE];
+        SeedLetter = g_SuitName[SPADE].at(0) ;
     }
     else
     {
-        card.eSeed = UNDEF;
-        m_strSuitName = g_SuitName[UNDEF];
-        chSeedLetter = g_SuitName[UNDEF].at(0) ;
+        CardInfo.eSeed = UNDEF;
+        m_strSeedName = g_SuitName[UNDEF];
+        SeedLetter = g_SuitName[UNDEF].at(0) ;
     }
 }
 
@@ -181,13 +181,13 @@ int cCardItem::LetterToIndex(char lett)
 int cCardItem::CardCompareSbF(cCardItem* pFirst, cCardItem* pSecond)
 {
     int iRet = 0;
-    if (pFirst->card.eSeed == pSecond->card.eSeed )
+    if (pFirst->CardInfo.eSeed == pSecond->CardInfo.eSeed )
     {
-        if (pFirst->card.iRank < pSecond->card.iRank )
+        if (pFirst->CardInfo.iRank < pSecond->CardInfo.iRank )
         {
             iRet = 1;
         }
-        else if (pFirst->card.iRank ==  pSecond->card.iRank)
+        else if (pFirst->CardInfo.iRank ==  pSecond->CardInfo.iRank)
         {
             iRet = 0;
         }

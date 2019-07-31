@@ -17,24 +17,28 @@
 #include "win_type_global.h"
 
 //! class  TrickHistory
-class TrickHistoryItem  
+class TrickHistoryItem
 {
 public:
-	TrickHistoryItem();
-	virtual ~TrickHistoryItem();
-    TrickHistoryItem(BYTE byPlS, BYTE byTn ){m_byPlayer_S = byPlS; 
-                         m_byPlayer_T = 0xff; m_byTrickNum = byTn; m_byPointsTrick = 0;}
+    TrickHistoryItem();
+    virtual ~TrickHistoryItem();
+    TrickHistoryItem(BYTE byPlS, BYTE byTn) {
+        m_Player_Start = byPlS;
+        m_Player_Taken = 0xff;
+        m_TrickNum = byTn;
+        m_PointsTrick = 0;
+    }
 
     //! card list trick
     CARDLIST    m_Trick;
     //! player that start the trick
-    BYTE        m_byPlayer_S;
+    BYTE        m_Player_Start;
     //! player thar take the trick
-    BYTE        m_byPlayer_T;
+    BYTE        m_Player_Taken;
     //! trick number
-    BYTE        m_byTrickNum;
+    BYTE        m_TrickNum;
     //! trick points
-    BYTE        m_byPointsTrick;
+    BYTE        m_PointsTrick;
 };
 
 

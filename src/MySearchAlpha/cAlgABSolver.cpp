@@ -66,7 +66,7 @@ void cAlgABSolver::SetHands(int  iPlayerIx, CARDINFO* arrCards, int iNumItem)
         BOOL bCardFound = FALSE;
         for (int j = 0; !bCardFound && j <DECKSIZE; j++)
         {
-            if (m_Deck[j].card.byIndex == arrCards[i].byIndex )
+            if (m_Deck[j].CardInfo.byIndex == arrCards[i].byIndex )
             {
                 bCardFound = TRUE;
                 handSubmit.push_back( &m_Deck[j] );
@@ -95,7 +95,7 @@ void cAlgABSolver::SetCurrTrickHistory(int iPlIx_Start, CARDINFO* arrCards, int 
         BOOL bCardFound = FALSE;
         for (int j = 0; !bCardFound && j <DECKSIZE; j++)
         {
-            if (m_Deck[j].card.byIndex == arrCards[i].byIndex )
+            if (m_Deck[j].CardInfo.byIndex == arrCards[i].byIndex )
             {
                 bCardFound = TRUE;
                 trickHist.push_back( &m_Deck[j] );
@@ -303,7 +303,7 @@ void  cAlgABSolver::GetBestCardToPlay(int iPlayerIx,  CARDINFO* pCardInfo)
         iCount = 0;
     }
     cCardItem* pCard = m_lstMainLine.m_CardListBest[iCount];
-    *pCardInfo = pCard->card ;
+    *pCardInfo = pCard->CardInfo ;
 }
 
 ////////////////////////////////////////
@@ -389,7 +389,7 @@ int cAlgABSolver::alphaBeta(int depth, int alpha, int beta, cStateAB* pCurrState
             cBestLine tmpBestList;
             pNextState->TraceTrickHistory(alpha); 
             pNextState->GetBestLine(tmpBestList);
-            if (tmpBestList.m_CardListBest[0]->card.byIndex != m_lstMainLine.m_CardListBest[0]->card.byIndex)
+            if (tmpBestList.m_CardListBest[0]->CardInfo.byIndex != m_lstMainLine.m_CardListBest[0]->CardInfo.byIndex)
             {
                 // main line is changed
                 if ( m_pTracer->AddNewEntry(TR_ALPHABETA_CH, 6, EntryTraceDetail::TR_INFO, __FILE__, __LINE__) )
@@ -474,7 +474,7 @@ void cAlgABSolver::renderBestLine(cBestLine& lstMainLine)
     for (i = 0; i < lstMainLine.m_CardListBest.size(); i++)
     {
         cCardItem* pCard = lstMainLine.m_CardListBest[i];
-        sprintf(&buff[3*i], "%c%c ",pCard->chCardLetter,pCard->chSeedLetter);
+        sprintf(&buff[3*i], "%c%c ",pCard->CardLetter,pCard->SeedLetter);
     }
     CHAR bufFin[512];
     sprintf(bufFin, "\r%d :", m_iNumOfCalc);
