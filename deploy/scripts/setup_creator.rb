@@ -114,6 +114,7 @@ private
   def list_of_app_deployed_files(root_dir, name_to_cut)
     fscd = FileScanDir.new
     fscd.is_silent = true
+    fscd.add_extension_filter(['.pdb','.ipdb','.iobj'])
     fscd.scan_dir(root_dir)
     res_names = []
     #each file need to be specified like without keyword File:
