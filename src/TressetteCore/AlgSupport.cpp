@@ -41,9 +41,9 @@ void AlgSupport::GetAvailbDeclGoodGames(VCT_CARDINFO& vctCardInHand, VCT_GOODGAM
     int iNumDue = 0;
     int iNumTre = 0;
     int iNumAssi = 0;
-    eSUIT eSegnoMancAsso = UNDEF;
-    eSUIT eSegnoMancDue = UNDEF;
-    eSUIT eSegnoMancTre = UNDEF;
+    eSEED eSegnoMancAsso = UNDEF;
+    eSEED eSegnoMancDue = UNDEF;
+    eSEED eSegnoMancTre = UNDEF;
     BOOL bDue = FALSE;
     BOOL bAsso = FALSE;
     BOOL bTre = FALSE;

@@ -842,12 +842,11 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         if (m_currHandInfo.eForce == FORTE ||
             m_currHandInfo.eForce == MOLTOFORTE)
         {
-            eSUIT          eSuitStark = UNDEF;
+            eSEED          eSuitStark = UNDEF;
             UINT iPos = 0;
             ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
             if (ePizz != ASSO && ePizz != DUE)
             {
-
                 iPos = 0;
             }
             else
@@ -869,7 +868,7 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         // ENDIF
         if (m_currHandInfo.eForce == ATTACCO)
         {
-            eSUIT          eSuitStark = UNDEF;
+            eSEED          eSuitStark = UNDEF;
             ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
             if (ePizz != VENTICINQUE)
             {
@@ -894,11 +893,11 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
         // ENDIF 
         if (m_currHandInfo.eForce == DEBOLE)
         {
-            eSUIT          eSuitStark = UNDEF;
+            eSEED          eSuitStark = UNDEF;
             ePizzicoInSuit ePizz = pizzicoOnBiggerSeed(eSuitStark);
-            eSUIT          eSuitStarkInitial = eSuitStark;
+            eSEED          eSuitStarkInitial = eSuitStark;
             BOOL bSearchTer = FALSE;
-            VCT_SUITE vct_exclude;
+            VCT_SEED vct_exclude;
             do
             {
                 if (ePizz == VENTINOVE ||
@@ -929,7 +928,6 @@ void cAlgDefault::playAsFirst(CARDINFO& cardToPlay)
             cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
             return;
         }
-
     }
     else
     {
@@ -964,7 +962,7 @@ void cAlgDefault::playAsNotFirst(CARDINFO& cardToPlay)
         // IF CARDS ON SEED
         //   PLAY THE BIGGER ON SEED
         // END
-        eSUIT eSeedStark;
+        eSEED eSeedStark;
         eSeedStark = m_currTrickInfo.vctCardsPlayed[0].GetSeed();
         if (bPartnetBusso)
         {
@@ -976,13 +974,15 @@ void cAlgDefault::playAsNotFirst(CARDINFO& cardToPlay)
                 return;
             }
         }
-        /*if (partnerTakesSure()) {
+        // PARTNER IS WINNING
+        //    IF HAVE ASSO THEN PLAY ASSO
+        if (partnerIsTakingSureOnMyTurn()) {
             int iCardIx;
-            if (getAssoOnSeed(eSeedStark, &iCardIx)) {
+            if (getAssoOnSeedOrOther(eSeedStark, iCardIx)) {
                 cardToPlay = m_arrCardAllPlayers[m_iMyIndex][iCardIx];
                 return;
             }
-        }*/
+        }
     }
 
     // use alpha beta
@@ -1032,6 +1032,79 @@ void cAlgDefault::playAsNotFirst(CARDINFO& cardToPlay)
     //ASSERT(0);
 }
 
+BOOL cAlgDefault::partnerIsTakingSureOnMyTurn()
+{
+    int iCurrTrickLen = m_currTrickInfo.byNumPlayerPlayed;
+    if (iCurrTrickLen < 2) {
+        return FALSE; // Partner not yet played
+    }
+    BOOL isWinnerTeamMate = ((iCurrTrickLen % 2) == 0);
+    CardSpec* pWinCard = &m_currTrickInfo.vctCardsPlayed[0];
+    for (int i = 1; i < iCurrTrickLen; i++)
+    {
+        CardSpec* pCandCard = &m_currTrickInfo.vctCardsPlayed[i];
+        if (CardSpec::CardCompareSbF(pWinCard, pCandCard) > 0) {
+            isWinnerTeamMate = (((iCurrTrickLen - i) % 2) == 0);
+            pWinCard = &m_currTrickInfo.vctCardsPlayed[i];
+        }
+    }
+
+    if (!isWinnerTeamMate) {
+        return FALSE;
+    }
+
+    if (isWinnerTeamMate && iCurrTrickLen == 2) {
+        // here the oppent play as last, so you need to make sure that the last player couldn't take
+        CARDINFO* pCi = pWinCard->GetCardInfo();
+        if (isTre(*pCi)) {
+            return TRUE;
+        }
+        if (!isFuoriBigger(*pCi)) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    if (isWinnerTeamMate && iCurrTrickLen == 3) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+BOOL cAlgDefault::isFuoriBigger(CARDINFO& cardPlayed)
+{
+    return TRUE;
+}
+
+BOOL cAlgDefault::getAssoOnSeedOrOther(eSEED eSeedStark, int& cardIx)
+{
+    VCT_INT* pList = getListOnSeed(eSeedStark);
+    if (pList->size() > 0)
+    {
+        for (int i = 0; i < pList->size(); i++)
+        {
+            int j = (*pList)[i];
+            CARDINFO card = m_arrCardAllPlayers[m_iMyIndex][j];
+            if (isAsso(card)) {
+                cardIx = j;
+                return TRUE;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < NUM_CARDS_HAND; i++)
+        {
+            CARDINFO card = m_arrCardAllPlayers[m_iMyIndex][i];
+            if (isAsso(card)) {
+                cardIx = i;
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
 
 ////////////////////////////////////////
 //       traceAllTrickInit
@@ -1496,7 +1569,7 @@ void cAlgDefault::checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& b
 /*! Provides the list on suite
 // \param eSUIT eSuit : suite for the list
 */
-VCT_INT* cAlgDefault::getListOnSeed(eSUIT eSuit)
+VCT_INT* cAlgDefault::getListOnSeed(eSEED eSuit)
 {
     VCT_INT* pRes = NULL;
     switch (eSuit)
@@ -1523,7 +1596,7 @@ VCT_INT* cAlgDefault::getListOnSeed(eSUIT eSuit)
 /*! Provides the index of the biggest scartino card in a index list
 // \param eSUIT eSuitStark : suite to search
 */
-int cAlgDefault::indexOfTheBiggerScartino(eSUIT eSuitStark)
+int cAlgDefault::indexOfTheBiggerScartino(eSEED eSuitStark)
 {
     int iRetVal = 0;
 
@@ -1552,7 +1625,7 @@ int cAlgDefault::indexOfTheBiggerScartino(eSUIT eSuitStark)
 // \param VCT_SUITE* pVct : exclude a suite list
 // \return : value of the pizzico in the biggest suite
 */
-ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed(eSUIT& eSuitStark, VCT_SUITE* pVct)
+ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed(eSEED& eSuitStark, VCT_SEED* pVct)
 {
     ePizzicoInSuit eRetVal = PIZZ_NONE;
     eSuitStark = UNDEF;
@@ -1661,7 +1734,7 @@ ePizzicoInSuit cAlgDefault::pizzicoOnBiggerSeed(eSUIT& eSuitStark, VCT_SUITE* pV
 // \param eDeclGoodGame eValgg :
 // \param eSUIT eValsuit :
 */
-void cAlgDefault::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSUIT eValsuit)
+void cAlgDefault::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSEED eValsuit)
 {
 
 }

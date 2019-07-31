@@ -126,7 +126,7 @@ public:
     //! provides the card played in the current trick
     void    GetCardPlayedOnTrick(int iIndex, CardSpec* pResCard);
     //! good game declaration
-    void    DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    void    DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit);
     //! set the score goal
     void    SetScoreGoal(int iVal){m_iScoreGoal = iVal;}
 

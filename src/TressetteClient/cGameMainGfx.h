@@ -178,7 +178,7 @@ public:
     //! player said somithing false
     virtual void ALG_PLayerSaidFalse(int iPlayerIx);
     //! player has declared a good game
-    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSUIT eValsuit);
+    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSEED eValsuit);
 
 public:
     //! animation images

@@ -32,7 +32,7 @@ void  cHand::AddCards(CARDLIST& handSubmit)
 {
     for (UINT i = 0; i  < handSubmit.size(); i++)
     {
-        eSUIT esuit = handSubmit[i]->card.eSeed;
+        eSEED esuit = handSubmit[i]->card.eSeed;
         suitList[esuit].push_back(handSubmit[i]);
     }
 
@@ -43,7 +43,7 @@ void  cHand::AddCards(CARDLIST& handSubmit)
 /*! Display into a string a list that belongs to a suit. 
 // \param eSUIT suit : 
 */
-STRING cHand::RenderSuit(eSUIT esuit)
+STRING cHand::RenderSuit(eSEED esuit)
 {
     STRING strText;
     char buff[256];

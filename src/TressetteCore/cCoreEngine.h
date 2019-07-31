@@ -124,13 +124,13 @@ public:
     //! player abandon the game
     void      AbandonGame(int iPlayerIx);
     //! declare good game
-    BOOL      DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    BOOL      DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit);
 
 private:
     BOOL    isCardInPlayerHand(int iPlayerIx, CARDINFO* pCardInfo);
     void    resetCardInfoPlayers();
     BOOL    resetCard(int iPlayerIx, CARDINFO* pCardInfo);
-    BOOL    isDeclarationInPlayerHand(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    BOOL    isDeclarationInPlayerHand(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit);
     void    checkForBussoVoloLiscieBasse(BOOL& bBusso, BOOL& bVolo, BOOL& bLiscio, int iPlayerIndex, CardSpec&   cardClicked);
     BOOL    checkForStriscioNeHoTante(int iPlayerIndex, CardSpec&   cardClicked);
 

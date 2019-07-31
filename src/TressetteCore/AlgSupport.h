@@ -122,7 +122,7 @@ namespace AlgSupport
 
     public:
         //! player index that start the trick
-        int           iPlayer_S;
+        int            iPlayer_S;
         //! number of player tha have played
         BYTE           byNumPlayerPlayed;
         //! card played in the trick

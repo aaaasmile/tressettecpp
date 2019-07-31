@@ -27,9 +27,9 @@ public:
     //! add a card to the list
     void    AddCards(CARDLIST& handSubmit);
     //! render a suit in a string
-    STRING  RenderSuit(eSUIT esuit);
+    STRING  RenderSuit(eSEED esuit);
     //! provides the suit leength
-    size_t     Suitlength(eSUIT esuit){return suitList[esuit].size();}
+    size_t     Suitlength(eSEED esuit){return suitList[esuit].size();}
     //! lenght of the hand
     size_t     Length(){return suitList[0].size() + suitList[1].size() + suitList[2].size() + suitList[3].size();}
     //! a card in the hand was played, adjust hand information

@@ -126,4 +126,29 @@ void CardSpec::FillInfo(CARDINFO* pCardInfo)
     pCardInfo->iRank = m_CardInfo.iRank ;
 }
 
+int CardSpec::CardCompareSbF(CardSpec* pFirst, CardSpec* pSecond)
+{
+    int iRet = 0;
+    if (pFirst->m_CardInfo.eSeed == pSecond->m_CardInfo.eSeed)
+    {
+        if (pFirst->m_CardInfo.iRank < pSecond->m_CardInfo.iRank)
+        {
+            iRet = 1;
+        }
+        else if (pFirst->m_CardInfo.iRank == pSecond->m_CardInfo.iRank)
+        {
+            iRet = 0;
+        }
+        else
+        {
+            iRet = -1;
+        }
+    }
+    else
+    {
+        iRet = -1;
+    }
+    return iRet;
+}
+
 

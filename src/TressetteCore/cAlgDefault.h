@@ -23,45 +23,45 @@ class cAlgABSolver;
 //! class cAlgDefault  
 /** class that implement a dummy player
 */
-class cAlgDefault  : public I_ALG_Player
-{    
+class cAlgDefault : public I_ALG_Player
+{
     friend class cAlgDefaultTest;
-    
+
     typedef std::vector<VCT_INT>             MTX_HANDCOMBI;
     typedef std::vector<VCT_INT*>            MTX_PINDEX;
     typedef AlgSupport::HandInfo*            PHANDINFO;
     typedef std::map<STRING, PHANDINFO>      MAP_PHANDINFO;
 public:
-	cAlgDefault();
-	virtual ~cAlgDefault();
+    cAlgDefault();
+    virtual ~cAlgDefault();
 
     //! get hand info
-    AlgSupport::HandInfo GetCurrenHandInfo(){return m_currHandInfo;}
-   
-// interface I_ALG_Player
+    AlgSupport::HandInfo GetCurrenHandInfo() { return m_currHandInfo; }
+
+    // interface I_ALG_Player
     virtual void ALG_SetCoreInterface(I_CORE_Game* pCore);
     //! set player index
-    virtual void ALG_SetPlayerIndex(int iIndex) ;
+    virtual void ALG_SetPlayerIndex(int iIndex);
     //! set opponent index
-    virtual void ALG_SetOpponentIndex(int iIndex, int iOpponentNr) ;
+    virtual void ALG_SetOpponentIndex(int iIndex, int iOpponentNr);
     //! set associate index
-    virtual void ALG_SetAssociateIndex(int iIndex) ;
+    virtual void ALG_SetAssociateIndex(int iIndex);
     //! new match notification
-    virtual void ALG_NewMatch(int iNumPlayer) ;
+    virtual void ALG_NewMatch(int iNumPlayer);
     //! new giocata notification
-    virtual void ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPlayerIx) ;
+    virtual void ALG_NewGiocata(CARDINFO* pCardArray, int iNumOfCards, int iPlayerIx);
     //! player has played a card
-    virtual void ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard) ;
+    virtual void ALG_PlayerHasPlayed(int iPlayerIx, CARDINFO* pCard);
     //! player has said something
-    virtual void ALG_PlayerHasSaid(int iPlayerIx, eSayPlayer eSay) ;
+    virtual void ALG_PlayerHasSaid(int iPlayerIx, eSayPlayer eSay);
     //! player have to play notification
-    virtual void ALG_Play() ;
+    virtual void ALG_Play();
     //! mano end notification
-    virtual void ALG_ManoEnd(I_MatchScore* pScore) ;
+    virtual void ALG_ManoEnd(I_MatchScore* pScore);
     //! giocata end notification
-    virtual void ALG_GiocataEnd(I_MatchScore* pScore) ;
+    virtual void ALG_GiocataEnd(I_MatchScore* pScore);
     //! match end notification
-    virtual void ALG_MatchEnd(I_MatchScore* pScore) ;
+    virtual void ALG_MatchEnd(I_MatchScore* pScore);
     //! player say
     virtual void ALG_Say();
     //! giocata score changed
@@ -69,7 +69,7 @@ public:
     //! player said somithing false
     virtual void ALG_PLayerSaidFalse(int iPlayerIx);
     //! player has declared a good game
-    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit);
+    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSEED eValsuit);
 
 
 private:
@@ -78,11 +78,14 @@ private:
     void    traceListInhand(VCT_INT& vctListIndexes);
     void    removeListIndex(VCT_INT&  vctInHand, int iIndex);
     void    signalSomething(CARDINFO& cardPlayed, BOOL bViaDalGioco, BOOL bBusso);
-    VCT_INT* getListOnSeed(eSUIT eSuit);
+    VCT_INT* getListOnSeed(eSEED eSuit);
     void    checkListBigCards(VCT_INT* pListIndexCard, BOOL& bTre, BOOL& bDue, BOOL& bAsso);
     void    playRandom(CARDINFO& cardToPlay);
     void    playAsFirst(CARDINFO& cardToPlay);
     void    playAsNotFirst(CARDINFO& cardToPlay);
+    BOOL    partnerIsTakingSureOnMyTurn();
+    BOOL    isFuoriBigger(CARDINFO& cardPlayed);
+    BOOL    getAssoOnSeedOrOther(eSEED eSeedStark, int& cardIx);
     void    developFirstHandTypes();
     void    orderSuitListOnFreq(MTX_PINDEX& mtxPIndex);
     BOOL    isTre(CARDINFO& cardPlayed);
@@ -92,8 +95,8 @@ private:
     void    calculatePizzOnHand();
     void    calculateSuiteIndexes();
     void    useAlphaBeta(CARDINFO& cardToPlay);
-    AlgSupport::ePizzicoInSuit pizzicoOnBiggerSeed( eSUIT& eSuitStark , VCT_SUITE* pVct = NULL);
-    int     indexOfTheBiggerScartino( eSUIT eSuitStark );
+    AlgSupport::ePizzicoInSuit pizzicoOnBiggerSeed(eSEED& eSeedStark, VCT_SEED* pVct = NULL);
+    int     indexOfTheBiggerScartino(eSEED eSeedStark);
     void    copyCardsBeginTrick();
     void    traceAllTrickInit();
     void    traceArrOfCardInfo(CARDINFO* arrTrickHist, int iNumEle);
@@ -111,16 +114,16 @@ private:
     int                        m_iMyIndex;
     //! mano count
     int                        m_iTrickRound;
-    //! indexes of suit bastoni yet in hand
+    //! indexes of seed bastoni yet in hand
     VCT_INT                    m_vctInHand_Bastoni;
-    //! indexes of suit bastoni yet in hand
+    //! indexes of seed bastoni yet in hand
     VCT_INT                    m_vctInHand_Denari;
-    //! indexes of suit bastoni yet in hand
+    //! indexes of seed bastoni yet in hand
     VCT_INT                    m_vctInHand_Coppe;
-    //! indexes of suit bastoni yet in hand
+    //! indexes of seed bastoni yet in hand
     VCT_INT                    m_vctInHand_Spade;
     //! cards played on tricks
-    VCT_CARDINFO               m_vctCardsPlayedTricks;  
+    VCT_CARDINFO               m_vctCardsPlayedTricks;
     //! map to find hand information
     MAP_PHANDINFO              m_mapHandInfo;
     //! current hand info
@@ -128,7 +131,7 @@ private:
     //! first hand info
     AlgSupport::HandInfo       m_firstHandInfo;
     //! trick information
-    AlgSupport::TrickInfo      m_currTrickInfo;            
+    AlgSupport::TrickInfo      m_currTrickInfo;
     //! algorithm solver
     cAlgABSolver*              m_pABSolver;
     //! localization of the game

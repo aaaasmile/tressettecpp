@@ -54,7 +54,7 @@ public:
     //! player has said something not correct
     virtual void ALG_PLayerSaidFalse(int iPlayerIx) = 0;
     //! player has declared a good game
-    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit) = 0;
+    virtual void ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit) = 0;
 };
 
 

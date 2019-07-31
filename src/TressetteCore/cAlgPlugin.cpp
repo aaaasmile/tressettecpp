@@ -347,7 +347,7 @@ void cAlgPlugin::ALG_PLayerSaidFalse(int iPlayerIx)
 // \param eDeclGoodGame eValgg : 
 // \param eSUIT eValsuit : 
 */
-void cAlgPlugin::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit)
+void cAlgPlugin::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit)
 {
     
 }

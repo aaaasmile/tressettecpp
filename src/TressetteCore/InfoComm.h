@@ -14,7 +14,7 @@
 #endif
 
 //! suit of cards
-enum eSUIT
+enum eSEED
 {
     BASTONI = 0,
     COPPE = 1,
@@ -83,7 +83,7 @@ typedef struct _CardInfo
     //! index of the card
    BYTE   byIndex;
    //! seed of the card
-   eSUIT  eSeed;
+   eSEED  eSeed;
    //! name of the card
    char   CardName[NUM_BYTE_NAME];
    //! rank card
@@ -136,7 +136,7 @@ typedef struct stGoodGameDetail
     //! good game call
     eDeclGoodGame  eGGval;
     //! suit no available
-    eSUIT          eSManca;
+    eSEED          eSManca;
 
 }GoodGameDetail;
 
@@ -156,7 +156,7 @@ typedef CARDINFO*                            PCARDINFO;
 typedef std::vector<PCARDINFO>               VCT_PCARDINFO;
 typedef std::vector<VCT_CARDINFO>            ARR_CARDINFO;
 typedef std::vector<int>                     VCT_INT;
-typedef std::vector<eSUIT>                   VCT_SUITE;
+typedef std::vector<eSEED>                   VCT_SEED;
 
 //! class I_CORE_Game
 /**Interface implemented by core game engine. This set of function are available
@@ -173,7 +173,7 @@ public:
     //! player abandon the game
     virtual void  AbandonGame(int iPlayerIx) = 0;
     //! declare good game
-    virtual BOOL  DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit) = 0;
+    virtual BOOL  DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit) = 0;
 };
 
 

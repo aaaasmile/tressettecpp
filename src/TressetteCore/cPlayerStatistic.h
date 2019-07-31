@@ -41,7 +41,7 @@ public:
     //! number of points remained
     long    lRemNumPoints;
     //! last played seed first
-    eSUIT   eLastPlayed;
+    eSEED   eLastPlayed;
     //! number of briscole played
     long    bynBriscHad;
     //! points played

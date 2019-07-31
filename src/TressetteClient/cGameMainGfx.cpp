@@ -3056,7 +3056,7 @@ void cGameMainGfx::ALG_PLayerSaidFalse(int iPlayerIx)
 // \param eDeclGoodGame eValgg : good game value
 // \param eSUIT eValsuit : suit to complete the declaration
 */
-void cGameMainGfx::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSUIT eValsuit)
+void cGameMainGfx::ALG_PLayerDeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg, eSEED eValsuit)
 {
     STRING strTmp;
     STRING strTmp1;

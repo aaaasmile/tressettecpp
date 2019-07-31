@@ -21,7 +21,7 @@ public:
     //! provides index
     int     GetCardIndex(){return m_CardInfo.byIndex;}
     //! provides seed
-    eSUIT   GetSeed(){return m_CardInfo.eSeed;}
+    eSEED   GetSeed(){return m_CardInfo.eSeed;}
     //! provides card name
     LPCSTR  GetName(){return m_CardInfo.CardName;}
     //! provides the suit card name
@@ -46,7 +46,7 @@ public:
     void       SetCardInfo(CARDINFO& Card);
     //! provides information structure
     void       FillInfo(CARDINFO* pCardInfo);
-
+    static int CardCompareSbF(CardSpec* pFirst, CardSpec* pSecond);
 public:
     //! card info
     CARDINFO   m_CardInfo;

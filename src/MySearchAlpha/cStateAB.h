@@ -81,7 +81,7 @@ private:
     //! trick left
     BYTE           m_byTricksleft;
     //! current suit
-    eSUIT          m_eSuit;
+    eSEED          m_eSuit;
     //! trick history
     TRICKHISTORY   m_trickHist;
     //! team points

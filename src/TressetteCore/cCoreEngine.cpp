@@ -289,7 +289,7 @@ BOOL cCore::isCardInPlayerHand(int iPlayerIx, CARDINFO* pCardInfo)
 // \param eDeclGoodGame eValgg : 
 // \param eSUIT eValsuit : 
 */
-BOOL cCore::isDeclarationInPlayerHand(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit)
+BOOL cCore::isDeclarationInPlayerHand(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit)
 {
     VCT_GOODGAMEDETAIL vct_GGRec;
     VCT_CARDINFO vctMyCards;
@@ -828,7 +828,7 @@ void  cCore::Script_Play(int iPlayer, CardSpec& CardPlayed)
 // \param eDeclGoodGame eValgg : 
 // \param eSUIT eValsuit : 
 */
-BOOL cCore::DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit)
+BOOL cCore::DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit)
 {
     if (!m_bGooGameAreEnabled)
     {

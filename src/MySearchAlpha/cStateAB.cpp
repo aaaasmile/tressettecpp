@@ -83,7 +83,7 @@ STRING cStateAB::State_repr()
     for (suit = 0; suit < SEEDCOUNT; ++suit)
     {
         bab += offset;
-        suitbabble = m_HanPlayers[0].RenderSuit((eSUIT)suit);
+        suitbabble = m_HanPlayers[0].RenderSuit((eSEED)suit);
         offset = sprintf(bab, "%13s%-20s\n", "", suitbabble.c_str());
     }
 
@@ -91,10 +91,10 @@ STRING cStateAB::State_repr()
     for (suit = 0; suit < SEEDCOUNT; ++suit)
     {
         bab += offset;
-        suitbabble = m_HanPlayers[1].RenderSuit((eSUIT)suit);
+        suitbabble = m_HanPlayers[1].RenderSuit((eSEED)suit);
         offset = sprintf(bab, "%1s%-20s", "", suitbabble.c_str());
         bab += offset;
-        suitbabble = m_HanPlayers[3].RenderSuit((eSUIT)suit);
+        suitbabble = m_HanPlayers[3].RenderSuit((eSEED)suit);
         offset = sprintf(bab, "%6s%-20s\n", "", suitbabble.c_str());
     }
 
@@ -102,7 +102,7 @@ STRING cStateAB::State_repr()
     for (suit = 0; suit < SEEDCOUNT; ++suit)
     {
         bab += offset;
-        suitbabble = m_HanPlayers[2].RenderSuit((eSUIT)suit);
+        suitbabble = m_HanPlayers[2].RenderSuit((eSEED)suit);
         offset = sprintf(bab, "%13s%-20s\n", "", suitbabble.c_str());
     }
 
@@ -173,7 +173,7 @@ void cStateAB::narrowones_first(CARDLIST& cardlistState)
         }
         for (int suit = 0; suit < SEEDCOUNT; ++suit)
         {
-            size_t moves = m_HanPlayers[player].Suitlength((eSUIT)suit);
+            size_t moves = m_HanPlayers[player].Suitlength((eSEED)suit);
             if (moves > 0)
             {
                 movecount[suit] *= moves;
@@ -274,7 +274,7 @@ void cStateAB::takeit_or_leaveit(CARDLIST& cardlistState)
         for (i = 0; i < SEEDCOUNT; i++)
         {
             // refuse the suit, only loser cards
-            pListSuit = &(m_HanPlayers[m_PlayerIx].suitList[(eSUIT)i]);
+            pListSuit = &(m_HanPlayers[m_PlayerIx].suitList[(eSEED)i]);
             for (UINT k = 0; k < pListSuit->size(); k++)
             {
                 cCardItem* pMyCard = (*pListSuit)[k];

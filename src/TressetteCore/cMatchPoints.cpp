@@ -174,7 +174,7 @@ void    cMatchPoints::ManoEnd()
 
         // give points only if it was the same seed as the first
         arPoints[0] = g_RankTable[m_vctCardPlayed[PLAYER1].cardSpec.GetCardIndex()];
-        eSUIT eFirst = m_vctCardPlayed[PLAYER1].cardSpec.GetSeed(); 
+        eSEED eFirst = m_vctCardPlayed[PLAYER1].cardSpec.GetSeed(); 
         if (m_vctCardPlayed[PLAYER2].cardSpec.GetSeed() == eFirst)
         {
             arPoints[1] = g_RankTable[m_vctCardPlayed[PLAYER2].cardSpec.GetCardIndex()];
@@ -527,7 +527,7 @@ void  cMatchPoints::SetTheWinner(int iPlayerIx)
 // \param eDeclGoodGame eValgg : 
 // \param eSUIT eValsuit : 
 */
-void  cMatchPoints::DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSUIT eValsuit)
+void  cMatchPoints::DeclareGoodGame(int iPlayerIx, eDeclGoodGame eValgg,  eSEED eValsuit)
 {
     int iTeamIndex;
     int iPointsDeclaration;
